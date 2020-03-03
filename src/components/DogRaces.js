@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { fetchDogRaces } from 'reducers/dograces'
+import { fetchDogRaces } from 'reducers/dogdata'
 
 import { DogRaceItem } from 'components/DogRaceItem'
 import { SectionWrapper, FilterWrapper, DogItemWrapper } from '../lib/MainSectionStyle'
@@ -10,7 +10,7 @@ import { SectionWrapper, FilterWrapper, DogItemWrapper } from '../lib/MainSectio
 
 export const DogRaces = () => {
   const dispatch = useDispatch()
-  const allDogRaces = useSelector((state) => state.dograces.items)
+  const allDogRaces = useSelector((state) => state.dogdata.dogRaceItems)
 
   const [name, setName] = useState('')
   const [activity, setActivity] = useState('')

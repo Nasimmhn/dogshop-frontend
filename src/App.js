@@ -6,8 +6,7 @@ import { LandingPage } from './pages/LandingPage'
 import { NavBar } from 'components/NavBar'
 import { Footer } from './components/Footer'
 import { GlobalStyle } from './lib/GlobalStyle'
-import { dograces } from './reducers/dograces'
-import styled from 'styled-components/macro'
+import { dogdata } from './reducers/dogdata'
 
 
 
@@ -15,7 +14,7 @@ import styled from 'styled-components/macro'
 
 // COMBINING REDUCERS
 const reducer = combineReducers({
-  dograces: dograces.reducer,
+  dogdata: dogdata.reducer,
 
 })
 
@@ -26,7 +25,6 @@ export const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-
       <GlobalStyle />
       <BrowserRouter>
         <NavBar />
@@ -37,7 +35,6 @@ export const App = () => {
         </Switch>
         <Footer />
       </BrowserRouter>
-
     </Provider>
   )
 }
