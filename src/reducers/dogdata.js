@@ -12,10 +12,16 @@ export const dogdata = createSlice({
   reducers: {
     setDogRaceItems: (state, action) => {
       state.dogRaceItems = action.payload
+    },
+
+    setDogs: (state, action) => {
+      state.dogs = action.payload
     }
 
   }
+
 })
+
 
 
 
@@ -30,5 +36,20 @@ export const fetchDogRaces = (searchQuery) => {
       })
   }
 }
+
+
+
+export const fetchAllDogs = (query) => {
+  return dispatch => {
+    fetch(`http://localhost:8080/dogs/${query}`)
+      .then(res => res.json())
+      .then(doggies => {
+        console.log("doggies", query)
+        console.log("ALLDOGS:", doggies)
+        dispatch(dogdata.actions.setDogs(doggies))
+      })
+  }
+}
+
 
 
