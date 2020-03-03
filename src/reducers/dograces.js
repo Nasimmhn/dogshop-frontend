@@ -16,20 +16,15 @@ export const dograces = createSlice({
   }
 })
 
-export const fetchDogRaces = (name, description, activity, group, size) => {
+export const fetchDogRaces = (searchQuery) => {
 
   return dispatch => {
-    // dispatch(ui.actions.setLoading(true))
-    fetch(`http://localhost:8080/dograces?name=${name}&description=${description}&activity=${activity}&size=${size}&group=${group}`,
-      {
-        method: 'GET'
-      })
+    fetch(`http://localhost:8080/dograces/${searchQuery}`)
       .then(res => res.json())
-      .then(json => {
-        console.log("json", json)
-        dispatch(dograces.actions.setRaces(json))
-        // dispatch(ui.actions.setLoading(false))
-        // dispatch(ui.actions.setShowProduct(true))
+      .then(dogRaces => {
+        console.log("query", searchQuery)
+        console.log("dogRaces:", dogRaces)
+        dispatch(dograces.actions.setRaces(dogRaces))
       })
   }
 }
