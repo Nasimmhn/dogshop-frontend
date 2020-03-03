@@ -40,7 +40,14 @@ const FatText = styled.span`
   }
 `
 
-export const RaceItem = ({ name, activity, group, size }) => {
+const StyledImg = styled.img`
+  width: 200px;
+  @media (min-width: 668px) {
+    width: 300px;
+  }
+`
+
+export const DogRaceItem = ({ name, activity, group, size, imageUrl }) => {
 
   return (
     <RaceWrapper>
@@ -50,6 +57,7 @@ export const RaceItem = ({ name, activity, group, size }) => {
         <Text><FatText>Group:</FatText> {group}</Text>
         <Text><FatText>Size:</FatText> {size}</Text>
       </InfoWrapper>
+      <StyledImg src={imageUrl} />
     </RaceWrapper>
   )
 }

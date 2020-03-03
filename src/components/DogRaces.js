@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchDogRaces } from 'reducers/dograces'
-import { RaceItem } from 'components/RaceItem'
+import { DogRaceItem } from 'components/DogRaceItem'
 
 
 
@@ -37,12 +37,13 @@ export const DogRaces = () => {
 
       <div>
         {allRaces.map((race) => (
-          <RaceItem
+          <DogRaceItem
             key={race._id}
             name={race.name}
             activity={race.activity.join(', ')}
             group={race.group.join(', ')}
             size={race.size.join(', ')}
+            imageUrl={"assets/dog_races/".concat(race.images.url)}
           />
         ))}
       </div>

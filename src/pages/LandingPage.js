@@ -1,12 +1,8 @@
 import React from 'react'
-import { NavBar } from 'components/NavBar'
+
 import { DogRaces } from 'components/DogRaces'
 // import heroImageLarge from '../assets/hero.jpg'
 import styled from 'styled-components/macro'
-
-
-
-
 
 
 const TopSection = styled.section`
@@ -17,7 +13,6 @@ const TopSection = styled.section`
 
 const SearchSection = styled.section`
 width: 100%;
-height:500px;
 background: #FFF;
 `
 
@@ -28,10 +23,10 @@ background: #FFF;
 export const LandingPage = () => {
   return (
     <>
-      <TopSection>
-        <NavBar />
-      </TopSection>
       <SearchSection>
+        <TopSection>
+          Top section
+        </TopSection>
         <DogRaces />
       </SearchSection>
     </>
