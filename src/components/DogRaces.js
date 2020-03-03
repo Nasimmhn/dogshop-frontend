@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+
 import { fetchDogRaces } from 'reducers/dograces'
+
 import { DogRaceItem } from 'components/DogRaceItem'
+import { SectionWrapper, FilterWrapper, DogItemWrapper } from '../lib/MainSectionStyle'
 
 
 
 export const DogRaces = () => {
   const dispatch = useDispatch()
-  const allRaces = useSelector((state) => state.dograces.races)
+  const allDogRaces = useSelector((state) => state.dograces.items)
 
   const [name, setName] = useState('')
   const [activity, setActivity] = useState('')
@@ -30,23 +33,22 @@ export const DogRaces = () => {
 
   //map over the races here
   return (
-    <div className="dog-races">
-      <div>
-
-      </div>
-
-      <div>
-        {allRaces.map((race) => (
+    <SectionWrapper>
+      <FilterWrapper>
+        filter
+      </FilterWrapper>
+      <DogItemWrapper>
+        {allDogRaces.map((dog) => (
           <DogRaceItem
-            key={race._id}
-            name={race.name}
-            activity={race.activity.join(', ')}
-            group={race.group.join(', ')}
-            size={race.size.join(', ')}
-            imageUrl={"assets/dog_races/".concat(race.images.url)}
+            key={dog._id}
+            name={dog.name}
+            activity={dog.activity.join(', ')}
+            group={dog.group.join(', ')}
+            size={dog.size.join(', ')}
+            imageUrl={"assets/dog_races/".concat(dog.images.url)}
           />
         ))}
-      </div>
-    </div>
+      </DogItemWrapper>
+    </SectionWrapper>
   )
 }

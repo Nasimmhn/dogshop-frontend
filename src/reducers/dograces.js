@@ -5,12 +5,12 @@ import { createSlice } from '@reduxjs/toolkit'
 export const dograces = createSlice({
   name: "dograces",
   initialState: {
-    races: [],
+    items: [],
   },
 
   reducers: {
-    setRaces: (state, action) => {
-      state.races = action.payload
+    setDogRaces: (state, action) => {
+      state.items = action.payload
     }
 
   }
@@ -24,7 +24,7 @@ export const fetchDogRaces = (searchQuery) => {
       .then(dogRaces => {
         console.log("query", searchQuery)
         console.log("dogRaces:", dogRaces)
-        dispatch(dograces.actions.setRaces(dogRaces))
+        dispatch(dograces.actions.setDogRaces(dogRaces))
       })
   }
 }
