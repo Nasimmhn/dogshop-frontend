@@ -1,12 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-
-
 export const dogdata = createSlice({
   name: "dogdata",
   initialState: {
     dogRaceItems: [],
     dogs: [],
+    dogFilter: "",
   },
 
   reducers: {
@@ -16,12 +15,14 @@ export const dogdata = createSlice({
 
     setDogs: (state, action) => {
       state.dogs = action.payload
-    }
+    },
+
+    setDogFilter: (state, action) => {
+      state.dogFilter = action.payload
+    },
 
   }
-
 })
-
 
 
 
@@ -38,18 +39,12 @@ export const fetchDogRaces = (searchQuery) => {
 }
 
 
-
-export const fetchAllDogs = (query) => {
+export const fetchDogs = (query) => {
   return dispatch => {
     fetch(`http://localhost:8080/dogs/${query}`)
       .then(res => res.json())
       .then(doggies => {
-        console.log("doggies", query)
-        console.log("ALLDOGS:", doggies)
         dispatch(dogdata.actions.setDogs(doggies))
       })
   }
 }
-
-
-

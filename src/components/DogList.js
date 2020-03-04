@@ -1,38 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from "styled-components/macro"
-
-import { fetchAllDogs } from 'reducers/dogdata'
 
 // Components
 import { DogCard } from 'components/DogCard'
 
+// fetchDogs function (from reducer)
+import { fetchDogs } from 'reducers/dogdata'
 
 
-export const DogsList = () => {
+
+
+
+export const DogList = () => {
   const dispatch = useDispatch()
+
+  // From dogdata reducer
   const allDogs = useSelector((state) => state.dogdata.dogs)
-
-  // const [age, setAge] = useState('')
-  // const [price, setPrice] = useState('')
-  const [sex, setSex] = useState('')
-  // const [location, SetLocation] = useState('')
-  const [query, setQuery] = useState('')
-
-
-  console.log("Dogs.js query", query)
-
+  const dogFilter = useSelector((state) => state.dogdata.dogFilter)
 
   useEffect(() => {
-    // setQuery(`?age=${age}&aprice=${price}&sex=${sex}&location=${location}`)
-    setQuery(`?sex=${sex}`)
+    console.log("DogList -> dogFilter", dogFilter)
+    dispatch(fetchDogs(dogFilter))
 
-    dispatch(fetchAllDogs(query))
+  }, [dispatch, dogFilter])
 
 
-  }, [query])
-  console.log("allDogs", allDogs)
-  //map over the dogs here
+  // Map over the dogs here
   return (
     <CardsWrapper>
       {allDogs.map((item) => (

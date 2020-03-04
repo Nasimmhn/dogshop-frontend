@@ -1,47 +1,42 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 
 
-import { fetchAllDogs } from 'reducers/dogdata'
-
-
+// Reducer
+import { dogdata } from '../reducers/dogdata'
 
 
 export const FilterMenu = () => {
-  // const dispatch = useDispatch()
-  // const allDogs = useSelector((state) => state.dogdata.dogs)
+  const dispatch = useDispatch()
 
   // // const [age, setAge] = useState('')
   // // const [price, setPrice] = useState('')
   const [sex, setSex] = useState('')
+  const [race, setRace] = useState('')
   // // const [location, SetLocation] = useState('')
-  // const [query, setQuery] = useState('')
+  const [query, setQuery] = useState('')
 
 
-  // console.log("Dogs.js query", query)
 
 
-  // useEffect(() => {
-  //   // setQuery(`?age=${age}&aprice=${price}&sex=${sex}&location=${location}`)
-  //   setQuery(`?sex=${sex}`)
-  //   dispatch(fetchAllDogs(query))
-  // }, [query])
+  useEffect(() => {
+    setQuery(`?sex=${sex}&race=${race}`)
+    console.log("FilterMenu -> useEffect - query:", query)
+    dispatch(dogdata.actions.setDogFilter(query))
+  }, [dispatch, query, sex, race])
 
-  // console.log("allDogs", allDogs)
-  //map over the dogs here
 
-  const handleSexChange = (e) => {
-    setSex(e.target.value)
-    console.log("e", e.target.value)
-  }
 
   return (
     <FilterWrapper>
       <h3> FILTER </h3>
+      <label> Breed:
+        <input type="text" onInput={(e) => setRace(e.target.value)} />
+      </label>
       <label> Gender:
-      <select onChange={(e) => { handleSexChange(e) }}>
-          <option selected value="">Both</option>
+        <select onChange={(e) => { setSex(e.target.value) }}>
+          <option defaultValue value="">Both</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>

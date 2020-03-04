@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 // Components
-import { DogsList } from 'components/DogsList'
+import { DogList } from 'components/DogList'
 import { FilterMenu } from 'components/FilterMenu'
 
 
@@ -18,7 +18,7 @@ export const LandingPage = () => {
       </TopSection>
       <SectionWrapper>
         <FilterMenu />
-        <DogsList />
+        <DogList />
       </SectionWrapper>
     </>
   )
@@ -33,8 +33,10 @@ const TopSection = styled.section`
 `
 
 const SectionWrapper = styled.section`
+  flex-grow: 1;
   width: 100%;
   background: rgba(255,255,255, 0.5);
   display: flex;
+  background-color: red;
   
 `

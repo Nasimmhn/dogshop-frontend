@@ -4,7 +4,7 @@ import styled from "styled-components/macro"
 import moment from 'moment'
 
 export const DogCard = ({ age, price, sex, location, race, imageUrl, addedAt, group, size }) => {
-
+  console.log("addedAt", addedAt)
   return (
 
     <Container>
@@ -23,7 +23,7 @@ export const DogCard = ({ age, price, sex, location, race, imageUrl, addedAt, gr
             <Title> {size}</Title>
           </InfoWrapper>
         </TitleBar>
-        <ChildrenContent> {moment(addedAt).format("MMM Do")}</ChildrenContent>
+        <ChildrenContent> {moment(new Date(addedAt)).format("MMM Do")}</ChildrenContent>
       </Content>
     </Container>
 
