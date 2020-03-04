@@ -6,11 +6,10 @@ import styled from 'styled-components/macro'
 export const SectionWrapper = styled.section`
   width: 100%;
   background: rgba(255,255,255, 0.5);
-  color: #333;
   display: flex;
-  flex-direction: row;
-
   
+
+
 `
 
 export const FilterWrapper = styled.div`
@@ -49,7 +48,19 @@ export const DogItemWrapper = styled.div`
   } */
 `
 
+export const ItemWrapperInner = styled.div`
+  width: 100%;
+  background: rgba(255,255,255, 0.5);
+  color: #333;
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid black; 
+`
+
+
+
 export const InfoWrapper = styled.div`
+ 
 `
 
 export const Text = styled.p`

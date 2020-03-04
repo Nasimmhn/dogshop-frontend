@@ -1,8 +1,13 @@
 import React from 'react'
 
-import { DogRaces } from 'components/DogRaces'
+// import { DogRaces } from 'components/DogRaces'
+import { Dogs } from 'components/Dogs'
 // import heroImageLarge from '../assets/hero.jpg'
 import styled from 'styled-components/macro'
+import { SectionWrapper, FilterWrapper, DogItemWrapper } from '../lib/MainSectionStyle'
+
+
+
 
 
 const TopSection = styled.section`
@@ -11,24 +16,22 @@ const TopSection = styled.section`
   background:#B9B9B9;
   `
 
-const SearchSection = styled.section`
-width: 100%;
-background: #FFF;
-`
-
-
-
-
 
 export const LandingPage = () => {
   return (
+
     <>
-      <SearchSection>
-        <TopSection>
-          Top section
-        </TopSection>
-        <DogRaces />
-      </SearchSection>
+      <TopSection>
+        Top section
+      </TopSection>
+      <SectionWrapper>
+        <FilterWrapper>
+          filter
+        </FilterWrapper>
+        <DogItemWrapper>
+          <Dogs />
+        </DogItemWrapper>
+      </SectionWrapper>
     </>
   )
 }

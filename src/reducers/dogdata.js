@@ -6,7 +6,7 @@ export const dogdata = createSlice({
   name: "dogdata",
   initialState: {
     dogRaceItems: [],
-    dogs: {},
+    dogs: [],
   },
 
   reducers: {

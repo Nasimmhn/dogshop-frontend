@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchDogRaces } from 'reducers/dogdata'
 
 import { DogRaceItem } from 'components/DogRaceItem'
-import { SectionWrapper, FilterWrapper, DogItemWrapper } from '../lib/MainSectionStyle'
+import { ItemWrapperInner } from '../lib/MainSectionStyle'
 
 
 
@@ -33,22 +33,19 @@ export const DogRaces = () => {
 
   //map over the races here
   return (
-    <SectionWrapper>
-      <FilterWrapper>
-        filter
-      </FilterWrapper>
-      <DogItemWrapper>
-        {allDogRaces.map((dog) => (
-          <DogRaceItem
-            key={dog._id}
-            name={dog.name}
-            activity={dog.activity.join(', ')}
-            group={dog.group.join(', ')}
-            size={dog.size.join(', ')}
-            imageUrl={"assets/dog_races/".concat(dog.images.url)}
-          />
-        ))}
-      </DogItemWrapper>
-    </SectionWrapper>
+
+    <ItemWrapperInner>
+      {allDogRaces.map((dog) => (
+        <DogRaceItem
+          key={dog._id}
+          name={dog.name}
+          activity={dog.activity.join(', ')}
+          group={dog.group.join(', ')}
+          size={dog.size.join(', ')}
+          imageUrl={"assets/dog_races/".concat(dog.images.url)}
+        />
+      ))}
+    </ItemWrapperInner>
+
   )
 }
