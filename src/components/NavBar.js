@@ -4,25 +4,6 @@ import styled from 'styled-components/macro'
 
 
 
-export const NavSection = styled.section`
-  width:100%;
-  padding: 10px;
-`
-
-export const NavItems = styled.nav`
- display:flex;
- flex-direction:row;
- justify-content:space-around;
- align-items:center;
-`
-
-export const NavButton = styled.button`
-  color: #F44D5E;
-  padding: 8px;
-  width:100px;
-  font-size:15px;
-`
-
 export const NavBar = () => {
   return (
     <NavSection>
@@ -44,4 +25,23 @@ export const NavBar = () => {
   )
 }
 
+/* ------ STYLING ------ */
 
+const NavSection = styled.section`
+  width:100%;
+  padding: 10px;
+`
+
+const NavItems = styled.nav`
+ display:flex;
+ flex-direction:row;
+ justify-content:space-around;
+ align-items:center;
+`
+
+const NavButton = styled.button`
+  color: #F44D5E;
+  padding: 8px;
+  width:100px;
+  font-size:15px;
+`
