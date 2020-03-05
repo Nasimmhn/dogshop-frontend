@@ -78,6 +78,7 @@ export const FilterMenu = () => {
       />
       
       <Select
+        components={makeAnimated()}
         theme={customTheme}
         placeholder={"Select Gender"}
         options={sexOptions}
@@ -85,6 +86,7 @@ export const FilterMenu = () => {
       />
 
       <Select
+        components={makeAnimated()}
         theme={customTheme}
         placeholder={"Select Group(s)"}
         options={groupOptions}
