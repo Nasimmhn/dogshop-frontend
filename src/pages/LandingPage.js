@@ -35,8 +35,7 @@ const TopSection = styled.section`
 const SectionWrapper = styled.section`
   flex-grow: 1;
   width: 100%;
-  background: rgba(255,255,255, 0.5);
   display: flex;
-  background-color: red;
+  background-color: beige;
   
 `

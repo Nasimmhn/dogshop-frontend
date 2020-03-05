@@ -1,68 +1,107 @@
 import React from 'react'
 import styled from "styled-components/macro"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDollarSign, faRulerCombined, faDog, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
 
 import moment from 'moment'
 
 export const DogCard = ({ age, price, sex, location, race, imageUrl, addedAt, group, size }) => {
+
+  // const displayAge = (weeks) => {
+  //   if (weeks < 20) { }
+  //   return age
+  // }
+
   console.log("addedAt", addedAt)
   return (
 
-    <Container>
-      <CoverImage src={imageUrl} />
+    <Card>
+      <Image src={imageUrl} />
       <Content>
         <TitleBar>
-          <InfoWrapper>
-            <Secondarytext>{location}</Secondarytext>
+          <FlexWrapper>
+            <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {location}</SubTitle>
+
+            <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {price} SEK</SubTitle>
+          </FlexWrapper>
+          <FlexWrapper>
             <Title>{race.name}</Title>
-            <Title> {price} SEK</Title>
-          </InfoWrapper>
-          <InfoWrapper>
-            <Title>{age}</Title>
-            <Title> {sex}</Title>
-            <Title> {group}</Title>
-            <Title> {size}</Title>
-          </InfoWrapper>
+          </FlexWrapper>
+          <GridWrapper>
+            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {age}</SubTitle>
+            <SubTitle align={"end"}><FontAwesomeIcon icon={sex === "Female" ? faVenus : faMars} /> {sex}</SubTitle>
+            <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {group}</SubTitle>
+            <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {size}</SubTitle>
+          </GridWrapper>
         </TitleBar>
-        <ChildrenContent> {moment(new Date(addedAt)).format("MMM Do")}</ChildrenContent>
+        <FlexWrapper justify={"center"}>
+          <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(addedAt)).format("Do MMM YYYY"))}</BottomTitle>
+        </FlexWrapper>
       </Content>
-    </Container>
+    </Card >
 
   )
 }
 
 
 /* ------ STYLING ------ */
-const InfoWrapper = styled.div`
- 
+
+const Card = styled.div`
+  background: #fff;
+  padding: 10px 10px 0px 10px;
+  -webkit-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
+  -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
+  box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
+  border-radius: 15px;
+
+  width:300px;
+  margin: 15px 15px 0px 15px;
+  display: flex;
+  flex-direction: column;
 `
-const Container = styled.div`
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0,0,0,.12);
-  border-radius: 6px;
-  background: #d1cebd;
-  width:400px;
-  margin: 0 15px;
+
+const FlexWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: ${props => props.justify ? props.justify : "space-between"};
 `
+const GridWrapper = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: auto;
+`
+
 const Title = styled.h1`
-  margin: 0;
-  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  margin: 17px 0px;
+  font-size: 23px;
 `
-const Secondarytext = styled.p`
-  margin: 0;
+const SubTitle = styled.p`
+  margin: 3px 0px;
   color: #6b6b6b;
+  justify-self: ${props => props.align};
 `
 const TitleBar = styled.div`
   display: flex;
   flex-direction:column;
   align-items: center;
 `
-const CoverImage = styled.img`
+const Image = styled.img`
+  align-self: center;
+  justify-self: center;
   width: 100%;
-  border-radius: 8px 8px 0 0;
+  -webkit-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
+  -moz-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
+  box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
+  border-radius: 20px;
 `
 const Content = styled.div`
-  padding: 20px;
+  padding: 10px 20px 5px 20px;
 `
-const ChildrenContent = styled.div`
-  background: #ccc;
+const BottomTitle = styled.div`
   padding: 10px;
+  color: #6b6b6b;
 `

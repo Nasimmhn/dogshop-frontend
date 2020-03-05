@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
+import Select from 'react-select'
 
 
 // Reducer
 import { dogdata } from '../reducers/dogdata'
+
+
+
 
 
 export const FilterMenu = () => {
@@ -14,18 +18,33 @@ export const FilterMenu = () => {
   // // const [price, setPrice] = useState('')
   const [sex, setSex] = useState('')
   const [race, setRace] = useState('')
+
+  const [group, setGroup] = useState('')
   // // const [location, SetLocation] = useState('')
   const [query, setQuery] = useState('')
+
+  const options = [
+    { value: 'All', label: 'All' },
+    { value: 'Sport', label: 'Sport' },
+    { value: 'Working', label: 'Working' },
+    { value: 'Toy', label: 'Toy' },
+    { value: 'Mixed breed', label: 'Mixed breed' },
+    { value: 'Miscellaneous', label: 'Miscellaneous' },
+    { value: 'Non-sporting', label: 'Non-sporting' },
+    { value: 'Terrier', label: 'Terrier' },
+    { value: 'Hound', label: 'Hound' },
+    { value: 'Foundation stock', label: 'Foundation Stock' },
+    { value: 'Herding', label: 'Herding' },
+  ]
 
 
 
 
   useEffect(() => {
-    setQuery(`?sex=${sex}&race=${race}`)
+    setQuery(`?sex=${sex}&race=${race}&group=${group}`)
     console.log("FilterMenu -> useEffect - query:", query)
     dispatch(dogdata.actions.setDogFilter(query))
-  }, [dispatch, query, sex, race])
-
+  }, [dispatch, query, sex, race, group])
 
 
   return (
@@ -41,11 +60,13 @@ export const FilterMenu = () => {
           <option value="Female">Female</option>
         </select>
       </label>
-      <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
+      <Select
+        defaultValue
+        onChange={() => { setGroup(options) }}
+        options={options}
+        isMulti
+      />
+
 
     </FilterWrapper>
   )

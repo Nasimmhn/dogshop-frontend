@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import styled from "styled-components/macro"
+import styled from 'styled-components/macro'
+
 
 // Components
 import { DogCard } from 'components/DogCard'
@@ -50,10 +51,10 @@ export const DogList = () => {
 /* ------ STYLING ------ */
 
 const CardsWrapper = styled.div`
-  width:100%;
-  background: rgba(255,255,255, 0.5);
-  padding: 10px;
-  display: flex; 
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
   /* @media (max-width: 628px) {
     flex-wrap:wrap } 
    */
