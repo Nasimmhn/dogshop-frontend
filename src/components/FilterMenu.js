@@ -30,7 +30,7 @@ export const FilterMenu = () => {
 
   // // const [age, setAge] = useState('')
   // // const [price, setPrice] = useState('')
-  const [sex, setSex] = useState({ value:"" })
+  const [sex, setSex] = useState({ value: "" })
   const [race, setRace] = useState('')
 
 
@@ -43,10 +43,10 @@ export const FilterMenu = () => {
 
 
   useEffect(() => {
-    
+
     let groupQuery = []
-    if (group === null) { groupQuery="" }
-    else { groupQuery = group.map(item => item.value)}
+    if (group === null) { groupQuery = "" }
+    else { groupQuery = group.map(item => item.value) }
 
     setQuery(`?sex=${sex.value}&race=${race}&group=${groupQuery.toString()}`)
 
@@ -55,18 +55,18 @@ export const FilterMenu = () => {
   }, [dispatch, query, sex, race, group])
 
 
-  
+
   const customTheme = (theme) => {
     return {
       ...theme,
       colors: {
-        ... theme.colors,
+        ...theme.colors,
         primary25: '#a6b1e1',
         primary: '#a6b1e1',
       }
     }
   }
- 
+
   return (
     <FilterWrapper>
       <h3> Filter </h3>
@@ -74,9 +74,9 @@ export const FilterMenu = () => {
       <StyledInput
         placeholder="Search by breed ..."
         type="text"
-        onInput={(e) => setRace(e.target.value)} 
+        onInput={(e) => setRace(e.target.value)}
       />
-      
+
       <Select
         components={makeAnimated()}
         theme={customTheme}
@@ -111,6 +111,7 @@ const FilterWrapper = styled.div`
   color: #333;
   padding: 10px;
   display: flex;
+  margin-top: 15px;
   flex-direction: column;
   & > * {
     margin: 8px 0px;
@@ -126,7 +127,7 @@ const FilterWrapper = styled.div`
   } */
 `
 
-const StyledInput = styled.input `
+const StyledInput = styled.input`
   font-size: 16px;
   padding-bottom:2px;
   padding-left:8px;
@@ -153,17 +154,15 @@ const StyledInput = styled.input `
   color:rgb(51, 51, 51);
   font-family:Roboto;
   height:37.9972px;
-  justify-content:space-between;
   min-height:38px;
-  outline-color:rgb(51, 51, 51);
+  outline-color:red;
   outline-style:none;
   outline-width:0px;
-  position:relative;
   transition-delay:0s;
   transition-duration:0.1s;
   transition-property:all;
   transition-timing-function:ease;
-  width:225.838px;
+  width:230px;
   -webkit-box-align:center;
   -webkit-box-pack:justify;
   -webkit-font-smoothing:antialiased;

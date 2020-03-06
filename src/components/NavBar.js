@@ -30,6 +30,7 @@ export const NavBar = () => {
 const NavSection = styled.section`
   width:100%;
   padding: 10px;
+  background: #a6b1e1;
 `
 
 const NavItems = styled.nav`
@@ -40,8 +41,16 @@ const NavItems = styled.nav`
 `
 
 const NavButton = styled.button`
-  color: #F44D5E;
+  background:transparent;
+  color: #413c69;
   padding: 8px;
   width:100px;
   font-size:15px;
+  /* transition: 0.6s; */
+  border-style: none;
+  cursor: pointer;
+  &:hover {
+    background: rgba(255,255,255, 0.2);
+    border-bottom: 3px solid #413c69;
+  }
 `

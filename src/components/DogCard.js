@@ -53,7 +53,6 @@ const Card = styled.div`
   -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   border-radius: 15px;
-
   width:300px;
   margin: 15px 15px 0px 15px;
   display: flex;

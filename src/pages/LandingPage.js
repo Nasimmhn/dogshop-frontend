@@ -14,7 +14,7 @@ export const LandingPage = () => {
   return (
     <>
       <TopSection>
-        Top section
+        <InnerText>Top section</InnerText>
       </TopSection>
       <SectionWrapper>
         <FilterMenu />
@@ -29,7 +29,7 @@ export const LandingPage = () => {
 const TopSection = styled.section`
   width: 100%;
   height: 200px;
-  background:#B9B9B9;
+  background: #a6b1e1;
 `
 
 const SectionWrapper = styled.section`
@@ -39,3 +39,10 @@ const SectionWrapper = styled.section`
   background-color: beige;
   
 `
+
+const InnerText = styled.p`
+font-size: 22px;
+width:100%;
+text-align: center;
+`
+
