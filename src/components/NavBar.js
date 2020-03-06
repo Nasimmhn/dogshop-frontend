@@ -46,8 +46,10 @@ const NavButton = styled.button`
   padding: 8px;
   width:100px;
   font-size:15px;
-  /* transition: 0.6s; */
+  
+  transition: 0.6s; 
   border-style: none;
+  border-bottom: 3px solid transparent;
   cursor: pointer;
   &:hover {
     background: rgba(255,255,255, 0.2);

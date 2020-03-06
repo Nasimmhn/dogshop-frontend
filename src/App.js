@@ -19,6 +19,12 @@ import { dogdata } from './reducers/dogdata'
 
 
 
+// Object with path to images
+export const PATHS = {
+  dog_races: "/assets/dog_races/",
+}
+
+
 
 // Combined reducers
 const reducer = combineReducers({

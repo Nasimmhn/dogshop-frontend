@@ -30,23 +30,22 @@ export const DogList = () => {
 
   // Map over the dogs here
   return (
-
     <CardsWrapper>
-      {allDogs.map((item) => (
-        <Link key={item._id} to={`/dog/${item._id}`}>
+      {allDogs.map((dog) => (
+        <Link key={dog._id} to={`/dog/${dog._id}`}>
           <DogCard
-            key={item._id}
-            age={item.age}
-            price={item.price}
-            sex={item.sex}
-            location={item.location}
-            race={item.race}
-            group={item.race.group.join(', ')}
-            addedAt={item.addedAt}
-            size={item.race.size}
-            imageUrl={"assets/dog_races/".concat(item.images.url)}
-            owner={item.owner}
-            description={item.description}
+            key={dog._id}
+            age={dog.age}
+            price={dog.price}
+            sex={dog.sex}
+            location={dog.location}
+            race={dog.race}
+            group={dog.race.group}
+            addedAt={dog.addedAt}
+            size={dog.race.size}
+            images={dog.images}
+            owner={dog.owner}
+            description={dog.description}
           />
         </Link>
       ))}

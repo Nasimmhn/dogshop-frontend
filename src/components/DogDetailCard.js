@@ -1,49 +1,50 @@
 import React from 'react'
-import styled from "styled-components/macro"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDollarSign, faRulerCombined, faDog, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRulerCombined, faDog, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave, faAddressCard } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components/macro'
 import moment from 'moment'
 
-// Path to 
-import { PATHS } from 'App'
+import { URLs, PATHS } from 'App'
+// fetchDog function (from reducer)
 
-export const DogCard = ({ age, price, sex, location, race, images, addedAt, group, size }) => {
 
-  // const displayAge = (weeks) => {
-  //   if (weeks < 20) { }
-  //   return age
-  // }
-
-  console.log("addedAt", addedAt)
+export const DogDetailCard = ({ dog }) => {
   return (
 
+
     <Card>
-      <Image src={PATHS.dog_races.concat(images.url)} />
+      <Image src={PATHS.dog_races.concat(dog.images.url)} />
       <Content>
         <TitleBar>
           <FlexWrapper>
-            <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {location}</SubTitle>
-            <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {price} SEK</SubTitle>
+            <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {dog.location}</SubTitle>
+
+            <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
+            <SubTitle><FontAwesomeIcon icon={faAddressCard} /> {dog.owner.name}</SubTitle>
           </FlexWrapper>
           <FlexWrapper>
-            <Title>{race.name}</Title>
+            <Title>{dog.race.name}</Title>
           </FlexWrapper>
           <GridWrapper>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {age}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={sex === "Female" ? faVenus : faMars} /> {sex}</SubTitle>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {group.join(', ')}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {size}</SubTitle>
+            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {dog.age}</SubTitle>
+            <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /> {dog.sex}</SubTitle>
+            <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dog.race.group.join(', ')}</SubTitle>
+            <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dog.race.size.join(', ')}</SubTitle>
           </GridWrapper>
         </TitleBar>
+        <FlexWrapper>
+          <BottomTitle> {dog.description}</BottomTitle>
+        </FlexWrapper>
         <FlexWrapper justify={"center"}>
-          <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(addedAt)).format("Do MMM YYYY"))}</BottomTitle>
+          <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(dog.addedAt)).format("Do MMM YYYY"))}</BottomTitle>
         </FlexWrapper>
       </Content>
     </Card >
 
   )
 }
+
 
 
 /* ------ STYLING ------ */
@@ -55,7 +56,7 @@ const Card = styled.div`
   -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   border-radius: 15px;
-  width:300px;
+  width:700px;
   margin: 15px 15px 0px 15px;
   display: flex;
   flex-direction: column;
