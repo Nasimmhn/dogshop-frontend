@@ -21,7 +21,6 @@ export const DogCard = ({ age, price, sex, location, race, imageUrl, addedAt, gr
         <TitleBar>
           <FlexWrapper>
             <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {location}</SubTitle>
-
             <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {price} SEK</SubTitle>
           </FlexWrapper>
           <FlexWrapper>

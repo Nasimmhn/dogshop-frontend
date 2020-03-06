@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 // Pages
 import { LandingPage } from './pages/LandingPage'
-import { DogDetails } from 'pages/DogDetails'
+import { DogDetailPage } from 'pages/DogDetailPage'
 
 // Components
 import { NavBar } from 'components/NavBar'
@@ -37,12 +37,11 @@ export const App = () => {
       <BrowserRouter>
         <NavBar />
         <Switch>
-
           <Route path="/" exact>
             <LandingPage />
           </Route>
-          <Route path="/dog/id/:dogId" exact>
-            <DogDetails />
+          <Route path="/dog/:dogId">
+            <DogDetailPage />
           </Route>
           <Route path="/dogbreeds">
             <div>

@@ -33,7 +33,7 @@ export const DogList = () => {
 
     <CardsWrapper>
       {allDogs.map((item) => (
-        <Link key={item._id} to={`/dog/id/${item._id}`}>
+        <Link key={item._id} to={`/dog/${item._id}`}>
           <DogCard
             key={item._id}
             age={item.age}
