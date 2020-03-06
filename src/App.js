@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 // Pages
 import { LandingPage } from './pages/LandingPage'
+import { DogDetails } from 'pages/DogDetails'
 
 // Components
 import { NavBar } from 'components/NavBar'
@@ -15,6 +16,7 @@ import { GlobalStyle } from './lib/GlobalStyle'
 
 // Reducer
 import { dogdata } from './reducers/dogdata'
+
 
 
 
@@ -39,25 +41,24 @@ export const App = () => {
           <Route path="/" exact>
             <LandingPage />
           </Route>
-
+          <Route path="/dog/id/:dogId" exact>
+            <DogDetails />
+          </Route>
           <Route path="/dogbreeds">
             <div>
               Dog breeds
             </div>
           </Route>
-
           <Route path="/signin">
             <div>
               Sign in
             </div>
           </Route>
-
           <Route path="/signup">
             <div>
               Sign up
             </div>
           </Route>
-
         </Switch>
         <Footer />
       </BrowserRouter>
