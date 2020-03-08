@@ -35,7 +35,7 @@ export const DogList = () => {
         <Link key={dog._id} to={`/dog/${dog._id}`}>
           <DogCard
             key={dog._id}
-            age={dog.age}
+            birthdate={dog.birthdate}
             price={dog.price}
             sex={dog.sex}
             location={dog.location}

@@ -8,7 +8,7 @@ import moment from 'moment'
 // Path to 
 import { PATHS } from 'App'
 
-export const DogCard = ({ age, price, sex, location, race, images, addedAt, group, size }) => {
+export const DogCard = ({ birthdate, price, sex, location, race, images, addedAt, group, size }) => {
 
   // const displayAge = (weeks) => {
   //   if (weeks < 20) { }
@@ -30,7 +30,7 @@ export const DogCard = ({ age, price, sex, location, race, images, addedAt, grou
             <Title>{race.name}</Title>
           </FlexWrapper>
           <GridWrapper>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {age}</SubTitle>
+            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(birthdate).fromNow(true)}</SubTitle>
             <SubTitle align={"end"}><FontAwesomeIcon icon={sex === "Female" ? faVenus : faMars} /> {sex}</SubTitle>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {group.join(', ')}</SubTitle>
             <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {size}</SubTitle>

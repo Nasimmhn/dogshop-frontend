@@ -12,7 +12,11 @@ import { Typography, Slider } from '@material-ui/core';
 // Reducer
 import { dogdata } from '../reducers/dogdata'
 
-
+const sexOptions = [
+  { value: '', label: 'Both' },
+  { value: 'Male', label: 'Male' },
+  { value: 'Female', label: 'Female' },
+]
 const groupOptions = [
   { value: 'Sport', label: 'Sport' },
   { value: 'Working', label: 'Working' },
@@ -22,13 +26,13 @@ const groupOptions = [
   { value: 'Hound', label: 'Hound' },
   { value: 'Herding', label: 'Herding' },
 ]
-
-const sexOptions = [
-  { value: '', label: 'Both' },
-  { value: 'Male', label: 'Male' },
-  { value: 'Female', label: 'Female' },
+const sizeOptions = [
+  { value: 'XSmall', label: 'XSmall' },
+  { value: 'Small', label: 'Small' },
+  { value: 'Medium', label: 'Medium' },
+  { value: 'Large', label: 'Large' },
+  { value: 'XLarge', label: 'XLarge' },
 ]
-
 const priceRangeMarks = [
   { value: 0, label: '0' },
   { value: 10000, label: '10k' },
@@ -44,6 +48,7 @@ export const FilterMenu = () => {
   // // const [age, setAge] = useState('')
   const [sex, setSex] = useState({ value: "" })
   const [race, setRace] = useState('')
+  const [size, setSize] = useState([])
   const [priceRange, setPriceRange] = useState([0, 9999999])
   const [group, setGroup] = useState([])
   // // const [location, SetLocation] = useState('')
@@ -64,11 +69,15 @@ export const FilterMenu = () => {
     if (group === null) { groupQuery = "" }
     else { groupQuery = group.map(item => item.value) }
 
+    let sizeQuery = []
+    if (size === null) { sizeQuery = "" }
+    else { sizeQuery = size.map(item => item.value) }
+
     if (priceRange[1] == 40000) { priceRange[1] = 999999 }  // To query prices over 40000SEK
-    setQuery(`?sex=${sex.value}&race=${race}&group=${groupQuery.toString()}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`)
+    setQuery(`?sex=${sex.value}&race=${race}&group=${groupQuery.toString()}&size=${sizeQuery.toString()}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`)
 
     dispatch(dogdata.actions.setDogFilter(query))
-  }, [dispatch, query, sex, race, group, priceRange])
+  }, [dispatch, query, sex, race, group, priceRange, size])
 
 
 
@@ -102,6 +111,17 @@ export const FilterMenu = () => {
         isMulti
         autoFocus
         isSearchable
+      />
+
+      <Select
+        components={makeAnimated()}
+        theme={selectCustomTheme}
+        placeholder={"Select Size"}
+        options={sizeOptions}
+        onChange={setSize}
+        noOptionsMessage={() => "No other sizes"}
+        isMulti
+        autoFocus
       />
       <div className={classes.priceRange}>
         <Typography id="range-slider" gutterBottom>
