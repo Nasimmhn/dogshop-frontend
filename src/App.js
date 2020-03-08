@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // Pages
 import { LandingPage } from './pages/LandingPage'
 import { DogDetailPage } from 'pages/DogDetailPage'
-
+import { DogBreedPage } from 'pages/DogBreedPage'
 // Components
 import { NavBar } from 'components/NavBar'
 import { Footer } from './components/Footer'
@@ -50,9 +50,7 @@ export const App = () => {
             <DogDetailPage />
           </Route>
           <Route path="/dogbreeds">
-            <div>
-              Dog breeds
-            </div>
+            <DogBreedPage />
           </Route>
           <Route path="/signin">
             <div>

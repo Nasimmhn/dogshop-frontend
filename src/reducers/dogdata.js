@@ -3,17 +3,20 @@ import { createSlice } from '@reduxjs/toolkit'
 export const dogdata = createSlice({
   name: "dogdata",
   initialState: {
-    dogRaceItems: [],
-    dogs: [],
     dog: null,
+    dogs: [],
     dogFilter: "",
+    dogBreed: null,
+    dogBreeds: [],
+    dogBreedFilter: "",
+
   },
 
   reducers: {
-    setDogRaceItems: (state, action) => {
-      state.dogRaceItems = action.payload
+    // Dog
+    setDog: (state, action) => {
+      state.dog = action.payload
     },
-
     setDogs: (state, action) => {
       state.dogs = action.payload
     },
@@ -22,26 +25,34 @@ export const dogdata = createSlice({
       state.dogFilter = action.payload
     },
 
-    setDog: (state, action) => {
-      state.dog = action.payload
+    // Dog breed
+    setDogBreed: (state, action) => {
+      state.dogBreed = action.payload
+    },
+    setDogBreeds: (state, action) => {
+      state.dogBreeds = action.payload
+    },
+    setDogBreedFilter: (state, action) => {
+      state.dogBreedFilter = action.payload
     },
   }
 })
 
 
 
-export const fetchDogRaces = (searchQuery) => {
+
+
+export const fetchDog = (dogId) => {
+  console.log("fetchDog", dogId)
   return dispatch => {
-    fetch(`http://localhost:8080/dograces/${searchQuery}`)
+    fetch(`http://localhost:8080/dog/id/${dogId}`)
       .then(res => res.json())
-      .then(dogRaces => {
-        console.log("query", searchQuery)
-        console.log("dogRaces:", dogRaces)
-        dispatch(dogdata.actions.setDogRaceItems(dogRaces))
+      .then(dog => {
+        console.log("dog", dog)
+        dispatch(dogdata.actions.setDog(dog))
       })
   }
 }
-
 
 export const fetchDogs = (query) => {
   return dispatch => {
@@ -53,14 +64,22 @@ export const fetchDogs = (query) => {
   }
 }
 
-export const fetchDog = (dogId) => {
-  console.log("fetchDog", dogId)
+
+export const fetchDogBreed = (dogBreedId) => {
   return dispatch => {
-    fetch(`http://localhost:8080/dog/id/${dogId}`)
+    fetch(`http://localhost:8080/dogbreed/${dogBreedId}`)
       .then(res => res.json())
-      .then(dog => {
-        console.log("dog", dog)
-        dispatch(dogdata.actions.setDog(dog))
+      .then(dogBreed => {
+        dispatch(dogdata.actions.setDogBreed(dogBreed))
+      })
+  }
+}
+export const fetchDogBreeds = (query) => {
+  return dispatch => {
+    fetch(`http://localhost:8080/dogbreeds/${query}`)
+      .then(res => res.json())
+      .then(dogBreeds => {
+        dispatch(dogdata.actions.setDogBreeds(dogBreeds))
       })
   }
 }

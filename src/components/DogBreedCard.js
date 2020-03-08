@@ -1,38 +1,28 @@
 import React from 'react'
-import styled from "styled-components/macro"
+import styled from 'styled-components/macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDollarSign, faRulerCombined, faDog, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
 
-import moment from 'moment'
-
-// Path to 
 import { PATHS } from 'App'
 
-export const DogCard = ({ dog }) => {
 
+export const DogBreedCard = ({ dogBreed }) => {
 
   return (
 
     <Card>
-      <Image src={PATHS.dog_races.concat(dog.images.url)} />
+      <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
       <Content>
         <TitleBar>
           <FlexWrapper>
-            <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {dog.location}</SubTitle>
-            <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
-          </FlexWrapper>
-          <FlexWrapper>
-            <Title>{dog.race.name}</Title>
+            <Title>{dogBreed.name}</Title>
           </FlexWrapper>
           <GridWrapper>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /> {dog.sex}</SubTitle>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dog.race.group.join(', ')}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dog.race.size}</SubTitle>
+            <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dogBreed.group.join(', ')}</SubTitle>
+            <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dogBreed.size.join(', ')}</SubTitle>
           </GridWrapper>
         </TitleBar>
         <FlexWrapper justify={"center"}>
-          <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(dog.addedAt)).fromNow())}</BottomTitle>
         </FlexWrapper>
       </Content>
     </Card >
@@ -49,11 +39,11 @@ const Card = styled.div`
   -webkit-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
-  border-radius: 15px;
-  width:300px;
+  width:calc(100%-20px);
+  height: 100px;
   margin: 15px 15px 0px 15px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `
 
 const FlexWrapper = styled.div`
@@ -88,7 +78,7 @@ const TitleBar = styled.div`
 const Image = styled.img`
   align-self: center;
   justify-self: center;
-  width: 100%;
+  height: 100%;
   -webkit-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
   -moz-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
   box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);

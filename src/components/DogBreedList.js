@@ -5,36 +5,35 @@ import styled from 'styled-components/macro'
 
 
 // Components
-import { DogCard } from 'components/DogCard'
+import { DogBreedCard } from 'components/DogBreedCard'
 
 // fetchDogs function (from reducer)
-import { fetchDogs } from 'reducers/dogdata'
+import { fetchDogBreeds } from 'reducers/dogdata'
 
 
 
 
 
-export const DogList = () => {
+export const DogBreedList = () => {
   const dispatch = useDispatch()
 
   // From dogdata reducer
-  const allDogs = useSelector((state) => state.dogdata.dogs)
-  const dogFilter = useSelector((state) => state.dogdata.dogFilter)
+  const allDogBreeds = useSelector((state) => state.dogdata.dogBreeds)
+  const dogBreedFilter = useSelector((state) => state.dogdata.dogBreedFilter)
 
   useEffect(() => {
-    console.log("DogList -> dogFilter", dogFilter)
-    dispatch(fetchDogs(dogFilter))
+    dispatch(fetchDogBreeds(dogBreedFilter))
 
-  }, [dispatch, dogFilter])
+  }, [dispatch, dogBreedFilter])
 
 
-  // Map over the dogs here
+  // Map over the dogBreeds here
   return (
     <CardsWrapper>
-      {allDogs.map((dog) => (
-        <Link key={dog._id} to={`/dog/${dog._id}`}>
-          <DogCard
-            dog={dog}
+      {allDogBreeds.map((dogBreed) => (
+        <Link key={dogBreed._id} to={`/dogbreed/${dogBreed._id}`}>
+          <DogBreedCard
+            dogBreed={dogBreed}
           />
         </Link>
       ))}
@@ -46,7 +45,7 @@ export const DogList = () => {
 
 const CardsWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   /* @media (max-width: 628px) {

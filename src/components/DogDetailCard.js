@@ -27,7 +27,7 @@ export const DogDetailCard = ({ dog }) => {
             <Title>{dog.race.name}</Title>
           </FlexWrapper>
           <GridWrapper>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {dog.age}</SubTitle>
+            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>
             <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /> {dog.sex}</SubTitle>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dog.race.group.join(', ')}</SubTitle>
             <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dog.race.size.join(', ')}</SubTitle>
@@ -37,7 +37,7 @@ export const DogDetailCard = ({ dog }) => {
           <BottomTitle> {dog.description}</BottomTitle>
         </FlexWrapper>
         <FlexWrapper justify={"center"}>
-          <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(dog.addedAt)).format("Do MMM YYYY"))}</BottomTitle>
+          <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(dog.addedAt)).fromNow())}</BottomTitle>
         </FlexWrapper>
       </Content>
     </Card >

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 // Components
-import { DogList } from 'components/DogList'
+import { DogBreedList } from 'components/DogBreedList'
 import { DogFilterMenu } from 'components/DogFilterMenu'
 
 
@@ -10,15 +10,16 @@ import { DogFilterMenu } from 'components/DogFilterMenu'
 
 
 
-export const LandingPage = () => {
+export const DogBreedPage = () => {
   return (
     <>
       <TopSection>
-        <InnerText>Top section</InnerText>
+        <InnerText>Top - Dog breeds</InnerText>
       </TopSection>
+
       <SectionWrapper>
         <DogFilterMenu />
-        <DogList />
+        <DogBreedList />
       </SectionWrapper>
     </>
   )
