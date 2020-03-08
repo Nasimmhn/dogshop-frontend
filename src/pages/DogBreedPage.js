@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 
 // Components
 import { DogBreedList } from 'components/DogBreedList'
-import { DogFilterMenu } from 'components/DogFilterMenu'
+import { DogBreedFilterMenu } from 'components/DogBreedFilterMenu'
 
 
 // import heroImageLarge from '../assets/hero.jpg'
@@ -18,7 +18,7 @@ export const DogBreedPage = () => {
       </TopSection>
 
       <SectionWrapper>
-        <DogFilterMenu />
+        <DogBreedFilterMenu />
         <DogBreedList />
       </SectionWrapper>
     </>
