@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
+
+// React-Select
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
 
+// Material UI 
+import { makeStyles } from '@material-ui/core/styles';
+import { Typography, Slider } from '@material-ui/core';
 // Reducer
 import { dogdata } from '../reducers/dogdata'
 
@@ -24,22 +29,47 @@ const sexOptions = [
   { value: 'Female', label: 'Female' },
 ]
 
+const priceRangeMarks = [
+  {
+    value: 0,
+    label: '0',
+  },
+  {
+    value: 10000,
+    label: '10k',
+  },
+  {
+    value: 20000,
+    label: '20k',
+  },
+  {
+    value: 30000,
+    label: '30k',
+  },
+  {
+    value: 40000,
+    label: '40k+',
+  }
+];
+
 
 export const FilterMenu = () => {
   const dispatch = useDispatch()
 
   // // const [age, setAge] = useState('')
-  // // const [price, setPrice] = useState('')
   const [sex, setSex] = useState({ value: "" })
   const [race, setRace] = useState('')
-
-
-
+  const [priceRange, setPriceRange] = useState([0, 9999999])
   const [group, setGroup] = useState([])
   // // const [location, SetLocation] = useState('')
   const [query, setQuery] = useState('')
 
 
+
+
+  const handlePriceChange = (event, newRange) => {
+    setPriceRange(newRange);
+  };
 
 
   useEffect(() => {
@@ -48,15 +78,17 @@ export const FilterMenu = () => {
     if (group === null) { groupQuery = "" }
     else { groupQuery = group.map(item => item.value) }
 
-    setQuery(`?sex=${sex.value}&race=${race}&group=${groupQuery.toString()}`)
+    if (priceRange[1] == 40000) { priceRange[1] = 999999 }  // To query prices over 40000SEK
+    setQuery(`?sex=${sex.value}&race=${race}&group=${groupQuery.toString()}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`)
 
     console.log("FilterMenu -> useEffect - query:", query)
     dispatch(dogdata.actions.setDogFilter(query))
-  }, [dispatch, query, sex, race, group])
+  }, [dispatch, query, sex, race, group, priceRange])
 
 
 
-  const customTheme = (theme) => {
+  // Select custom Theme 
+  const selectCustomTheme = (theme) => {
     return {
       ...theme,
       colors: {
@@ -79,7 +111,7 @@ export const FilterMenu = () => {
 
       <Select
         components={makeAnimated()}
-        theme={customTheme}
+        theme={selectCustomTheme}
         placeholder={"Select Gender"}
         options={sexOptions}
         onChange={setSex}
@@ -87,7 +119,7 @@ export const FilterMenu = () => {
 
       <Select
         components={makeAnimated()}
-        theme={customTheme}
+        theme={selectCustomTheme}
         placeholder={"Select Group(s)"}
         options={groupOptions}
         onChange={setGroup}
@@ -96,8 +128,20 @@ export const FilterMenu = () => {
         autoFocus
         isSearchable
       />
-
-
+      <Typography gutterBottom>
+        Select Price Range
+      </Typography>
+      <Slider
+        value={priceRange}
+        onChange={handlePriceChange}
+        valueLabelDisplay="auto"
+        aria-labelledby="range-slider"
+        min={0}
+        max={40000}
+        valueLabelDisplay="auto"
+        step={500}
+        marks={priceRangeMarks}
+      />
     </FilterWrapper>
   )
 }
