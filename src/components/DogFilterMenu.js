@@ -73,7 +73,7 @@ export const DogFilterMenu = () => {
     if (size === null) { sizeQuery = "" }
     else { sizeQuery = size.map(item => item.value) }
 
-    if (priceRange[1] == 40000) { priceRange[1] = 999999 }  // To query prices over 40000SEK
+    if (priceRange[1] === 40000) { priceRange[1] = 999999 }  // To query prices over 40000SEK
     setQuery(`?sex=${sex.value}&race=${race}&group=${groupQuery.toString()}&size=${sizeQuery.toString()}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`)
 
     dispatch(dogdata.actions.setDogFilter(query))

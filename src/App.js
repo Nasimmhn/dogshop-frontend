@@ -16,6 +16,7 @@ import { GlobalStyle } from './lib/GlobalStyle'
 
 // Reducer
 import { dogdata } from './reducers/dogdata'
+import { userdata } from './reducers/userdata'
 
 
 
@@ -29,6 +30,7 @@ export const PATHS = {
 // Combined reducers
 const reducer = combineReducers({
   dogdata: dogdata.reducer,
+  userdata: userdata.reducer,
 
 })
 
