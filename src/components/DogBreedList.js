@@ -29,7 +29,7 @@ export const DogBreedList = () => {
 
   // Map over the dogBreeds here
   return (
-    <CardsWrapper>
+    <BreedListWrapper>
       {allDogBreeds.map((dogBreed) => (
         <Link key={dogBreed._id} to={`/dogbreed/${dogBreed._id}`}>
           <DogBreedCard
@@ -37,17 +37,18 @@ export const DogBreedList = () => {
           />
         </Link>
       ))}
-    </CardsWrapper>
+    </BreedListWrapper>
   )
 }
 
 /* ------ STYLING ------ */
 
-const CardsWrapper = styled.div`
+const BreedListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+
   /* @media (max-width: 628px) {
     flex-wrap:wrap } 
    */
