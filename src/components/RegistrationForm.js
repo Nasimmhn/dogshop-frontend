@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 // fetchDogs function (from reducer)
-import { registerFetch, userdata } from 'reducers/userdata'
+import { registerNewUser, userdata } from 'reducers/userdata'
 
 
 
@@ -14,15 +14,23 @@ import { registerFetch, userdata } from 'reducers/userdata'
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch()
-  const isRegistered = useSelector(state => state.userdata.isRegistered)
+  // const isRegistered = useSelector(state => state.userdata.isRegistered)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+  const [confirmPwd, setConfirmPwd] = useState('')
 
   const handleSignup = (event) => {
+    handlePassword(password, confirmPwd)
     event.preventDefault()
-    dispatch(registerFetch)
+    dispatch(registerNewUser(name, email, password))
+  }
+
+  const handlePassword = (password, confirmPwd) => {
+    if (password !== confirmPwd) {
+      console.log("Passwords do not match")
+      alert("Passwords do not match")
+    }
   }
 
   return (
@@ -57,18 +65,25 @@ export const RegistrationForm = () => {
             autoComplete="off"
             onChange={(e) => { setPassword(e.target.value) }}
           />
+
           <TextField
+            error={(password !== confirmPwd) && confirmPwd !== ""}
             required
             className="outlined-basic"
             variant="outlined"
-            label="Re-Password"
+            label="Confirm password"
+            helperText={((password !== confirmPwd) && confirmPwd !== "") ? "Password does not match" : ""} //password validation
             type="password"
             autoComplete="off"
-            onChange={(e) => { setPassword(e.target.value) }}
+            onChange={(e) => { setConfirmPwd(e.target.value) }}
           />
+
         </div>
         <Button variant="contained" disableElevation type="submit">Create account</Button>
       </form>
     </div>
   )
 }
+
+
+/* ------ STYLING ------ */
