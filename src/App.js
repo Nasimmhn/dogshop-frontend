@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { LandingPage } from './pages/LandingPage'
 import { DogDetailPage } from 'pages/DogDetailPage'
 import { DogBreedPage } from 'pages/DogBreedPage'
+import { SignupPage } from 'pages/SignupPage'
 // Components
 import { NavBar } from 'components/NavBar'
 import { Footer } from './components/Footer'
@@ -60,9 +61,7 @@ export const App = () => {
             </div>
           </Route>
           <Route path="/signup">
-            <div>
-              Sign up
-            </div>
+            <SignupPage />
           </Route>
         </Switch>
         <Footer />

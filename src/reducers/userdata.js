@@ -2,41 +2,37 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 export const userdata = createSlice({
-  name: 'users',
+  name: 'userdata',
   initialState: {
-    user: {}
+    users: {}
   },
-
   reducers: {
-    setUserName: (state, action) => {
-      state.user.name = action.payload.user.name
-    },
-    setUserEmail: (state, action) => {
-      state.user.email = action.payload.user.email
-    },
-    setUserPassword: (state, action) => {
-      state.user.password = action.payload.user.password
-    },
-    setAccessToken: (state, action) => {
-      state.user.accessToken = action.payload.user.accessToken
-    },
+    userRegistered: (state, action) => {
+      state.users = {
+        name: action.payload.name,
+        email: action.payload.email,
+        password: action.payload.password,
+        accessToken: action.payload.accessToken,
+        role: action.payload.role
+      }
+    }
   }
 })
 
 // THUNK MIDDLEWARE FOR SIGN UP
-export const RegisterUser = (SignUpValues) => {
+export const registerFetch = (signupValues) => {
   return dispatch => {
-    fetch(`http://localhost:8080/register/${SignUpValues}`, {
+    fetch(`http://localhost:8080/register/${signupValues}`, {
       method: 'POST',
-      body: JSON.stringify(SignUpValues),
+      body: JSON.stringify({
+        signupValues
+      }),
       headers: { 'Content-Type': 'application/json' }
     })
       .then(res => res.json())
       .then(json => {
-        dispatch(userdata.actions.setUserName(json.name))
-        dispatch(userdata.actions.setUserEmail(json.email))
-        dispatch(userdata.actions.setUserPassword(json.password))
-        dispatch(userdata.actions.setAccessToken(json.accessToken))
+        dispatch(userdata.actions.userRegistered(json))
+
       })
       .catch(err => console.log('error', err))
   }
