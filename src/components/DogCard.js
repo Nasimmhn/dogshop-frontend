@@ -22,7 +22,7 @@ export const DogCard = ({ dog }) => {
             <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
           </FlexWrapper>
           <FlexWrapper>
-            <Title>{dog.race.name}</Title>
+            <Title>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></Title>
           </FlexWrapper>
           <GridWrapper>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>

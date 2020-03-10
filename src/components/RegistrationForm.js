@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components/macro'
+import { useDispatch } from 'react-redux'
+// import styled from 'styled-components/macro'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 // fetchDogs function (from reducer)
-import { registerNewUser, userdata } from 'reducers/userdata'
+import { registerNewUser } from 'reducers/userdata'
 
 
 
@@ -14,24 +14,16 @@ import { registerNewUser, userdata } from 'reducers/userdata'
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch()
-  // const isRegistered = useSelector(state => state.userdata.isRegistered)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPwd, setConfirmPwd] = useState('')
 
   const handleSignup = (event) => {
-    handlePassword(password, confirmPwd)
     event.preventDefault()
     dispatch(registerNewUser(name, email, password))
   }
 
-  const handlePassword = (password, confirmPwd) => {
-    if (password !== confirmPwd) {
-      console.log("Passwords do not match")
-      alert("Passwords do not match")
-    }
-  }
 
   return (
     <div className='form-container'>
@@ -57,12 +49,14 @@ export const RegistrationForm = () => {
             onChange={(e) => { setEmail(e.target.value) }}
           />
           <TextField
+            error={(password.length < 6 && password.length !== 0)}
             required
             className="outlined-basic"
             variant="outlined"
             label="Password"
             type="password"
             autoComplete="off"
+            helperText={(password.length < 6 && password.length !== 0) ? "Must be at least 6 characters" : ""}
             onChange={(e) => { setPassword(e.target.value) }}
           />
 
@@ -79,7 +73,14 @@ export const RegistrationForm = () => {
           />
 
         </div>
-        <Button variant="contained" disableElevation type="submit">Create account</Button>
+        <Button
+          variant="contained"
+          disableElevation
+          disabled={(password !== confirmPwd) || password.length < 6}
+          type="submit"
+        >
+          Create account
+        </Button>
       </form>
     </div>
   )

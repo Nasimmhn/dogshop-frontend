@@ -134,7 +134,6 @@ export const DogFilterMenu = () => {
           aria-labelledby="range-slider"
           min={0}
           max={40000}
-          valueLabelDisplay="auto"
           step={500}
           marks={priceRangeMarks}
         />

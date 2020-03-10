@@ -16,7 +16,7 @@ export const DogDetailPage = () => {
   const dog = useSelector((state) => state.dogdata.dog)
   useEffect(() => {
     dispatch(fetchDog(dogId))
-  }, [dogId])
+  }, [dispatch, dogId])
 
 
   return (

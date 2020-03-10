@@ -5,7 +5,7 @@ import { faRulerCombined, faDog, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, 
 import styled from 'styled-components/macro'
 import moment from 'moment'
 
-import { URLs, PATHS } from 'App'
+import { PATHS } from 'App'
 // fetchDog function (from reducer)
 
 
@@ -19,12 +19,11 @@ export const DogDetailCard = ({ dog }) => {
         <TitleBar>
           <FlexWrapper>
             <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {dog.location}</SubTitle>
-
             <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
             <SubTitle><FontAwesomeIcon icon={faAddressCard} /> {dog.owner.name}</SubTitle>
           </FlexWrapper>
           <FlexWrapper>
-            <Title>{dog.race.name}</Title>
+            <Title>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></Title>
           </FlexWrapper>
           <GridWrapper>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>

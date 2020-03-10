@@ -4,10 +4,12 @@ import { createSlice } from '@reduxjs/toolkit'
 export const userdata = createSlice({
   name: 'userdata',
   initialState: {
-    user: {}
+    user: {},
+    isRegistered: false
   },
   reducers: {
     registerUser: (state, action) => {
+      state.isRegistered = true
       state.user = {
         name: action.payload.name,
         email: action.payload.email,
@@ -35,7 +37,6 @@ export const registerNewUser = (name, email, password) => {
       .then(json => {
         console.log("json", json)
         dispatch(userdata.actions.registerUser(json))
-
       })
       .catch(err => console.log('error', err))
   }
