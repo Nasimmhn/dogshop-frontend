@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-// fetchDogs function (from reducer)
+// registration (from reducer)
 import { registerNewUser } from 'reducers/userdata'
 
 

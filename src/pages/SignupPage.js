@@ -29,7 +29,7 @@ export const SignupPage = () => {
           <ConfirmDiv>
             <InnerText> You are signed up!</InnerText>
             <InnerText>
-              <Link to={'/signin'} tabIndex='-1'>
+              <Link to={'/login'} tabIndex='-1'>
                 Click here to login
               </Link>
             </InnerText>

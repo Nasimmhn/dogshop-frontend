@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 
+import { useSelector } from 'react-redux'
+
+
 
 export const NavBar = () => {
+  const isLoggedin = useSelector((state) => state.userdata.isLoggedin)
+
   return (
     <NavSection>
       <NavItems>
@@ -14,12 +19,21 @@ export const NavBar = () => {
         <Link to={'/dogbreeds'} tabIndex='-1'>
           <NavButton>Dog Breeds</NavButton>
         </Link>
-        <Link to={'/signin'} tabIndex='-1'>
-          <NavButton> Sign In </NavButton>
-        </Link>
-        <Link to={'/signup'} tabIndex='-1'>
-          <NavButton> Sign Up</NavButton>
-        </Link>
+        {!isLoggedin &&
+          <>
+            <Link to={'/login'} tabIndex='-1'>
+              <NavButton> Login </NavButton>
+            </Link>
+            <Link to={'/signup'} tabIndex='-1'>
+              <NavButton> Sign Up</NavButton>
+            </Link>
+          </>
+        }
+        {isLoggedin &&
+          <Link to={'/logout'} tabIndex='-1'>
+            <NavButton> Logout </NavButton>
+          </Link>
+        }
       </NavItems>
     </NavSection>
   )

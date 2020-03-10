@@ -8,6 +8,7 @@ import { LandingPage } from './pages/LandingPage'
 import { DogDetailPage } from 'pages/DogDetailPage'
 import { DogBreedPage } from 'pages/DogBreedPage'
 import { SignupPage } from 'pages/SignupPage'
+import { LoginPage } from 'pages/LoginPage'
 // Components
 import { NavBar } from 'components/NavBar'
 import { Footer } from './components/Footer'
@@ -46,23 +47,43 @@ export const App = () => {
       <BrowserRouter>
         <NavBar />
         <Switch>
+
           <Route path="/" exact>
             <LandingPage />
           </Route>
+
           <Route path="/dog/:dogId">
             <DogDetailPage />
           </Route>
+
           <Route path="/dogbreeds">
             <DogBreedPage />
           </Route>
-          <Route path="/signin">
-            <div>
-              Sign in
-            </div>
-          </Route>
+
           <Route path="/signup">
             <SignupPage />
           </Route>
+
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+
+          <Route path="/members">
+            <div> members </div>
+          </Route>
+
+          <Route path="/settings">
+            <div> settings </div>
+          </Route>
+
+          <Route path="/add">
+            <div> add dog </div>
+          </Route>
+
+          <Route path="/logout">
+            <div> You are logged out.....(not yet) </div>
+          </Route>
+
         </Switch>
         <Footer />
       </BrowserRouter>
