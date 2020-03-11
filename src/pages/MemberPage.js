@@ -1,5 +1,5 @@
-// import React from 'react'
-// import { MemberArea } from '../components/MemberArea'
+import React from 'react'
+import { MemberArea } from '../components/MemberArea'
 
 
 
@@ -7,19 +7,19 @@
 
 
 
-// export const MemberPage = () => {
+export const MemberPage = () => {
 
 
 
-//   return (
-//     <>
-//       <MemberArea />
-//     </>
-//   )
-// }
+  return (
+    <>
+      <MemberArea />
+    </>
+  )
+}
 
 
-// /* ------ STYLING ------ */
+/* ------ STYLING ------ */
 
 
 

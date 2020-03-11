@@ -65,9 +65,9 @@ export const fetchDogs = (query) => {
 }
 
 
-export const fetchDogBreed = (dogBreedId) => {
+export const fetchDogBreed = (breedId) => {
   return dispatch => {
-    fetch(`http://localhost:8080/dogbreed/${dogBreedId}`)
+    fetch(`http://localhost:8080/dogbreed/${breedId}`)
       .then(res => res.json())
       .then(dogBreed => {
         dispatch(dogdata.actions.setDogBreed(dogBreed))

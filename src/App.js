@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { LandingPage } from './pages/LandingPage'
 import { DogDetailPage } from 'pages/DogDetailPage'
 import { DogBreedPage } from 'pages/DogBreedPage'
+import { DogBreedDetailPage } from 'pages/DogBreedDetailPage'
 import { SignupPage } from 'pages/SignupPage'
 import { LoginPage } from 'pages/LoginPage'
 import { MemberPage } from 'pages/MemberPage'
@@ -59,6 +60,10 @@ export const App = () => {
 
           <Route path="/dogbreeds">
             <DogBreedPage />
+          </Route>
+
+          <Route path="/dogbreed/:breedId">
+            <DogBreedDetailPage />
           </Route>
 
           <Route path="/signup">
