@@ -7,7 +7,7 @@ export const userdata = createSlice({
     user: {},
     isRegistered: false,
     isLoggedin: false,
-    ShowUserDashboard: false,
+    isAuthenticated: false,
 
   },
   reducers: {
@@ -22,20 +22,15 @@ export const userdata = createSlice({
     },
     loggingIn: (state, action) => {
       state.isLoggedin = true
-      state.ShowUserDashboard = true
       state.user = {
         _id: action.payload._id,
+        name: action.payload.name,
         accessToken: action.payload.accessToken,
         role: action.payload.role
       }
     },
-    UserDashboard: (state, action) => {
-      state.ShowUserDashboard = true
-      state.user = {
-        accessToken: action.payload.accessToken,
-        data: action.payload.data,
-
-      }
+    authenticating: (state, action) => {
+      state.isAuthenticated = true
     }
   }
 })
@@ -82,18 +77,18 @@ export const loginUser = (email, password) => {
 }
 
 
-export const AuthUser = (accessToken, data) => {
+export const authUser = (accessToken) => {
   return dispatch => {
     fetch(`http://localhost:8080/auth`, {
       method: 'GET',
       headers: {
-        Authorization: accessToken, data
+        Authorization: accessToken
       }
     })
       .then(res => res.json())
       .then(json => {
-        console.log("json", json)
-        dispatch(userdata.actions.UserDashboard(json))
+        console.log("authUser:", json)
+        dispatch(userdata.actions.authenticating(json))
       })
       .catch(err => console.error('error', err))
   }

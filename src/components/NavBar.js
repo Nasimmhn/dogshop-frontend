@@ -19,6 +19,9 @@ export const NavBar = () => {
         <Link to={'/dogbreeds'} tabIndex='-1'>
           <NavButton>Dog Breeds</NavButton>
         </Link>
+        <Link to={'/members'} tabIndex='-1'>
+          <NavButton>Members</NavButton>
+        </Link>
         {!isLoggedin &&
           <>
             <Link to={'/login'} tabIndex='-1'>
