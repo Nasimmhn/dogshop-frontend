@@ -13,12 +13,8 @@ export const LoginPage = () => {
   return (
     <>
       <TopSection>
-
         <InnerText>Login</InnerText>
-
       </TopSection>
-
-
       <SectionWrapper>
         <LoginForm />
       </SectionWrapper>

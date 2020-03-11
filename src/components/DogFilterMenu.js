@@ -7,8 +7,8 @@ import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
 
 // Material UI 
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Slider } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles'
+import { Typography, Slider } from '@material-ui/core'
 // Reducer
 import { dogdata } from '../reducers/dogdata'
 

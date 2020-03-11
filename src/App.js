@@ -9,6 +9,7 @@ import { DogDetailPage } from 'pages/DogDetailPage'
 import { DogBreedPage } from 'pages/DogBreedPage'
 import { SignupPage } from 'pages/SignupPage'
 import { LoginPage } from 'pages/LoginPage'
+import { MemberPage } from 'pages/MemberPage'
 // Components
 import { NavBar } from 'components/NavBar'
 import { Footer } from './components/Footer'
@@ -69,7 +70,7 @@ export const App = () => {
           </Route>
 
           <Route path="/members">
-            <div> members </div>
+            < MemberPage />
           </Route>
 
           <Route path="/settings">

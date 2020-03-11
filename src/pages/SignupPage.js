@@ -1,6 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
+//font Awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+// Material UI 
+import Button from '@material-ui/core/Button'
 
 import { RegistrationForm } from 'components/RegistrationForm'
 import { useSelector } from 'react-redux'
@@ -23,12 +28,15 @@ export const SignupPage = () => {
         }
         {isRegistered &&
           <ConfirmDiv>
-            <InnerText> You are signed up!</InnerText>
-            <InnerText>
+            <IconDiv>
+              <FontAwesomeIcon icon={faCheckCircle} />
+            </IconDiv>
+            <InnerText> You are now signed up!</InnerText>
+            <Button variant="contained" href="#contained-buttons">
               <Link to={'/login'} tabIndex='-1'>
                 Click here to login
               </Link>
-            </InnerText>
+            </Button>
           </ConfirmDiv>
         }
       </SectionWrapper>
@@ -59,7 +67,17 @@ const InnerText = styled.p`
   width:100%;
   text-align: center;
 `
+
 const ConfirmDiv = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+`
+const IconDiv = styled.div`
+  align-self: center;
+  & > * {
+    font-size:50px;
+  }
 `
