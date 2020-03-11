@@ -20,8 +20,8 @@ export const DogBreedCard = ({ dogBreed }) => {
         </TitleBar>
         <TitleBar>
           <GridWrapper>
-            <SubTitle><FontAwesomeIcon icon={faDog} />{dogBreed.group.join(', ')}</SubTitle>
-            <SubTitle><FontAwesomeIcon icon={faRulerCombined} />{dogBreed.size.join(', ')}</SubTitle>
+            <SubTitle>{dogBreed.group.join(', ')} <FontAwesomeIcon icon={faDog} /></SubTitle>
+            <SubTitle>{dogBreed.size.join(', ')} <FontAwesomeIcon icon={faRulerCombined} /></SubTitle>
           </GridWrapper>
         </TitleBar>
       </Content>
