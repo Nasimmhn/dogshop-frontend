@@ -15,12 +15,8 @@ export const SignupPage = () => {
   return (
     <>
       <TopSection>
-
         <InnerText>Sign-Up</InnerText>
-
       </TopSection>
-
-
       <SectionWrapper>
         {!isRegistered &&
           <RegistrationForm />

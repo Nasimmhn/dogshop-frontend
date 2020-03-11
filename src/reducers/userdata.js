@@ -26,7 +26,6 @@ export const userdata = createSlice({
         accessToken: action.payload.accessToken,
         role: action.payload.role
       }
-      console.log("payload", action.payload)
     }
   }
 })
