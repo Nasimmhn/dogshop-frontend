@@ -1,9 +1,8 @@
 import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRulerCombined, faDog, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave, faAddressCard } from '@fortawesome/free-solid-svg-icons'
+import { faRulerCombined, faDog, faPaw, faCalendarAlt, faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components/macro'
-import moment from 'moment'
 
 import { PATHS } from 'App'
 // fetchDog function (from reducer)
