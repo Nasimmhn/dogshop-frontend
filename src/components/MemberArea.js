@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { AdsForm } from './AdsForm'
+import { MemberAddDog } from './MemberAddDog'
 import { authUser } from 'reducers/userdata'
 
 
 
-export const PrivateRoute = () => {
+export const MemberArea = () => {
   // const [data, setData] = useState('')
 
 
@@ -14,7 +14,7 @@ export const PrivateRoute = () => {
   return (
     <div className="loggedin-area">
       <p>Add an ad</p>
-      <AdsForm />
+      <MemberAddDog />
     </div>
   )
 }

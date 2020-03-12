@@ -21,7 +21,8 @@ export const DogCard = ({ dog }) => {
             <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {dog.location}</SubTitle>
             <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
           </FlexWrapper>
-          <FlexWrapper>
+          <FlexWrapper flexdirection={"column"}>
+            <Title>{dog.name} <FontAwesomeIcon icon={faPaw} /></Title>
             <Title>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></Title>
           </FlexWrapper>
           <GridWrapper>
@@ -59,7 +60,7 @@ const Card = styled.div`
 const FlexWrapper = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => props.flexdirection ? props.flexdirection : "row"};;
   justify-content: ${props => props.justify ? props.justify : "space-between"};
 `
 const GridWrapper = styled.div`

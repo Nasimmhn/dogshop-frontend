@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
 
 // Component
-import { PrivateRoute } from '../components/PrivateRoute'
+import { MemberArea } from '../components/MemberArea'
 
 // From reducer
 import { authUser } from '../reducers/userdata'
@@ -20,14 +20,14 @@ export const MemberPage = () => {
 
   const dispatch = useDispatch()
   dispatch(authUser(accessToken))
-  const isAuthenticated = useSelector((state) => state.userdata.isAuthenticated)
+  // const isAuthenticated = useSelector((state) => state.userdata.isAuthenticated)
   const isLoggedin = useSelector((state) => state.userdata.isLoggedin)
 
 
   return (
     <>
-      {isLoggedin ?
-        < PrivateRoute /> :
+      {!isLoggedin ?
+        < MemberArea /> :
         <Redirect to="/login" />}
     </>
   )

@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import Select from 'react-select'
-// import { sendGuests } from 'reducers/guests'
-// import { Button } from 'lib/Buttons'
-// import { Form, Label, LabelText, Input, RadioWrapper, RadioText, RadioInput, TextAreaInput } from 'lib/FormStyles'
+import { createDogAd } from '../reducers/dogdata'
+
 
 
 
@@ -18,102 +17,107 @@ const BreedOptions = [
   { value: 'Siberian Husky', label: 'Siberian Husky' },
 ]
 
-const groupOptions = [
-  { value: 'Sport', label: 'Sport' },
-  { value: 'Working', label: 'Working' },
-  { value: 'Toy', label: 'Toy' },
-  { value: 'Mixed breed', label: 'Mixed breed' },
-  { value: 'Terrier', label: 'Terrier' },
-  { value: 'Hound', label: 'Hound' },
-  { value: 'Herding', label: 'Herding' },
-]
-const sizeOptions = [
-  { value: 'XSmall', label: 'XSmall' },
-  { value: 'Small', label: 'Small' },
-  { value: 'Medium', label: 'Medium' },
-  { value: 'Large', label: 'Large' },
-  { value: 'XLarge', label: 'XLarge' },
-]
 
 
-
-
-export const AdsForm = () => {
-
+export const MemberAddDog = () => {
   const dispatch = useDispatch()
+  const [name, setName] = useState('')
+  const [breed, setBreed] = useState('')
+  const [sex, setSex] = useState('')
+
+
+  const [description, setDescription] = useState('')
+  const [price, setPrice] = useState('')
+  const [location, setLocation] = useState('')
+  const [phone, setPhone] = useState('')
+
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    dispatch(createDogAd({ sex, breed, price, description, phone })) // Sending the form values to the thunk in reducer
+  }
 
 
 
   return (
-    <StyledForm>
+    <StyledForm onSubmit={handleSubmit}>
+
+      <Label>
+        <LabelText>Name *</LabelText>
+        <Input
+          onChange={event => setName(event.target.value)}
+          type='text'
+          placeholder='Type name here'
+          required
+        />
+      </Label>
+
       <Select
         theme={selectCustomTheme}
         placeholder={"Select a breed"}
         options={BreedOptions}
-      // onChange={setBreed}
+        onChange={setBreed}
       />
-      <Select
-        theme={selectCustomTheme}
-        placeholder={"Select the group"}
-        options={groupOptions}
-      // onChange={setBreed}
-      />
-      <Label>
-        <LabelText>Price *</LabelText>
-        <Input
-          type='number'
-          placeholder='SEK'
-        />
-      </Label>
-      <Select
-        theme={selectCustomTheme}
-        placeholder={"Size"}
-        options={sizeOptions}
-      // onChange={setBreed}
-      />
+
 
       <Label>
         <LabelText>Gender *</LabelText>
         <RadioWrapper>
           <RadioInput
+            onChange={event => setSex(event.target.value)}
             type='radio'
-            name='male'
-          // value='male'
+            name='sex'
+            value='Male'
           />
           <RadioText>Male</RadioText>
         </RadioWrapper>
         <RadioWrapper>
           <RadioInput
+            onChange={event => setSex(event.target.value)}
             type='radio'
-            name='female'
-            // value='female'
-            required
+            name='sex'
+            value='Female'
           />
           <RadioText>Female</RadioText>
         </RadioWrapper>
       </Label>
+
       <Label>
         <LabelText>Description *</LabelText>
         <TextAreaInput
+          onChange={event => setDescription(event.target.value)}
           type='text'
           rows='4'
-          placeholder='Type here...' />
+          placeholder='Type here..' />
       </Label>
+
       <Label>
-        <LabelText>Place *</LabelText>
+        <LabelText>Price *</LabelText>
         <Input
-          type='text'
-          placeholder='Write your city here'
+          onChange={event => setPrice(event.target.value)}
+          type='number'
+          placeholder='SEK'
+          required
         />
       </Label>
 
       <Label>
-        <LabelText>E-mail *</LabelText>
+        <LabelText>Location *</LabelText>
         <Input
-          placeholder='mail@mail.com'
+          onChange={event => setLocation(event.target.value)}
+          type='text'
+          placeholder='Stockholm, Göteborg...'
           required
-          minLength='5'
-          maxLength='100'
+        />
+      </Label>
+
+      <Label>
+        <LabelText>Phone *</LabelText>
+        <Input
+          onChange={event => setPhone(event.target.value)}
+          placeholder='Phone number'
+          required
         />
       </Label>
       <Button type='submit' title='Submit'

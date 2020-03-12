@@ -9,6 +9,7 @@ export const dogdata = createSlice({
     dogBreed: null,
     dogBreeds: [],
     dogBreedFilter: "",
+    message: null,
 
   },
 
@@ -34,6 +35,11 @@ export const dogdata = createSlice({
     },
     setDogBreedFilter: (state, action) => {
       state.dogBreedFilter = action.payload
+    },
+
+    message: (state, action) => {
+      // Takes all form values from adsForm and adds to array of dogs
+      state.message.push(action.payload)
     },
   }
 })
@@ -80,6 +86,23 @@ export const fetchDogBreeds = (query) => {
       .then(res => res.json())
       .then(dogBreeds => {
         dispatch(dogdata.actions.setDogBreeds(dogBreeds))
+      })
+  }
+}
+
+
+// dogAd = the formvalues from dispatch on adsform submit
+export const createDogAd = (dog) => {
+  return dispatch => {
+    fetch(`http://localhost:8080/dog`, {
+      method: 'POST',
+      body: JSON.stringify(dog),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(res => res.json())
+      .then((json) => {
+        console.log("createDogAd - response:", json)
+        dispatch(dogdata.actions.message(json))
       })
   }
 }
