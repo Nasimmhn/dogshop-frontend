@@ -8,6 +8,7 @@ export const userdata = createSlice({
     isRegistered: false,
     isLoggedin: false,
     isAuthenticated: false,
+    // isLoginFailed: false,
 
   },
   reducers: {
@@ -31,7 +32,11 @@ export const userdata = createSlice({
     },
     authenticating: (state, action) => {
       state.isAuthenticated = true
-    }
+    },
+    // setLoginFailed: (state, action) => {
+    //   state.isLoginFailed = action.payload
+    // }
+
   }
 })
 
@@ -70,7 +75,12 @@ export const loginUser = (email, password) => {
     })
       .then(res => res.json())
       .then(json => {
+        // if (json === true) {
         dispatch(userdata.actions.loggingIn(json))
+        // }
+        // else {
+        // dispatch(userdata.actions.setLoginFailed(true))
+        // }
       })
       .catch(err => console.error('error', err))
   }

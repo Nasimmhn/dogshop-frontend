@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
 // Component
-import { MemberArea } from '../components/MemberArea'
+import { PrivateRoute } from '../components/PrivateRoute'
 
 // From reducer
-import { authUser } from 'reducers/userdata'
+import { authUser } from '../reducers/userdata'
 
 
 
@@ -26,7 +26,9 @@ export const MemberPage = () => {
 
   return (
     <>
-      {isLoggedin ? <MemberArea /> : <Redirect to="/login" />}
+      {isLoggedin ?
+        < PrivateRoute /> :
+        <Redirect to="/login" />}
     </>
   )
 }

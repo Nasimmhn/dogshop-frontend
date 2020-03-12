@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 // Material UI 
 import { makeStyles } from '@material-ui/core/styles'
@@ -13,6 +13,7 @@ import { loginUser } from 'reducers/userdata'
 
 export const LoginForm = () => {
   const dispatch = useDispatch()
+  // const isloginFailed = useSelector(state => state.userdata.isLoginFailed)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const classes = useStyles() // Need this to make a custom styling on inputs
@@ -55,6 +56,7 @@ export const LoginForm = () => {
           Login
         </Button>
       </Form>
+      {/* {isloginFailed && <FailedText>Incorrect user and/or password.</FailedText>} */}
     </>
   )
 }
@@ -98,4 +100,11 @@ const InputWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background: red; */
+`
+
+
+const FailedText = styled.p`
+  font-size: 16px;
+  color: red;
+  margin:5px 0;
 `
