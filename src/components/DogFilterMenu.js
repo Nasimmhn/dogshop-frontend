@@ -45,7 +45,6 @@ const priceRangeMarks = [
 export const DogFilterMenu = () => {
   const dispatch = useDispatch()
 
-  // // const [age, setAge] = useState('')
   const [sex, setSex] = useState({ value: "" })
   const [race, setRace] = useState('')
   const [size, setSize] = useState([])

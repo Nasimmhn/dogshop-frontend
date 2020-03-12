@@ -26,7 +26,7 @@ export const MemberPage = () => {
 
   return (
     <>
-      {!isLoggedin ?
+      {isLoggedin ?
         < MemberArea /> :
         <Redirect to="/login" />}
     </>

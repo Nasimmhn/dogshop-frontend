@@ -1,30 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import styled from 'styled-components/macro'
-import { useDispatch } from 'react-redux'
 import Select from 'react-select'
-import { createDogAd } from '../reducers/dogdata'
+
+// From reducer
+import { createDogAd, fetchDogBreeds } from '../reducers/dogdata'
+
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
 
 
-
-
-
-const BreedOptions = [
-  { value: 'Chihuahua', label: 'Chihuahua' },
-  { value: 'Golder retriver', label: 'Golder retriver' },
-  { value: 'Akita', label: 'Akita' },
-  { value: 'Toy poodle', label: 'Toy poodle' },
-  { value: 'Jack Russell Terrier', label: 'Jack Russell Terrier' },
-  { value: 'Siberian Husky', label: 'Siberian Husky' },
-]
-
-
+let BreedOptions = []
 
 export const MemberAddDog = () => {
-  const dispatch = useDispatch()
-  const [name, setName] = useState('')
-  const [breed, setBreed] = useState('')
-  const [sex, setSex] = useState('')
 
+  const classes = useStyles()
+
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.userdata.user)
+
+  // BreedOptions populated by fetching from API
+  const breeds = useSelector((state) => state.dogdata.dogBreeds)
+  breeds.map((breed) => BreedOptions.push({ "value": breed._id, "label": breed.name }))
+
+  // console.log(breeds)
+  useEffect(() => {
+    dispatch(fetchDogBreeds(""))
+  }, [dispatch])
+
+  const [name, setName] = useState('')
+  const [selectedBreed, setSelectedBreed] = useState('')
+  const [sex, setSex] = useState('')
+  const [birthdate, setBirthdate] = useState('')
 
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
@@ -32,10 +40,20 @@ export const MemberAddDog = () => {
   const [phone, setPhone] = useState('')
 
 
-
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(createDogAd({ sex, breed, price, description, phone })) // Sending the form values to the thunk in reducer
+    let newDog = {
+      "name": name,
+      "race": selectedBreed.value,
+      "sex": sex,
+      "birthdate": birthdate,
+      "description": description,
+      "price": price,
+      "location": location,
+      "phone": phone,
+      "owner": user._id
+    }
+    dispatch(createDogAd(newDog, user)) // Sending the form values to the thunk in reducer
   }
 
 
@@ -43,48 +61,78 @@ export const MemberAddDog = () => {
   return (
     <StyledForm onSubmit={handleSubmit}>
 
-      <Label>
-        <LabelText>Name *</LabelText>
-        <Input
-          onChange={event => setName(event.target.value)}
-          type='text'
-          placeholder='Type name here'
-          required
-        />
-      </Label>
-
-      <Select
-        theme={selectCustomTheme}
-        placeholder={"Select a breed"}
-        options={BreedOptions}
-        onChange={setBreed}
-      />
-
-
-      <Label>
-        <LabelText>Gender *</LabelText>
-        <RadioWrapper>
-          <RadioInput
-            onChange={event => setSex(event.target.value)}
-            type='radio'
-            name='sex'
-            value='Male'
+      <FlexWrapper flexdirection={"column"}>
+        <Label>
+          <LabelText>Name *</LabelText>
+          <Input
+            onChange={event => setName(event.target.value)}
+            type='text'
+            placeholder='Type name here'
+            required
           />
-          <RadioText>Male</RadioText>
-        </RadioWrapper>
-        <RadioWrapper>
-          <RadioInput
-            onChange={event => setSex(event.target.value)}
-            type='radio'
-            name='sex'
-            value='Female'
+        </Label>
+        <Label>
+          <LabelText>Dog breed *</LabelText>
+          <Select
+            theme={selectCustomTheme}
+            placeholder={"Select a dog breed"}
+            options={BreedOptions}
+            onChange={setSelectedBreed}
           />
-          <RadioText>Female</RadioText>
-        </RadioWrapper>
-      </Label>
+        </Label>
+      </FlexWrapper>
 
+      <FlexWrapper flexdirection={"row"}>
+        <FlexWrapper flexdirection={"column"} justify={"space-center"}>
+          <LabelText>Gender *</LabelText>
+
+          <Label htmlFor="male">
+            <RadioWrapper>
+              <RadioInput
+                onChange={event => setSex(event.target.value)}
+                type='radio'
+                id="male"
+                name='sex'
+                value='Male'
+                required
+              />
+              <RadioText>Male</RadioText>
+            </RadioWrapper>
+          </Label>
+          <Label htmlFor="female">
+            <RadioWrapper>
+              <RadioInput
+                onChange={event => setSex(event.target.value)}
+                type='radio'
+                name='sex'
+                id="female"
+                value='Female'
+                required
+              />
+              <RadioText>Female</RadioText>
+            </RadioWrapper>
+          </Label>
+
+
+        </FlexWrapper>
+
+        <Label className={classes.container} noValidate>
+          <LabelText>Birthdate *</LabelText>
+          <TextField
+            id="date"
+            type="date"
+            onChange={event => setBirthdate(event.target.value)}
+            defaultValue={""}
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            required
+          />
+        </Label>
+      </FlexWrapper>
       <Label>
-        <LabelText>Description *</LabelText>
+        <LabelText>Description</LabelText>
         <TextAreaInput
           onChange={event => setDescription(event.target.value)}
           type='text'
@@ -120,8 +168,9 @@ export const MemberAddDog = () => {
           required
         />
       </Label>
-      <Button type='submit' title='Submit'
-      > Submit </Button>
+      <Button type='submit' title='Submit'>
+        Submit
+      </Button>
 
     </StyledForm>
   )
@@ -132,7 +181,7 @@ export const MemberAddDog = () => {
 
 /* ------ STYLING ------ */
 
-// Select custom Theme 
+// Dog breed selector custom theme 
 const selectCustomTheme = (theme) => {
   return {
     ...theme,
@@ -143,6 +192,26 @@ const selectCustomTheme = (theme) => {
     }
   }
 }
+// Styling of date-picker
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 150,
+  },
+}))
+const FlexWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: ${props => props.flexdirection ? props.flexdirection : "row"};;
+  justify-content: ${props => props.justify ? props.justify : "space-between"};
+`
+
 const Button = styled.button`
   font-family: 'Open Sans', sans-serif;
   height: 45px;
@@ -213,7 +282,7 @@ const RadioWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px 0;
+  padding: 1px 0;
 `
 const RadioText = styled.p`
   margin: 0;
@@ -226,6 +295,7 @@ const TextAreaInput = styled.textarea`
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
+  resize: "none";
   border: 2px solid #e6e6e6;
   border-radius: 3px;
   font-size: 14px;
