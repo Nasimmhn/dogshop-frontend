@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 
@@ -32,11 +32,11 @@ export const DogList = () => {
   return (
     <CardsWrapper>
       {allDogs.map((dog) => (
-        <Link key={dog._id} to={`/dog/${dog._id}`}>
+        <Hyperlink key={dog._id} to={`/dog/${dog._id}`}>
           <DogCard
             dog={dog}
           />
-        </Link>
+        </Hyperlink>
       ))}
     </CardsWrapper>
   )
@@ -44,12 +44,40 @@ export const DogList = () => {
 
 /* ------ STYLING ------ */
 
+// const CardsWrapper = styled.div`
+//   width: 100px;
+//   display: flex;
+//   flex-wrap: wrap;
+//   height: 100%;
+//   flex-grow: 1;
+//   flex-flow: wrap;
+
+//   /* @media (max-width: 628px) {
+//     flex-wrap:wrap } 
+//    */
+// `
+
+
 const CardsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
-  height: 100%;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  column-gap: 10px;
+  row-gap: 10px;
+  margin: 10px 0px 10px 10px;
   /* @media (max-width: 628px) {
     flex-wrap:wrap } 
    */
 `
+
+const Hyperlink = styled(Link)`
+  background-color: 'red';
+  color: #b3b3b3;
+  :visited {
+    color: red;
+  }
+  :hover {
+    color: white;
+    transition-duration: 0.3s;
+  }
+`;

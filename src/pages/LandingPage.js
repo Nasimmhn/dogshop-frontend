@@ -13,7 +13,7 @@ import { mainTheme } from 'lib/GlobalStyle'
 export const LandingPage = () => {
   return (
     <>
-      < HeroSection>
+      <HeroSection>
         <InnerText>Top section</InnerText>
       </ HeroSection>
       <SectionWrapper>
@@ -30,7 +30,7 @@ const HeroSection = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 550px;
+  height: 450px;
   background: url('assets/hero.jpg');
   background-size: cover;
   background-position: center;
