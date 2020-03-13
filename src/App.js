@@ -11,9 +11,11 @@ import { DogBreedDetailPage } from 'pages/DogBreedDetailPage'
 import { SignupPage } from 'pages/SignupPage'
 import { LoginPage } from 'pages/LoginPage'
 import { MemberPage } from 'pages/MemberPage'
+
 // Components
 import { NavBar } from 'components/NavBar'
-import { Footer } from './components/Footer'
+import { Footer } from 'components/Footer'
+
 
 // Global style
 import { GlobalStyle } from './lib/GlobalStyle'

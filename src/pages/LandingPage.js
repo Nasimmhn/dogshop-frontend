@@ -1,21 +1,20 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+// import heroImage from '../public/assets/hero.jpg'
 
 // Components
 import { DogList } from 'components/DogList'
 import { DogFilterMenu } from 'components/DogFilterMenu'
 
 
-// import heroImageLarge from '../assets/hero.jpg'
-
 
 
 export const LandingPage = () => {
   return (
     <>
-      <TopSection>
+      < HeroSection>
         <InnerText>Top section</InnerText>
-      </TopSection>
+      </ HeroSection>
       <SectionWrapper>
         <DogFilterMenu />
         <DogList />
@@ -26,17 +25,29 @@ export const LandingPage = () => {
 
 /* ------ STYLING ------ */
 
-const TopSection = styled.section`
+const HeroSection = styled.section`
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 200px;
-  background: #a6b1e1;
+  height: 550px;
+  background: url('assets/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
+  border-top-right-radius:50px;
+  border-top-left-radius:50px;
+  @media (min-width: 450px) {
+    background-size: cover;
+    background-position: center;
+  
+  }
 `
 
 const SectionWrapper = styled.section`
   flex-grow: 1;
   width: 100%;
   display: flex;
-  background-color: beige;
+  background-color: #E9DBDA;
   
 `
 
