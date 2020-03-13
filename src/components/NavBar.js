@@ -64,16 +64,18 @@ const ButtonWrapper = styled.div`
 `
 const NavButton = styled.button`
   background:transparent;
-  color: #413c69;
+  color:  #393D52;
   padding: 8px;
   width:100px;
   font-size:15px;
-  transition: 0.6s; 
+  font-weight:bold;
+  transition: 0.2s; 
   border-style: none;
   border-bottom: 3px solid transparent;
   cursor: pointer;
   &:hover {
-    background: rgba(255,255,255, 0.2);
-    border-bottom: 3px solid #413c69;
+    background: #5B5566;
+    color: #F0F1F8;
+    border-bottom: 3px solid #F1CFCD;
   }
 `

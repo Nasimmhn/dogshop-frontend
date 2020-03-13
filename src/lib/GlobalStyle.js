@@ -1,12 +1,33 @@
 import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components/macro'
 
+export const mainTheme = ({
+  primary: '#196DFA',
+  secondary: '#BF8F7E',
+  tertiary: '#CC5D2F',
+  quaternary: '#5D412C',
+  quinary: '#EFAEA9',
+  blackish: '#17140D',
+  whiteish: '#F2EFEF',
+  grayish: '#BAAEAA',
+})
+
+/*
+#196DFA - blue           primary
+#BF8F7E - dark beige     seconary
+#CC5D2F - orange         tertiary
+#5D412C - brown          quaternary
+#17140D - blackish       blackish
+#EFAEA9 - pink           quinary
+#BAAEAA - gray           grayish
+#F2EFEF - whiteish       whiteish
+*/
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    color: black;
+    color: ${mainTheme.blackish};
     font-family: 'Roboto';
-    background-color: #F0F1F8;
+    background-color: ${mainTheme.whiteish};
     height:100% !important;
     min-height: 100vh;
     width:100%;
@@ -35,4 +56,7 @@ export const GlobalStyle = createGlobalStyle`
     margin:0px;
   }
 `
+
+
+
 

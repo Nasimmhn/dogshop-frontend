@@ -7,7 +7,8 @@ import { DogList } from 'components/DogList'
 import { DogFilterMenu } from 'components/DogFilterMenu'
 
 
-
+// Color theme
+import { mainTheme } from 'lib/GlobalStyle'
 
 export const LandingPage = () => {
   return (
@@ -47,13 +48,14 @@ const SectionWrapper = styled.section`
   flex-grow: 1;
   width: 100%;
   display: flex;
-  background-color: #E9DBDA;
-  
+  background-color: ${mainTheme.whiteish} ;
+  flex-direction: row;
 `
 
 const InnerText = styled.p`
-font-size: 22px;
-width:100%;
-text-align: center;
+  color: ${mainTheme.blackish};
+  font-size: 22px;
+  width:100%;
+  text-align: center;
 `
 

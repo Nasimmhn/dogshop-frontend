@@ -27,9 +27,9 @@ export const DogCard = ({ dog }) => {
           </FlexWrapper>
           <GridWrapper>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /> {dog.sex}</SubTitle>
+            <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></SubTitle>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dog.race.group.join(', ')}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dog.race.size}</SubTitle>
+            {/* <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dog.race.size}</SubTitle> */}
           </GridWrapper>
         </TitleBar>
         <FlexWrapper justify={"center"}>
@@ -45,8 +45,7 @@ export const DogCard = ({ dog }) => {
 /* ------ STYLING ------ */
 
 const Card = styled.div`
-  background: #fff;
-  padding: 10px 10px 0px 10px;
+  background: #E9DBDA;
   -webkit-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
@@ -55,6 +54,8 @@ const Card = styled.div`
   margin: 15px 15px 0px 15px;
   display: flex;
   flex-direction: column;
+ 
+  
 `
 
 const FlexWrapper = styled.div`
@@ -87,16 +88,17 @@ const TitleBar = styled.div`
   align-items: center;
 `
 const Image = styled.img`
-  align-self: center;
-  justify-self: center;
   width: 100%;
   -webkit-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
   -moz-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
   box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
-  border-radius: 20px;
+  
 `
 const Content = styled.div`
   padding: 10px 20px 5px 20px;
+  background-color: #9497A7;
+ 
+
 `
 const BottomTitle = styled.div`
   padding: 10px;

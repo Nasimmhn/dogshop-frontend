@@ -12,6 +12,7 @@ export const Footer = () => {
     <>
       <StyledFooter>
         <InnerText>This is footer</InnerText>
+        <img src="assets/color-theme.png" />
       </StyledFooter>
     </>
   )

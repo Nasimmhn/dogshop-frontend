@@ -7,10 +7,17 @@ import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
 
 // Material UI 
-import { makeStyles } from '@material-ui/core/styles'
+import { withStyles, makeStyles } from '@material-ui/core/styles'
 import { Typography, Slider } from '@material-ui/core'
+
+// Color theme
+import { mainTheme } from 'lib/GlobalStyle'
+
 // Reducer
 import { dogdata } from '../reducers/dogdata'
+
+
+
 
 const sexOptions = [
   { value: '', label: 'Both' },
@@ -84,59 +91,61 @@ export const DogFilterMenu = () => {
 
   return (
     <FilterWrapper>
-      <h3> Filter </h3>
-
-      <StyledInput
-        placeholder="Search by breed ..."
-        type="text"
-        onInput={(e) => setRace(e.target.value)}
-      />
-
-      <Select
-        components={makeAnimated()}
-        theme={selectCustomTheme}
-        placeholder={"Select Gender"}
-        options={sexOptions}
-        onChange={setSex}
-      />
-
-      <Select
-        components={makeAnimated()}
-        theme={selectCustomTheme}
-        placeholder={"Select Group(s)"}
-        options={groupOptions}
-        onChange={setGroup}
-        noOptionsMessage={() => "No other groups"}
-        isMulti
-        autoFocus
-        isSearchable
-      />
-
-      <Select
-        components={makeAnimated()}
-        theme={selectCustomTheme}
-        placeholder={"Select Size"}
-        options={sizeOptions}
-        onChange={setSize}
-        noOptionsMessage={() => "No other sizes"}
-        isMulti
-        autoFocus
-      />
-      <div className={classes.priceRange}>
-        <Typography id="range-slider" gutterBottom>
-          Select Price Range
-        </Typography>
-        <Slider
-          value={priceRange}
-          onChange={handlePriceChange}
-          valueLabelDisplay="auto"
-          aria-labelledby="range-slider"
-          min={0}
-          max={40000}
-          step={500}
-          marks={priceRangeMarks}
+        <div>
+          <StyledInput
+            placeholder="Search by breed ..."
+            type="text"
+            onInput={(e) => setRace(e.target.value)}
+          />
+        </div>
+     
+        <Select
+          components={makeAnimated()}
+          theme={selectCustomTheme}
+          placeholder={"Select Group(s)"}
+          options={groupOptions}
+          onChange={setGroup}
+          noOptionsMessage={() => "No other groups"}
+          isMulti
+          autoFocus
+          isSearchable
         />
-      </div>
+
+        <Select
+          components={makeAnimated()}
+          theme={selectCustomTheme}
+          placeholder={"Select Gender"}
+          options={sexOptions}
+          onChange={setSex}
+        />
+        <Select
+          components={makeAnimated()}
+          theme={selectCustomTheme}
+          placeholder={"Select Size"}
+          options={sizeOptions}
+          onChange={setSize}
+          noOptionsMessage={() => "No other sizes"}
+          isMulti
+          autoFocus
+        />
+
+        <div className={classes.priceRange}>
+          <Typography id="range-slider" gutterBottom>
+            Price Range
+          </Typography>
+          <PriceSlider
+            value={priceRange}
+            onChange={handlePriceChange}
+            valueLabelDisplay="auto"
+            aria-labelledby="range-slider"
+            min={0}
+            max={40000}
+            step={500}
+            marks={priceRangeMarks}
+            valueLabelDisplay="off"
+          />
+        </div >
+     
     </FilterWrapper>
   )
 }
@@ -145,41 +154,41 @@ export const DogFilterMenu = () => {
 /* ------ STYLING ------ */
 
 
-// Select custom Theme 
+// Sets custom theme for selectors
 const selectCustomTheme = (theme) => {
   return {
     ...theme,
     colors: {
       ...theme.colors,
-      primary25: '#a6b1e1',
-      primary: '#a6b1e1',
-    }
+      primary25: mainTheme.secondary, // hovering
+      primary: mainTheme.secondary, // selected bg
+      primary50: mainTheme.secondary, // highliht after selection bg
+      neutral80: mainTheme.blackish, // selected text
+      neutral10: mainTheme.secondary, // selected in multiselector
+      dangerLight: mainTheme.tertiary, // remove button 
+      danger: mainTheme.whiteish, // remove button 
+    },
+
   }
 }
-
 // Price Range custom style 
 const useStyles = makeStyles({
   priceRange: {
-    width: '90%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center'
+    color: mainTheme.blackish,
   },
 
 });
 
 const FilterWrapper = styled.div`
   width: 300px;
-  background: lightblue;
-  color: #333;
   padding: 10px;
-  display: flex;
-  margin-top: 15px;
-  flex-direction: column;
+  background: ${mainTheme.secondary};
+  color: ${mainTheme.blackish};
   & > * {
-    margin: 8px 0px;
+    margin: 10px;
   }
   /* @media (min-width: 668px) {
     width: 48%;
@@ -192,15 +201,60 @@ const FilterWrapper = styled.div`
   } */
 `
 
+
+
 const StyledInput = styled.input`
   font-size: 16px;
-  padding: 2px 8px;
+  padding: 0px 8px;
+  border: 1px solid transparent;
+  outline: none;
   box-sizing:border-box;
-  color:rgb(51, 51, 51);
+  color: ${mainTheme.blackish};
   font-family:Roboto;
+  border-radius: 5px;
   height:38px;
-  min-height:38px;
+  & :focus {
+    box-shadow: 0 0 4px ${mainTheme.secondary};
+    border: 1px solid ${mainTheme.secondary};
+  }
 
 `
+
+
+const PriceSlider = withStyles({
+  root: {
+    color: mainTheme.quaternary, // color of slider
+    height: 0,
+    width: 'calc(100% - 20px)',
+  },
+  thumb: {
+    height: 24,
+    width: 24,
+    backgroundColor: mainTheme.quaternary, // bg color of thumb
+    border: `2px solid ${mainTheme.secondary}`, // border of thumb
+    marginTop: -8,
+    marginLeft: -12,
+    '&:focus,&:hover,&$active': {
+      boxShadow: 'inherit',
+      backgroundColor: mainTheme.quaternary, // bg color of thumb
+      border: `2px solid ${mainTheme.blackish}`, // border of thumb
+    },
+  },
+  active: {
+    color: "transparent",
+  },
+  valueLabel: {
+    left: 'calc(-50% + 4px)',
+  },
+  track: {
+    height: 8,
+    borderRadius: 4,
+
+  },
+  rail: {
+    height: 8,
+    borderRadius: 4,
+  },
+})(Slider);
 
 

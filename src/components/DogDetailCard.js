@@ -27,7 +27,7 @@ export const DogDetailCard = ({ dog }) => {
           </FlexWrapper>
           <GridWrapper>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /> {dog.sex}</SubTitle>
+            <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></SubTitle>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dog.race.group.join(', ')}</SubTitle>
             <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dog.race.size.join(', ')}</SubTitle>
           </GridWrapper>
@@ -47,6 +47,8 @@ export const DogDetailCard = ({ dog }) => {
 
 
 /* ------ STYLING ------ */
+
+
 
 const Card = styled.div`
   background: #fff;
