@@ -12,6 +12,17 @@ export const mainTheme = ({
   grayish: '#BAAEAA',
 })
 
+// export const mainTheme = ({
+//   primary: '#196DFA',
+//   secondary: '#BF8F7E',
+//   tertiary: '#CC5D2F',
+//   quaternary: '#171A2B',
+//   quinary: '#EFAEA9',
+//   blackish: '#17140D',
+//   whiteish: '#F2EFEF',
+//   grayish: '#BAAEAA',
+// })
+
 /*
 #196DFA - blue           primary
 #BF8F7E - dark beige     seconary

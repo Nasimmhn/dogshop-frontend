@@ -44,24 +44,11 @@ export const DogList = () => {
 
 /* ------ STYLING ------ */
 
-// const CardsWrapper = styled.div`
-//   width: 100px;
-//   display: flex;
-//   flex-wrap: wrap;
-//   height: 100%;
-//   flex-grow: 1;
-//   flex-flow: wrap;
-
-//   /* @media (max-width: 628px) {
-//     flex-wrap:wrap } 
-//    */
-// `
-
-
 const CardsWrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-rows: repeat( auto-fit, minmax(300px, 300px) );
   column-gap: 10px;
   row-gap: 10px;
   margin: 10px 0px 10px 10px;
@@ -72,12 +59,17 @@ const CardsWrapper = styled.div`
 
 const Hyperlink = styled(Link)`
   background-color: 'red';
-  color: #b3b3b3;
-  :visited {
+  text-decoration: none;
+  & :hover {
+    color: unset;
+  }
+
+  /* color: #b3b3b3; */
+  /* :visited {
     color: red;
   }
   :hover {
     color: white;
     transition-duration: 0.3s;
-  }
+  } */
 `;

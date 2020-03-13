@@ -29,6 +29,7 @@ import { userdata } from './reducers/userdata'
 // Object with path to images
 export const PATHS = {
   dog_races: "/assets/dog_races/",
+  dogs: "/assets/dogs/"
 }
 
 

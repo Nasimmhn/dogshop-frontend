@@ -7,34 +7,33 @@ import moment from 'moment'
 
 // Path to 
 import { PATHS } from 'App'
+import { mainTheme } from 'lib/GlobalStyle'
 
 export const DogCard = ({ dog }) => {
 
-
+  console.log(PATHS.dogs.concat(dog.images.url))
   return (
 
     <Card>
-      <Image src={PATHS.dog_races.concat(dog.images.url)} />
+      <Image filepath={PATHS.dogs.concat(dog.images.url)} />
       <Content>
         <TitleBar>
-          <FlexWrapper>
+          {/* <FlexWrapper>
             <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {dog.location}</SubTitle>
             <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
+          </FlexWrapper> */}
+          <FlexWrapper flexdirection={"column"} justify={"space-around"}>
+            <Title>{dog.name} <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></Title>
+            <SubTitle>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></SubTitle>
           </FlexWrapper>
-          <FlexWrapper flexdirection={"column"}>
-            <Title>{dog.name} <FontAwesomeIcon icon={faPaw} /></Title>
-            <Title>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></Title>
-          </FlexWrapper>
-          <GridWrapper>
+          {/* <GridWrapper>
             <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>
             <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></SubTitle>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dog.race.group.join(', ')}</SubTitle>
-            {/* <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dog.race.size}</SubTitle> */}
-          </GridWrapper>
+          </GridWrapper> */}
         </TitleBar>
-        <FlexWrapper justify={"center"}>
+        {/* <FlexWrapper justify={"center"}>
           <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(dog.addedAt)).fromNow())}</BottomTitle>
-        </FlexWrapper>
+        </FlexWrapper> */}
       </Content>
     </Card >
 
@@ -45,20 +44,17 @@ export const DogCard = ({ dog }) => {
 /* ------ STYLING ------ */
 
 const Card = styled.div`
-  background: #E9DBDA;
-  -webkit-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
-  -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
-  box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
-  border-radius: 15px;
-  min-width: 250px;
+  background: transparent;
   display: flex;
   flex-direction: column;
+  height: 300px;
 `
 
 const FlexWrapper = styled.div`
+  height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: ${props => props.flexdirection ? props.flexdirection : "row"};;
+  flex-direction: ${props => props.flexdirection ? props.flexdirection : "row"};
   justify-content: ${props => props.justify ? props.justify : "space-between"};
 `
 const GridWrapper = styled.div`
@@ -69,33 +65,52 @@ const GridWrapper = styled.div`
 `
 
 const Title = styled.h1`
-  width: 100%;
+  color: ${mainTheme.tertiary};
   text-align: center;
-  margin: 17px 0px;
+  margin: 0px 0px;
   font-size: 23px;
 `
 const SubTitle = styled.p`
-  margin: 3px 0px;
-  color: #6b6b6b;
-  justify-self: ${props => props.align};
+  margin: 0px 0px;
+  color: ${mainTheme.quaternary};
+  text-align: center;
+  justify-self: center;
 `
 const TitleBar = styled.div`
+  height: 100%;
+
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 `
-const Image = styled.img`
+const Image = styled.div`
   width: 100%;
-  -webkit-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
-  -moz-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
-  box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
+  height: 300px;
+  background-image: url(${props => props.filepath ? props.filepath : "/assets/dogs/no-dog.jpg"});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px 20px 30px 20px;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
   
 `
 const Content = styled.div`
-  padding: 10px 20px 5px 20px;
-  background-color: #9497A7;
- 
-
+  height: 109px;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 0px 0px 20px 20px;
+  z-index: 2px;
+  position: relative;
+  bottom: 109px;
+  margin-bottom: -109px;
+  background-image: url("/assets/card-overlay.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  
 `
 const BottomTitle = styled.div`
   padding: 10px;
