@@ -183,7 +183,7 @@ const useStyles = makeStyles({
 });
 
 const FilterWrapper = styled.div`
-  width: 300px;
+  width: 400px;
   padding: 10px;
   background: ${mainTheme.secondary};
   color: ${mainTheme.blackish};
@@ -204,6 +204,7 @@ const FilterWrapper = styled.div`
 
 
 const StyledInput = styled.input`
+  width: 100%;
   font-size: 16px;
   padding: 0px 8px;
   border: 1px solid transparent;
