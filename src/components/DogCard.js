@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components/macro"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRulerCombined, faDog, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
 
 import moment from 'moment'
 

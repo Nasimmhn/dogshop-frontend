@@ -136,7 +136,6 @@ export const DogFilterMenu = () => {
         <PriceSlider
           value={priceRange}
           onChange={handlePriceChange}
-          valueLabelDisplay="auto"
           aria-labelledby="range-slider"
           min={0}
           max={40000}

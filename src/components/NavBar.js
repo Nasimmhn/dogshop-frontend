@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 
 // Global color theme
-import { mainTheme } from 'lib/GlobalStyle'
+import { mainTheme } from '../lib/GlobalStyle'
 
 export const NavBar = () => {
   const isLoggedin = useSelector((state) => state.userdata.isLoggedin)
@@ -18,18 +18,15 @@ export const NavBar = () => {
     <NavSection>
       <HamburgerContainer>
         <Menu styles={burgerStyle} >
-          <Link to={'/'} tabIndex='-1'> Dogs </Link>
-          <Link to={'/dogbreeds'} tabIndex='-1'> Dogbreeds </Link>
-          <Link to={'/members'} tabIndex='-1'> Members </Link>
-
-          {!isLoggedin && <Link to={'/login'} tabIndex='-1'> Login </Link>}
-          {!isLoggedin && <Link to={'/signup'} tabIndex='-1'> Sign Up </Link>}
-          {isLoggedin && <Link to={'/logout'} tabIndex='-1'> Logout </Link>}
-
+          <a id="dogs" className="menu-item" href="/">Dogs</a>
+          <a id="dogbreeds" className="menu-item" href="/dogbreeds">Dog breeds</a>
+          <a id="members" className="menu-item" href="/members">Members</a>
+          {!isLoggedin && <a id="login" className="menu-item" href="/login">Login</a>}
+          {!isLoggedin && <a id="signup" className="menu-item" href="/signup">Signup</a>}
+          {isLoggedin && <a id="logout" className="menu-item" href="/logout">Logout</a>}
+          
         </Menu>
       </HamburgerContainer>
-
-
 
       <NavItems>
         <ButtonWrapper>
@@ -82,10 +79,11 @@ var burgerStyle = {
   },
   bmCrossButton: {
     height: '24px',
-    width: '24px'
+    width: '24px',
   },
   bmCross: {
     background: mainTheme.whiteish, // Cross to close hamburger
+
   },
   bmMenuWrap: {
     position: 'fixed',
@@ -94,20 +92,22 @@ var burgerStyle = {
   bmMenu: {
     background: mainTheme.secondary,
     padding: '2.5em 1.5em 0',
-    fontSize: '1.15em'
+    fontSize: '1.5em'
   },
   bmMorphShape: {
     fill: mainTheme.quinary,
   },
   bmItemList: {
     color: mainTheme.whiteish,
-    padding: '0.8em'
+    padding: '0.8em',
+    display: 'flex',
+    flexDirection: 'column',
+
   },
   bmItem: {
     display: 'block',
     padding: '10px',
     color: mainTheme.blackish,
-    fontSize: '30px',
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.5)' // Overlay
@@ -119,11 +119,10 @@ const HamburgerContainer = styled.div`
   @media (min-width: 0px) and (max-width: 668px) {
     display: block;
   }
-
 `
+
 const NavSection = styled.section`
   width:100%;
-
 `
 
 const NavItems = styled.nav`
