@@ -4,45 +4,69 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRulerCombined, faDog, faPaw, faCalendarAlt, faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components/macro'
 
+// Paths to assets
 import { PATHS } from 'App'
-// fetchDog function (from reducer)
 
+// Global theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 export const DogBreedDetailCard = ({ dogBreed }) => {
   return (
 
+    <CardWrapper>
 
-    <Card>
-      <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
-      <Content>
-        <TitleBar>
+      <BreedCard>
+        <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
+        <Content>
+          <TitleBar>
+            <FlexWrapper>
+              <SubTitle><FontAwesomeIcon icon={faAddressCard} /> {dogBreed.name}</SubTitle>
+            </FlexWrapper>
+            <FlexWrapper>
+              <Title>{dogBreed.name} <FontAwesomeIcon icon={faPaw} /></Title>
+            </FlexWrapper>
+            <GridWrapper>
+              <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dogBreed.group.join(', ')}</SubTitle>
+              <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dogBreed.size.join(', ')}</SubTitle>
+            </GridWrapper>
+          </TitleBar>
           <FlexWrapper>
-            <SubTitle><FontAwesomeIcon icon={faAddressCard} /> {dogBreed.name}</SubTitle>
+            <BottomTitle> {dogBreed.description}</BottomTitle>
           </FlexWrapper>
-          <FlexWrapper>
-            <Title>{dogBreed.name} <FontAwesomeIcon icon={faPaw} /></Title>
+          <FlexWrapper justify={"center"}>
+            <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"temp"}</BottomTitle>
           </FlexWrapper>
-          <GridWrapper>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dogBreed.group.join(', ')}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dogBreed.size.join(', ')}</SubTitle>
-          </GridWrapper>
-        </TitleBar>
-        <FlexWrapper>
-          <BottomTitle> {dogBreed.description}</BottomTitle>
-        </FlexWrapper>
-        <FlexWrapper justify={"center"}>
-          <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"temp"}</BottomTitle>
-        </FlexWrapper>
-      </Content>
-    </Card >
-
+        </Content>
+      </BreedCard >
+    </CardWrapper>
   )
 }
 
 
 /* ------ STYLING ------ */
+const CardWrapper = styled.div`
+  flex-grow: 1;
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+ /* Tablet & mobile */
+  @media (min-width: 0px) and (max-width: 1145px) {
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+  }
+  /* Mobile */
+  @media (max-width: 375px) {
+    margin: 50px 0px;;
+    padding: 10px 10px 30px 10px;
+  }
+`
 
-const Card = styled.div`
+const BreedCard = styled.div`
   background: #fff;
   padding: 10px 10px 0px 10px;
   -webkit-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);

@@ -5,8 +5,13 @@ import styled from 'styled-components/macro'
 
 import { DogBreedDetailCard } from '../components/DogBreedDetailCard'
 
-// fetchDogBreed function (from reducer)
-import { fetchDogBreed } from 'reducers/dogdata'
+
+// Global color theme
+import { mainTheme } from '../lib/GlobalStyle'
+
+// fetchDogBreed (reducer)
+import { fetchDogBreed } from '../reducers/dogdata'
+
 
 export const DogBreedDetailPage = () => {
   const dispatch = useDispatch()
@@ -39,6 +44,19 @@ const SectionWrapper = styled.section`
   flex-grow: 1;
   width: 100%;
   display: flex;
-  background-color: beige;
-  justify-content: center;
+  background-color: ${mainTheme.quinary} ;
+  flex-direction: row;
+  border-radius: 50px 50px 50px 50px;
+
+
+  /* Tablet  & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px 50px 50px 50px;
+  }
+  /* Mobile */
+  @media (max-width: 375px) {
+    border-radius: 0px;
+  }
 `

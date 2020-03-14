@@ -15,7 +15,7 @@ export const DogDetailCard = ({ dog }) => {
 
   return (
 
-    <CardsWrapper>
+    <CardWrapper>
       <SmallCardWrapper>
         <ContactCard>
           <InfoContainer>
@@ -88,7 +88,7 @@ export const DogDetailCard = ({ dog }) => {
 
 
 
-    </CardsWrapper>
+    </CardWrapper>
 
 
   )
@@ -110,7 +110,7 @@ const GridWrapper = styled.div`
     color: ${mainTheme.blackish}
   }
 `
-const CardsWrapper = styled.div`
+const CardWrapper = styled.div`
   flex-grow: 1;
   padding: 40px;
   border-radius: 15px;

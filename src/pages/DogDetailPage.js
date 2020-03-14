@@ -6,11 +6,12 @@ import styled from 'styled-components/macro'
 // Components
 import { DogDetailCard } from '../components/DogDetailCard'
 
-// fetchDog function (from reducer)
-import { fetchDog } from 'reducers/dogdata'
-
 // Global color theme
 import { mainTheme } from '../lib/GlobalStyle'
+
+// fetchDog function ( reducer)
+import { fetchDog } from '../reducers/dogdata'
+
 
 export const DogDetailPage = () => {
   const dispatch = useDispatch()
