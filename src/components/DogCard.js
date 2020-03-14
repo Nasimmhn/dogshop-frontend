@@ -7,7 +7,9 @@ import moment from 'moment'
 
 // Path to 
 import { PATHS } from 'App'
-import { mainTheme } from 'lib/GlobalStyle'
+
+// Global theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 export const DogCard = ({ dog }) => {
 
@@ -22,7 +24,7 @@ export const DogCard = ({ dog }) => {
             <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {dog.location}</SubTitle>
             <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
           </FlexWrapper> */}
-          <FlexWrapper flexdirection={"column"} justify={"space-around"}>
+          <FlexWrapper flexdirection={"column"} justify={"space-evenly"}>
             <Title>{dog.name} <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></Title>
             <SubTitle>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></SubTitle>
           </FlexWrapper>
@@ -67,7 +69,7 @@ const GridWrapper = styled.div`
 const Title = styled.h1`
   color: ${mainTheme.tertiary};
   text-align: center;
-  margin: 0px 0px;
+  margin: 0px 0px 0px 0px;
   font-size: 23px;
 `
 const SubTitle = styled.p`
@@ -96,7 +98,6 @@ const Image = styled.div`
   -webkit-box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
-  
 `
 const Content = styled.div`
   height: 109px;
@@ -108,6 +109,7 @@ const Content = styled.div`
   bottom: 109px;
   margin-bottom: -109px;
   background-image: url("/assets/card-overlay.svg");
+  background-image: cover;
   background-position: center;
   background-repeat: no-repeat;
   

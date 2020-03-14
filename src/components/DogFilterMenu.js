@@ -91,61 +91,61 @@ export const DogFilterMenu = () => {
 
   return (
     <FilterWrapper>
-        <div>
-          <StyledInput
-            placeholder="Search by breed ..."
-            type="text"
-            onInput={(e) => setRace(e.target.value)}
-          />
-        </div>
-     
-        <Select
-          components={makeAnimated()}
-          theme={selectCustomTheme}
-          placeholder={"Select Group(s)"}
-          options={groupOptions}
-          onChange={setGroup}
-          noOptionsMessage={() => "No other groups"}
-          isMulti
-          autoFocus
-          isSearchable
+      <div>
+        <StyledInput
+          placeholder="Search by breed ..."
+          type="text"
+          onInput={(e) => setRace(e.target.value)}
         />
+      </div>
 
-        <Select
-          components={makeAnimated()}
-          theme={selectCustomTheme}
-          placeholder={"Select Gender"}
-          options={sexOptions}
-          onChange={setSex}
-        />
-        <Select
-          components={makeAnimated()}
-          theme={selectCustomTheme}
-          placeholder={"Select Size"}
-          options={sizeOptions}
-          onChange={setSize}
-          noOptionsMessage={() => "No other sizes"}
-          isMulti
-          autoFocus
-        />
+      <Select
+        components={makeAnimated()}
+        theme={selectCustomTheme}
+        placeholder={"Select Group(s)"}
+        options={groupOptions}
+        onChange={setGroup}
+        noOptionsMessage={() => "No other groups"}
+        isMulti
+        autoFocus
+        isSearchable
+      />
 
-        <div className={classes.priceRange}>
-          <Typography id="range-slider" gutterBottom>
-            Price Range
+      <Select
+        components={makeAnimated()}
+        theme={selectCustomTheme}
+        placeholder={"Select Gender"}
+        options={sexOptions}
+        onChange={setSex}
+      />
+      <Select
+        components={makeAnimated()}
+        theme={selectCustomTheme}
+        placeholder={"Select Size"}
+        options={sizeOptions}
+        onChange={setSize}
+        noOptionsMessage={() => "No other sizes"}
+        isMulti
+        autoFocus
+      />
+
+      <div className={classes.priceRange}>
+        <Typography id="range-slider" gutterBottom>
+          Price Range
           </Typography>
-          <PriceSlider
-            value={priceRange}
-            onChange={handlePriceChange}
-            valueLabelDisplay="auto"
-            aria-labelledby="range-slider"
-            min={0}
-            max={40000}
-            step={500}
-            marks={priceRangeMarks}
-            valueLabelDisplay="off"
-          />
-        </div >
-     
+        <PriceSlider
+          value={priceRange}
+          onChange={handlePriceChange}
+          valueLabelDisplay="auto"
+          aria-labelledby="range-slider"
+          min={0}
+          max={40000}
+          step={500}
+          marks={priceRangeMarks}
+          valueLabelDisplay="off"
+        />
+      </div >
+
     </FilterWrapper>
   )
 }
@@ -183,12 +183,12 @@ const useStyles = makeStyles({
 });
 
 const FilterWrapper = styled.div`
-  width: 400px;
-  padding: 10px;
-  background: ${mainTheme.secondary};
+  padding: 35px;
+  width: 400px !important;
+
   color: ${mainTheme.blackish};
   & > * {
-    margin: 10px;
+    margin: 20px 0px;
   }
   /* @media (min-width: 668px) {
     width: 48%;

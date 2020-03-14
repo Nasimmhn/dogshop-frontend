@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 
-
+// Global theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 
 
@@ -25,16 +26,21 @@ export const Footer = () => {
 /* ------ STYLING ------ */
 
 const StyledFooter = styled.footer`
+  background: ${mainTheme.blackish};
+  border-radius: 50px 50px 0px 0px;
+  margin-top: 50px;
   width:100%;
-  height:150px;
+  height:250px;
   padding: 10px;
   display: flex;
-  background: #a6b1e1;
-  margin-top: 15px;
+  flex-direction: column;
+  align-items: center;
+  
   `
 
 const InnerText = styled.p`
-font-size: 22px;
-width:100%;
-text-align: center;
+  color: ${mainTheme.whiteish};
+  font-size: 22px;
+  width:100%;
+  text-align: center;
 `
