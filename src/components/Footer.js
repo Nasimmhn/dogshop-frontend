@@ -13,7 +13,6 @@ export const Footer = () => {
     <>
       <StyledFooter>
         <InnerText>This is footer</InnerText>
-        <img src="assets/color-theme.png" />
       </StyledFooter>
     </>
   )
@@ -35,8 +34,7 @@ const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  `
+`
 
 const InnerText = styled.p`
   color: ${mainTheme.whiteish};

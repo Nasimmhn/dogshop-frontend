@@ -31,15 +31,15 @@ const HeroSection = styled.section`
   background: url('assets/hero.jpg');
   background-size: cover;
   background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.1);
+  box-shadow: inset 100vmax 0 0 100vmax rgba(23, 20, 13, 0.4);
+  /* filter: brightness(80%); */
+  /* -webkit-filter: sepia(1);
+  filter: sepia(0.1) brightness(70%); */
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 450px;
   border-radius: 50px 50px 0px 0px;
-  @media (min-width: 450px) {
-  
-  }
 `
 
 const SectionWrapper = styled.section`
@@ -49,6 +49,16 @@ const SectionWrapper = styled.section`
   background-color: ${mainTheme.quinary} ;
   flex-direction: row;
   border-radius: 0px 0px 50px 50px;
+  
+  /* Tablet */
+  @media (min-width: 0px) and (max-width: 668px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Mobile */
+  @media (max-width: 375px) {
+    
+  }
 `
 
 const InnerText = styled.p`

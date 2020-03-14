@@ -183,22 +183,21 @@ const useStyles = makeStyles({
 });
 
 const FilterWrapper = styled.div`
+  color: ${mainTheme.blackish};
   padding: 35px;
   width: 400px !important;
 
-  color: ${mainTheme.blackish};
   & > * {
     margin: 20px 0px;
   }
-  /* @media (min-width: 668px) {
-    width: 48%;
+  /* Tablet */
+  @media (min-width: 0px) and (max-width: 668px) {
+    width: 100% !important;
+    }
+  /* Mobile */
+  @media (max-width: 375px) {  
+    padding: 35px 10px; 
   }
-  @media (min-width: 800px) {
-    width: 32%;
-  }
-  @media (min-width: 992px) {
-    width: 23%;
-  } */
 `
 
 

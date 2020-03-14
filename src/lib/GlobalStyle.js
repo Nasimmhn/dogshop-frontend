@@ -37,16 +37,28 @@ export const mainTheme = ({
 export const GlobalStyle = createGlobalStyle`
   body {
     color: ${mainTheme.blackish};
-    font-family: 'Roboto';
     background-color: ${mainTheme.whiteish};
     height:100% !important;
     min-height: 100vh;
-    width:100%;
-    min-width: 340px;
+    width: 100%;
+    min-width: 250px;
+
+    font-family: 'Roboto';
+    
     display:flex;
     flex-direction:column;
     justify-content:space-between;
     padding: 0px 50px;
+
+    /* Tablet */
+    @media (min-width: 0px) and (max-width: 668px) {
+      background-color: blue;
+      padding: 0px 0px;
+    }
+    /* Mobile */
+    @media (max-width: 375px) {
+      background-color: red;      
+    }
   } 
 
   #root {

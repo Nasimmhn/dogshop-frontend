@@ -96,6 +96,7 @@ const Card = styled.div`
     z-index: 5;
     transition: 0.4s;
   }
+  
 `
 
 const Image = styled.div`
