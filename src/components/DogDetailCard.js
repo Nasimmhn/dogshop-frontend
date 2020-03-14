@@ -46,6 +46,9 @@ export const DogDetailCard = ({ dog }) => {
               <FontAwesomeIcon icon={faRulerCombined} /><SubTitle> {dog.race.size.join(', ')}</SubTitle>
 
             </GridWrapper>
+            <FlexWrapper justify={'center'}>
+              <a href={`/dogbreed/${dog.race._id}`}><ContactButton> Read more</ContactButton ></a>
+            </FlexWrapper>
           </InfoContainer>
         </BreedCard>
       </SmallCardWrapper>

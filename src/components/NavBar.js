@@ -2,6 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 
+// Font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle, faUserPlus, faPaw, faUser, faDog } from '@fortawesome/free-solid-svg-icons'
+
+
 import { useSelector } from 'react-redux'
 
 // Styled components
@@ -31,28 +36,28 @@ export const NavBar = () => {
       <NavItems>
         <ButtonWrapper>
           <Link to={'/'} tabIndex='-1'>
-            <NavButton>Home</NavButton>
+            <NavButton><FontAwesomeIcon icon={faPaw} /> Dogs</NavButton>
           </Link>
           <Link to={'/dogbreeds'} tabIndex='-1'>
-            <NavButton>Dog Breeds</NavButton>
+            <NavButton><FontAwesomeIcon icon={faDog} /> Dog Breeds</NavButton>
           </Link>
         </ButtonWrapper>
         <Link to={'/members'} tabIndex='-1'>
-          <NavButton>Members</NavButton>
+          <NavButton><FontAwesomeIcon icon={faUser} /> Members</NavButton>
         </Link>
         {!isLoggedin &&
           <ButtonWrapper>
             <Link to={'/login'} tabIndex='-1'>
-              <NavButton> Login </NavButton>
+              <NavButton><FontAwesomeIcon icon={faUserCircle} /> Login </NavButton>
             </Link>
             <Link to={'/signup'} tabIndex='-1'>
-              <NavButton> Sign Up</NavButton>
+              <NavButton><FontAwesomeIcon icon={faUserPlus} /> Sign Up</NavButton>
             </Link>
           </ButtonWrapper>
         }
         {isLoggedin &&
           <Link to={'/logout'} tabIndex='-1'>
-            <NavButton> Logout </NavButton>
+            <NavButton><FontAwesomeIcon icon={faUserPlus} />Logout </NavButton>
           </Link>
         }
       </NavItems>
@@ -129,7 +134,7 @@ const NavItems = styled.nav`
  padding: 10px 0px;
  display:flex;
  flex-direction:row;
- justify-content:space-between;
+ justify-content:space-around;
  align-items:center;
  
  @media (min-width: 0px) and (max-width: 668px) {
@@ -151,7 +156,6 @@ const NavButton = styled.button`
   border-radius: 20px;
   color: ${mainTheme.blackish};
   padding: 8px;
-  width:100px;
   font-size:15px;
   font-weight:bold;
   transition: 0.2s; 

@@ -7,11 +7,8 @@ import styled from 'styled-components/macro'
 // Components
 import { DogBreedCard } from 'components/DogBreedCard'
 
-// fetchDogs function (from reducer)
+// fetchDogs from reducer
 import { fetchDogBreeds } from 'reducers/dogdata'
-
-
-
 
 
 export const DogBreedList = () => {
@@ -31,11 +28,9 @@ export const DogBreedList = () => {
   return (
     <BreedListWrapper>
       {allDogBreeds.map((dogBreed) => (
-        <Link key={dogBreed._id} to={`/dogbreed/${dogBreed._id}`}>
-          <DogBreedCard
-            dogBreed={dogBreed}
-          />
-        </Link>
+        <Hyperlink key={dogBreed._id} to={`/dogbreed/${dogBreed._id}`}>
+          <DogBreedCard dogBreed={dogBreed} />
+        </Hyperlink>
       ))}
     </BreedListWrapper>
   )
@@ -48,8 +43,9 @@ const BreedListWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  margin-bottom: 50px;
+`
 
-  /* @media (max-width: 628px) {
-    flex-wrap:wrap } 
-   */
+const Hyperlink = styled(Link)`
+  text-decoration: none;
 `

@@ -9,6 +9,9 @@ import makeAnimated from 'react-select/animated'
 // Reducer
 import { dogdata } from '../reducers/dogdata'
 
+// Global color theme
+import { mainTheme } from 'lib/GlobalStyle'
+
 
 const groupOptions = [
   { value: 'Sport', label: 'Sport' },
@@ -61,14 +64,13 @@ export const DogBreedFilterMenu = () => {
 
   return (
     <FilterWrapper>
-      <h3> Filter </h3>
-
-      <StyledInput
-        placeholder="Search by breed ..."
-        type="text"
-        onInput={(e) => setRace(e.target.value)}
-      />
-
+      <div>
+        <StyledInput
+          placeholder="Search by breed ..."
+          type="text"
+          onInput={(e) => setRace(e.target.value)}
+        />
+      </div>
       <Select
         components={makeAnimated()}
         theme={selectCustomTheme}
@@ -100,50 +102,61 @@ export const DogBreedFilterMenu = () => {
 /* ------ STYLING ------ */
 
 
-// Select custom Theme 
+// Styling selectors
 const selectCustomTheme = (theme) => {
   return {
     ...theme,
     colors: {
       ...theme.colors,
-      primary25: '#a6b1e1',
-      primary: '#a6b1e1',
-    }
+      primary25: mainTheme.secondary, // hovering
+      primary: mainTheme.secondary, // selected bg
+      primary50: mainTheme.secondary, // highliht after selection bg
+      neutral80: mainTheme.blackish, // selected text
+      neutral10: mainTheme.secondary, // selected in multiselector
+      dangerLight: mainTheme.tertiary, // remove button 
+      danger: mainTheme.whiteish, // remove button 
+    },
+
   }
 }
 
 
 const FilterWrapper = styled.div`
-  width: 300px;
-  background: lightblue;
-  color: #333;
-  padding: 10px;
-  display: flex;
-  margin-top: 15px;
-  flex-direction: column;
+  color: ${mainTheme.blackish};
+  border-right: 1px solid ${mainTheme.whiteish};
+  padding: 35px;
+  width: 400px !important;
+
   & > * {
-    margin: 8px 0px;
+    margin: 20px 0px;
   }
-  /* @media (min-width: 668px) {
-    width: 48%;
+  /* Tablet */
+  @media (min-width: 0px) and (max-width: 668px) {
+    width: 100% !important;
+    }
+  /* Mobile */
+  @media (max-width: 375px) {  
+    padding: 35px 10px; 
   }
-  @media (min-width: 800px) {
-    width: 32%;
-  }
-  @media (min-width: 992px) {
-    width: 23%;
-  } */
 `
+
 
 const StyledInput = styled.input`
+  width: 100%;
   font-size: 16px;
-  padding: 2px 8px;
+  padding: 0px 8px;
+  border: 1px solid transparent;
+  outline: none;
   box-sizing:border-box;
-  color:rgb(51, 51, 51);
+  color: ${mainTheme.blackish};
   font-family:Roboto;
+  border-radius: 5px;
   height:38px;
-  min-height:38px;
-
+  & :focus {
+    box-shadow: 0 0 4px ${mainTheme.secondary};
+    border: 1px solid ${mainTheme.secondary};
+  }
 `
+
 
 

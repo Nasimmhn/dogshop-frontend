@@ -10,7 +10,7 @@ import makeAnimated from 'react-select/animated'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 import { Typography, Slider } from '@material-ui/core'
 
-// Color theme
+// Global color theme
 import { mainTheme } from 'lib/GlobalStyle'
 
 // Reducer
@@ -153,7 +153,7 @@ export const DogFilterMenu = () => {
 /* ------ STYLING ------ */
 
 
-// Sets custom theme for selectors
+// Styling selectors
 const selectCustomTheme = (theme) => {
   return {
     ...theme,
@@ -216,7 +216,6 @@ const StyledInput = styled.input`
     box-shadow: 0 0 4px ${mainTheme.secondary};
     border: 1px solid ${mainTheme.secondary};
   }
-
 `
 
 

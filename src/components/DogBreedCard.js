@@ -3,14 +3,18 @@ import styled from 'styled-components/macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRulerCombined, faDog } from '@fortawesome/free-solid-svg-icons'
 
+// Paths to assets
 import { PATHS } from 'App'
+
+// Global theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 
 export const DogBreedCard = ({ dogBreed }) => {
 
   return (
 
-    <BreedList >
+    <BreedCard >
       <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
       <Content>
         <TitleBar>
@@ -25,7 +29,7 @@ export const DogBreedCard = ({ dogBreed }) => {
           </GridWrapper>
         </TitleBar>
       </Content>
-    </BreedList >
+    </BreedCard >
 
   )
 }
@@ -33,17 +37,21 @@ export const DogBreedCard = ({ dogBreed }) => {
 
 /* ------ STYLING ------ */
 
-const BreedList = styled.div`
-  background: #fff;
+const BreedCard = styled.div`
+  background-color: ${mainTheme.quinary};
+  color: ${mainTheme.blackish};
   width:calc(100%-20px);
   height: 110px;
   display: flex;
   padding-left: 10px;
   &:last-child{
-    border-bottom: solid 2px #d1cebd;
+    border-bottom: solid 2px ${mainTheme.whiteish};
+  }
+  & :hover {
+    filter: brightness(85%);
+    transition: 0.4s;
   }
 `
-
 const Image = styled.img`
   align-self: center;
   justify-self: center;
