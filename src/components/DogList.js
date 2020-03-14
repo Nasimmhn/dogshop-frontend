@@ -48,21 +48,18 @@ const CardsWrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-  grid-template-rows: repeat( auto-fit, minmax(300px, 300px) );
   column-gap: 40px;
   row-gap: 40px;
   margin: 40px 40px 40px 0px;
   /* @media (max-width: 628px) {
-    flex-wrap:wrap } 
+    
+    } 
    */
 `
 
 const Hyperlink = styled(Link)`
   text-decoration: none;
-  & :hover {
-    filter: brightness(20%);
-    transition-duration: 0.5s;
-  }
+
 
   /* color: #b3b3b3; */
   /* :visited {
@@ -72,4 +69,4 @@ const Hyperlink = styled(Link)`
     color: white;
     transition-duration: 0.3s;
   } */
-`;
+`
