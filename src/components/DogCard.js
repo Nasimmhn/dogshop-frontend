@@ -5,7 +5,7 @@ import { faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, 
 
 import moment from 'moment'
 
-// Path to 
+// Paths to assets
 import { PATHS } from 'App'
 
 // Global theme
@@ -96,7 +96,6 @@ const Card = styled.div`
     z-index: 5;
     transition: 0.4s;
   }
-  
 `
 
 const Image = styled.div`
@@ -108,11 +107,10 @@ const Image = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 20px 20px 30px 20px;
-
-  -webkit-box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 13px 3px rgba(0,0,0,0.75);
+  border-radius: 20px;
+  -webkit-box-shadow: inset 0px -8px 29px 0px rgba(23,20,13,0.69);
+  -moz-box-shadow: inset 0px -8px 29px 0px rgba(23,20,13,0.69);
+  box-shadow: inset 0px -8px 29px 0px rgba(23,20,13,0.69);
 `
 const Content = styled.div`
   height: 109px;

@@ -24,7 +24,7 @@ export const NavBar = () => {
           {!isLoggedin && <a id="login" className="menu-item" href="/login">Login</a>}
           {!isLoggedin && <a id="signup" className="menu-item" href="/signup">Signup</a>}
           {isLoggedin && <a id="logout" className="menu-item" href="/logout">Logout</a>}
-          
+
         </Menu>
       </HamburgerContainer>
 
@@ -144,6 +144,8 @@ const ButtonWrapper = styled.div`
  display:grid;
  grid-template-columns: 1fr 1fr;
 `
+
+
 const NavButton = styled.button`
   background:transparent;
   border-radius: 20px;

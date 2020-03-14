@@ -8,7 +8,7 @@ import { DogFilterMenu } from 'components/DogFilterMenu'
 
 
 // Global color theme
-import { mainTheme } from 'lib/GlobalStyle'
+import { mainTheme } from '../lib/GlobalStyle'
 
 export const LandingPage = () => {
   return (
@@ -28,7 +28,7 @@ export const LandingPage = () => {
 
 const HeroSection = styled.section`
   background: ${mainTheme.blackish};
-  background: url('assets/hero.jpg');
+  background: url('assets/hero4.jpg');
   background-size: cover;
   background-position: center;
   box-shadow: inset 100vmax 0 0 100vmax rgba(23, 20, 13, 0.4);

@@ -47,20 +47,22 @@ export const GlobalStyle = createGlobalStyle`
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+    align-items: center;
     padding: 0px 50px;
 
-    /* Tablet */
+    /* Tablet & mobile */
     @media (min-width: 0px) and (max-width: 668px) {
-      background-color: blue;
+      background-color: lightblue;
       padding: 0px 0px;
     }
     /* Mobile */
     @media (max-width: 375px) {
-      background-color: red;      
+      background-color: lightgoldenrodyellow;      
     }
   } 
 
   #root {
+    max-width: 1280px;
     height:100%;
     min-height:100vh;
     width:100%;

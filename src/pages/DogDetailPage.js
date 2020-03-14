@@ -3,10 +3,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
+// Components
 import { DogDetailCard } from '../components/DogDetailCard'
 
 // fetchDog function (from reducer)
 import { fetchDog } from 'reducers/dogdata'
+
+// Global color theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 export const DogDetailPage = () => {
   const dispatch = useDispatch()
@@ -23,10 +27,7 @@ export const DogDetailPage = () => {
 
     <SectionWrapper>
       {dog &&
-        <DogDetailCard
-          dog={dog}
-
-        />
+        <DogDetailCard dog={dog} />
       }
     </SectionWrapper>
   )
@@ -40,6 +41,19 @@ const SectionWrapper = styled.section`
   flex-grow: 1;
   width: 100%;
   display: flex;
-  background-color: beige;
-  justify-content: center;
+  background-color: ${mainTheme.quinary} ;
+  flex-direction: row;
+  border-radius: 50px 50px 50px 50px;
+
+
+  /* Tablet  & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px 50px 50px 50px;
+  }
+  /* Mobile */
+  @media (max-width: 375px) {
+    border-radius: 0px;
+  }
 `
