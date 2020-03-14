@@ -27,6 +27,7 @@ export const LandingPage = () => {
 /* ------ STYLING ------ */
 
 const HeroSection = styled.section`
+  background: ${mainTheme.blackish};
   background: url('assets/hero.jpg');
   background-size: cover;
   background-position: center;
@@ -51,7 +52,7 @@ const SectionWrapper = styled.section`
 `
 
 const InnerText = styled.p`
-  color: ${mainTheme.blackish};
+  color: ${mainTheme.whiteish};
   font-size: 22px;
   width:100%;
   text-align: center;

@@ -15,33 +15,37 @@ export const DogCard = ({ dog }) => {
 
   console.log(PATHS.dogs.concat(dog.images.url))
   return (
-
     <Card>
       <Image filepath={PATHS.dogs.concat(dog.images.url)} />
       <Content>
         <TitleBar>
-          {/* <FlexWrapper>
-            <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {dog.location}</SubTitle>
-            <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
-          </FlexWrapper> */}
           <FlexWrapper flexdirection={"column"} justify={"space-evenly"}>
             <Title>{dog.name} <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></Title>
             <SubTitle>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></SubTitle>
           </FlexWrapper>
-          {/* <GridWrapper>
-            <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>
-            <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></SubTitle>
-          </GridWrapper> */}
         </TitleBar>
-        {/* <FlexWrapper justify={"center"}>
-          <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(dog.addedAt)).fromNow())}</BottomTitle>
-        </FlexWrapper> */}
       </Content>
     </Card >
-
   )
 }
 
+
+//   {/* <FlexWrapper>
+//     <SubTitle><FontAwesomeIcon icon={faMapMarkedAlt} /> {dog.location}</SubTitle>
+//     <SubTitle><FontAwesomeIcon icon={faMoneyBillWave} /> {dog.price} SEK</SubTitle>
+//   </FlexWrapper> */}
+//   <FlexWrapper flexdirection={"column"} justify={"space-evenly"}>
+//     <Title>{dog.name} <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></Title>
+//     <SubTitle>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></SubTitle>
+//   </FlexWrapper>
+//   {/* <GridWrapper>
+//     <SubTitle align={"start"}><FontAwesomeIcon icon={faBirthdayCake} /> {moment(dog.birthdate).fromNow(true)}</SubTitle>
+//     <SubTitle align={"end"}><FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></SubTitle>
+//   </GridWrapper> */}
+// </TitleBar>
+// {/* <FlexWrapper justify={"center"}>
+//   <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"Published: ".concat(moment(new Date(dog.addedAt)).fromNow())}</BottomTitle>
+// </FlexWrapper> */}
 
 /* ------ STYLING ------ */
 

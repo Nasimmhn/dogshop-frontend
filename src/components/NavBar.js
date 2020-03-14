@@ -5,6 +5,8 @@ import styled from 'styled-components/macro'
 
 import { useSelector } from 'react-redux'
 
+// Global color theme
+import { mainTheme } from 'lib/GlobalStyle'
 
 
 export const NavBar = () => {
@@ -64,7 +66,8 @@ const ButtonWrapper = styled.div`
 `
 const NavButton = styled.button`
   background:transparent;
-  color:  #393D52;
+  border-radius: 20px;
+  color: ${mainTheme.blackish};
   padding: 8px;
   width:100px;
   font-size:15px;
@@ -75,7 +78,9 @@ const NavButton = styled.button`
   cursor: pointer;
   &:hover {
     background: #5B5566;
-    color: #F0F1F8;
-    border-bottom: 3px solid #F1CFCD;
+    background-color: ${mainTheme.quaternary};
+    color: ${mainTheme.whiteish};
+    border-bottom: 3px solid ${mainTheme.quinary};
+    transition: 0.1s;
   }
 `
