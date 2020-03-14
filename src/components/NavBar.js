@@ -1,19 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components/macro'
-
+import { slide as Menu } from 'react-burger-menu'
 
 import { useSelector } from 'react-redux'
+
+// Styled components
+import styled from 'styled-components/macro'
 
 // Global color theme
 import { mainTheme } from 'lib/GlobalStyle'
 
-
 export const NavBar = () => {
   const isLoggedin = useSelector((state) => state.userdata.isLoggedin)
 
+
   return (
     <NavSection>
+      <HamburgerContainer>
+        <Menu styles={burgerStyle} >
+          <Link to={'/'} tabIndex='-1'> Dogs </Link>
+          <Link to={'/dogbreeds'} tabIndex='-1'> Dogbreeds </Link>
+          <Link to={'/members'} tabIndex='-1'> Members </Link>
+
+          {!isLoggedin && <Link to={'/login'} tabIndex='-1'> Login </Link>}
+          {!isLoggedin && <Link to={'/signup'} tabIndex='-1'> Sign Up </Link>}
+          {isLoggedin && <Link to={'/logout'} tabIndex='-1'> Logout </Link>}
+
+        </Menu>
+      </HamburgerContainer>
+
+
+
       <NavItems>
         <ButtonWrapper>
           <Link to={'/'} tabIndex='-1'>
@@ -48,17 +65,81 @@ export const NavBar = () => {
 
 /* ------ STYLING ------ */
 
+
+var burgerStyle = {
+  bmBurgerButton: {
+    position: 'fixed',
+    width: '36px',
+    height: '30px',
+    left: '26px',
+    top: '15px'
+  },
+  bmBurgerBars: {
+    background: mainTheme.whiteish, // Hamburger icon
+  },
+  bmBurgerBarsHover: {
+    background: mainTheme.primary,
+  },
+  bmCrossButton: {
+    height: '24px',
+    width: '24px'
+  },
+  bmCross: {
+    background: mainTheme.whiteish, // Cross to close hamburger
+  },
+  bmMenuWrap: {
+    position: 'fixed',
+    height: '100%'
+  },
+  bmMenu: {
+    background: mainTheme.secondary,
+    padding: '2.5em 1.5em 0',
+    fontSize: '1.15em'
+  },
+  bmMorphShape: {
+    fill: mainTheme.quinary,
+  },
+  bmItemList: {
+    color: mainTheme.whiteish,
+    padding: '0.8em'
+  },
+  bmItem: {
+    display: 'block',
+    padding: '10px',
+    color: mainTheme.blackish,
+    fontSize: '30px',
+  },
+  bmOverlay: {
+    background: 'rgba(0, 0, 0, 0.5)' // Overlay
+  }
+}
+
+const HamburgerContainer = styled.div`
+  display: none;
+  @media (min-width: 0px) and (max-width: 668px) {
+    display: block;
+  }
+
+`
 const NavSection = styled.section`
   width:100%;
-  padding: 10px 0px;
-  
+
 `
 
 const NavItems = styled.nav`
+ padding: 10px 0px;
  display:flex;
  flex-direction:row;
  justify-content:space-between;
  align-items:center;
+ 
+ @media (min-width: 0px) and (max-width: 668px) {
+    display: none;
+  }
+  /* Mobile */
+  @media (max-width: 375px) {
+  
+  }
 `
 const ButtonWrapper = styled.div`
  display:grid;

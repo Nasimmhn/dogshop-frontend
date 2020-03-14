@@ -40,6 +40,9 @@ const HeroSection = styled.section`
   width: 100%;
   height: 450px;
   border-radius: 50px 50px 0px 0px;
+  @media (min-width: 0px) and (max-width: 668px) {
+    border-radius: 0px;
+  }
 `
 
 const SectionWrapper = styled.section`
