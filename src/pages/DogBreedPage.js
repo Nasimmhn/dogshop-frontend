@@ -54,11 +54,16 @@ const HeroSection = styled.section`
 
 
 const SectionWrapper = styled.section`
+  background-color: ${mainTheme.quinary};
+  background: url('assets/pink-pattern_a.jpg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+  
   min-height: 680px;
   flex-grow: 1;
   width: 100%;
   display: flex;
-  background-color: ${mainTheme.quinary} ;
   flex-direction: row;
   border-radius: 0px 0px 50px 50px;
   

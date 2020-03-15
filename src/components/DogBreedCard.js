@@ -38,8 +38,13 @@ export const DogBreedCard = ({ dogBreed }) => {
 /* ------ STYLING ------ */
 
 const BreedCard = styled.div`
-  background-color: ${mainTheme.quinary};
   color: ${mainTheme.blackish};
+  background-color: ${mainTheme.quinary};
+  background: url('assets/pink-pattern_a.jpg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+  
   width:calc(100%-20px);
   height: 110px;
   display: flex;
@@ -78,10 +83,11 @@ const TitleBar = styled.div`
 `
 
 const Title = styled.h1`
+  color: ${mainTheme.blackish};
   width: 100%;
   text-align: center;
   margin: 17px 0px;
-  font-size: 23px;
+  font-size: 18px;
 `
 
 const FlexWrapper = styled.div`
@@ -100,7 +106,7 @@ const GridWrapper = styled.div`
 
 const SubTitle = styled.p`
   margin: 3px 0px;
-  color: #6b6b6b;
+  color: ${mainTheme.blackish};
   display: flex;
   flex-direction: row;
   justify-content: space-between;

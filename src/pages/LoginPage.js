@@ -6,6 +6,8 @@ import { LoginForm } from 'components/LoginForm'
 
 
 
+// Global color theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 
 export const LoginPage = () => {
@@ -13,10 +15,17 @@ export const LoginPage = () => {
   return (
     <>
       <TopSection>
-        <InnerText>Login</InnerText>
+        <InnerText>Top section - login page</InnerText>
       </TopSection>
       <SectionWrapper>
-        <LoginForm />
+        <FormContainer>
+          <GridWrapper>
+            <Image src="assets/login-hero_d.png" />
+            <LoginForm />
+          </GridWrapper>
+        </FormContainer>
+
+
       </SectionWrapper>
     </>
   )
@@ -25,23 +34,68 @@ export const LoginPage = () => {
 /* ------ STYLING ------ */
 
 const TopSection = styled.section`
+  color: ${mainTheme.whiteish};
+  background-color: ${mainTheme.blackish};
+  border-radius: 50px 50px 0px 0px;
   width: 100%;
-  height: 200px;
-  background: #a6b1e1;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 const SectionWrapper = styled.section`
+  background-color: ${mainTheme.quinary};
+  background: url('assets/pink-pattern_a.jpg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+
+  border-radius: 0px 0px 50px 50px;
+  min-height: 680px;
   flex-grow: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: beige;
+  justify-content: center;
+  /* Tablet & Mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    border-radius: 0px 0px 50px 50px;
+    flex-direction: column;
+    align-items: center;
+  }
 `
+
+const FormContainer = styled.div`
+  padding: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  width: 400px;
+  /* Mobile */
+  @media (max-width: 375px) {
+    width: 100%;
+  }
+`
+
+const Image = styled.img`
+  width: 100%;
+  min-width: 250px;
+  overflow: hidden;
+`
+
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  align-items: flex-end;
+
+`
+
 
 const InnerText = styled.p`
   font-size: 22px;
-  width:100%;
-  text-align: center;
 `

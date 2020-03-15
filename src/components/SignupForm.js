@@ -1,26 +1,31 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+
+// Style component
 import styled from 'styled-components/macro'
+
 // Material UI 
-import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-// registration (from reducer)
+
+
+// Register a new user (from reducer)
 import { registerNewUser } from 'reducers/userdata'
 
 
+// Global theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 
 
 
-export const RegistrationForm = () => {
+export const SignupForm = () => {
 
   const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPwd, setConfirmPwd] = useState('')
-  const classes = useStyles() // Need this to make a custom styling on inputs
 
   const handleSignup = (event) => {
     event.preventDefault()
@@ -31,26 +36,23 @@ export const RegistrationForm = () => {
   return (
     <>
       <Form onSubmit={handleSignup}>
-        <InputWrapper className={classes.root} >
-          <TextField
+        <InputWrapper>
+          <StyledTextField
             required
-            className={classes.textField}
             variant="outlined"
             label="Name"
             onChange={(e) => { setName(e.target.value) }}
           />
-          <TextField
+          <StyledTextField
             required
-            className={classes.textField}
             variant="outlined"
             label="E-mail"
             type="email"
             onChange={(e) => { setEmail(e.target.value) }}
           />
-          <TextField
+          <StyledTextField
             error={(password.length < 6 && password.length !== 0)}
             required
-            className={classes.textField}
             variant="outlined"
             label="Password"
             type="password"
@@ -59,10 +61,9 @@ export const RegistrationForm = () => {
             onChange={(e) => { setPassword(e.target.value) }}
           />
 
-          <TextField
+          <StyledTextField
             error={(password !== confirmPwd) && confirmPwd !== ""}
             required
-            className={classes.textField}
             variant="outlined"
             label="Confirm password"
             helperText={((password !== confirmPwd) && confirmPwd !== "") ? "Password does not match" : ""} //password validation
@@ -70,16 +71,15 @@ export const RegistrationForm = () => {
             autoComplete="off"
             onChange={(e) => { setConfirmPwd(e.target.value) }}
           />
+          <StyledButton
+            variant="contained"
+            disableElevation
+            type="submit"
+          >
+            Create account
+         </StyledButton>
         </InputWrapper>
-        <Button
-          className={classes.Button}
-          variant="contained"
-          disableElevation
-          disabled={(password !== confirmPwd) || password.length < 6}
-          type="submit"
-        >
-          Create account
-        </Button>
+
       </ Form>
     </>
   )
@@ -88,43 +88,52 @@ export const RegistrationForm = () => {
 
 /* ------ STYLING ------ */
 
-
-//  input custom style 
-const useStyles = makeStyles({
-  root: {
-    height: '100%',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textField: {
-    margin: '15px',
-    width: '100%',
-  },
-  Button: {
-    width: '100%',
-    height: '50px',
+const StyledTextField = styled(TextField)`
+  && {
+    width: 100%;
+    margin: 10px 0px;
   }
-})
+  label.Mui {
+    color: ${mainTheme.blackish};
+  }
+  label.Mui-focused {
+    color: ${mainTheme.tertiary};
+  }
+  .MuiOutlinedInput-root {
+    fieldset {
+      border-color: ${mainTheme.grayish};
+    }
+    &:hover fieldset {
+      border-color: ${mainTheme.tertiary};
+    }
+    &.Mui-focused fieldset {
+      border-color: ${mainTheme.tertiary};
+    }
+  }
+`
+
+const StyledButton = styled(Button)`
+  && {
+    width: 100%;
+    margin: 10px 0px;
+    height: 50px;
+    background-color: ${mainTheme.secondary};
+  }
+  &&:hover{
+    background-color: ${mainTheme.tertiary};
+  }
+`
 
 const Form = styled.form`
-  width: 400px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+ 
 `
 
 const InputWrapper = styled.div`
-  /* height: 100%;
+  height: 100%;
   width: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction:column;
-  justify-content: center;
-  align-items: center;
-  background: red; */
+  justify-content: space-around;
+  background: lightyellow; */
 `
 

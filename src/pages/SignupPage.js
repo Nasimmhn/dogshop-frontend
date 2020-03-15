@@ -5,12 +5,13 @@ import styled from 'styled-components/macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 // Material UI 
-import Button from '@material-ui/core/Button'
 
-import { RegistrationForm } from 'components/RegistrationForm'
+import { SignupForm } from 'components/SignupForm'
 import { useSelector } from 'react-redux'
 
 
+// Global color theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 
 
@@ -20,11 +21,17 @@ export const SignupPage = () => {
   return (
     <>
       <TopSection>
-        <InnerText>Sign-Up</InnerText>
+        <InnerText>Top section - Sign-Up</InnerText>
       </TopSection>
       <SectionWrapper>
         {!isRegistered &&
-          <RegistrationForm />
+          <GridWrapper>
+            <SignupInfo>
+              <Title>Signup information</Title>
+              <Text>Signup information</Text>
+            </SignupInfo>
+            <SignupForm />
+          </GridWrapper>
         }
         {isRegistered &&
           <ConfirmDiv>
@@ -32,11 +39,9 @@ export const SignupPage = () => {
               <FontAwesomeIcon icon={faCheckCircle} />
             </IconDiv>
             <InnerText> You are now signed up!</InnerText>
-            <Button variant="contained" href="#contained-buttons">
-              <Link to={'/login'} tabIndex='-1'>
-                Click here to login
-              </Link>
-            </Button>
+            <Link to={'/login'} tabIndex='-1'>
+              <Button variant="contained" href="#contained-buttons"> Click here to login </Button>
+            </Link>
           </ConfirmDiv>
         }
       </SectionWrapper>
@@ -45,27 +50,68 @@ export const SignupPage = () => {
 }
 
 /* ------ STYLING ------ */
+const GridWrapper = styled.div`
+  display: grid;
+  
+  grid-template-columns: minmax(250px, 400px) minmax(250px, 400px);
+  column-gap: 20px;
+  row-gap: 20px;
+  align-items: top;
 
-const TopSection = styled.section`
+  @media (min-width: 0px) and (max-width: 668px) {
+    grid-template-columns: minmax(250px, 400px);
+    grid-template-rows: auto auto;
+  }
+`
+
+const SignupInfo = styled.div`
   width: 100%;
-  height: 200px;
-  background: #a6b1e1;
+  
+`
+const TopSection = styled.section`
+  color: ${mainTheme.whiteish};
+  background-color: ${mainTheme.blackish};
+  border-radius: 50px 50px 0px 0px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 0px) and (max-width: 668px) {
+    border-radius: 0px;
+  }
 `
 
 const SectionWrapper = styled.section`
+  background-color: ${mainTheme.quinary};
+  background: url('assets/pink-pattern_a.jpg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+  padding: 40px;
+  border-radius: 0px 0px 50px 50px;
+  min-height: 680px;
   flex-grow: 1;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  background-color: beige;
+  justify-content: center;
+  /* Tablet */
+  @media (min-width: 0px) and (max-width: 668px) {
+    border-radius: 0px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  /* Mobile */
+  @media (max-width: 375px) {
+    padding: 10px;
+  }
 `
-
 const InnerText = styled.p`
   font-size: 22px;
-  width:100%;
-  text-align: center;
 `
 
 const ConfirmDiv = styled.div`
@@ -80,4 +126,39 @@ const IconDiv = styled.div`
   & > * {
     font-size:50px;
   }
+`
+
+const Button = styled.button`
+  margin-top: 10px;
+  background: ${mainTheme.tertiary};
+  border-radius: 20px;
+  color: ${mainTheme.whiteish};
+  padding: 8px;
+  width:200px;
+  font-size:15px;
+  font-weight:bold;
+  transition: 0.2s; 
+  border-style: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: ${mainTheme.quaternary};
+    color: ${mainTheme.whiteish};
+    transition: 0.1s;
+  }
+`
+const Title = styled.h1`
+  color: ${mainTheme.tertiary};
+  margin: 5px 0px;
+  font-size: 23px;
+  @media (max-width: 375px) {
+    font-size: 20px;
+  }
+`
+
+const Text = styled.p`
+  color: ${mainTheme.blackish};
+  font-size: 15px;
+  text-align: ${props => props.textalign};
+  justify-self: ${props => props.justifyself};;
 `
