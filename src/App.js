@@ -23,6 +23,7 @@ import { GlobalStyle } from './lib/GlobalStyle'
 // Reducer
 import { dogdata } from './reducers/dogdata'
 import { userdata } from './reducers/userdata'
+import { Logout } from 'components/Logout'
 
 
 
@@ -90,7 +91,7 @@ export const App = () => {
           </Route>
 
           <Route path="/logout">
-            <div> You are logged out.....(not yet) </div>
+            <Logout />
           </Route>
 
         </Switch>

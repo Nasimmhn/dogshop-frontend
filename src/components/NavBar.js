@@ -4,7 +4,7 @@ import { slide as Menu } from 'react-burger-menu'
 
 // Font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle, faUserPlus, faPaw, faUser, faDog } from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle, faUserPlus, faPaw, faUser, faDog, faPowerOff } from '@fortawesome/free-solid-svg-icons'
 
 
 import { useSelector } from 'react-redux'
@@ -16,7 +16,7 @@ import styled from 'styled-components/macro'
 import { mainTheme } from '../lib/GlobalStyle'
 
 export const NavBar = () => {
-  const isLoggedin = useSelector((state) => state.userdata.isLoggedin)
+  const { isAuthenticated } = useSelector((state) => state.userdata)
 
 
   return (
@@ -26,9 +26,9 @@ export const NavBar = () => {
           <a id="dogs" className="menu-item" href="/">Dogs</a>
           <a id="dogbreeds" className="menu-item" href="/dogbreeds">Dog breeds</a>
           <a id="members" className="menu-item" href="/members">Members</a>
-          {!isLoggedin && <a id="login" className="menu-item" href="/login">Login</a>}
-          {!isLoggedin && <a id="signup" className="menu-item" href="/signup">Signup</a>}
-          {isLoggedin && <a id="logout" className="menu-item" href="/logout">Logout</a>}
+          {!isAuthenticated && <a id="login" className="menu-item" href="/login">Login</a>}
+          {!isAuthenticated && <a id="signup" className="menu-item" href="/signup">Signup</a>}
+          {isAuthenticated && <a id="logout" className="menu-item" href="/logout">Logout</a>}
 
         </Menu>
       </HamburgerContainer>
@@ -45,7 +45,7 @@ export const NavBar = () => {
         <Link to={'/members'} tabIndex='-1'>
           <NavButton><FontAwesomeIcon icon={faUser} /> Members</NavButton>
         </Link>
-        {!isLoggedin &&
+        {!isAuthenticated &&
           <ButtonWrapper>
             <Link to={'/login'} tabIndex='-1'>
               <NavButton><FontAwesomeIcon icon={faUserCircle} /> Login </NavButton>
@@ -55,9 +55,9 @@ export const NavBar = () => {
             </Link>
           </ButtonWrapper>
         }
-        {isLoggedin &&
+        {isAuthenticated &&
           <Link to={'/logout'} tabIndex='-1'>
-            <NavButton><FontAwesomeIcon icon={faUserPlus} />Logout </NavButton>
+            <NavButton><FontAwesomeIcon icon={faPowerOff} /> Logout </NavButton>
           </Link>
         }
       </NavItems>

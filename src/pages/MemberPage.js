@@ -14,18 +14,19 @@ import { authUser } from '../reducers/userdata'
 
 export const MemberPage = () => {
 
-  const { _id, name, accessToken } = useSelector((state) => state.userdata.user)
-  console.log("name:", name, "id:", _id, "accessToken:", accessToken)
-
+  // const { _id, name, accessToken } = useSelector((state) => state.userdata.user)
+  // console.log("name:", name, "id:", _id, "accessToken:", accessToken)
+  let accessToken = window.sessionStorage.getItem('accessToken')
+  console.log("sessionStorage - accessToken:", accessToken)
   const dispatch = useDispatch()
   dispatch(authUser(accessToken))
   // const isAuthenticated = useSelector((state) => state.userdata.isAuthenticated)
-  const isLoggedin = useSelector((state) => state.userdata.isLoggedin)
+  const isAuthenticated = useSelector((state) => state.userdata.isAuthenticated)
 
 
   return (
     <>
-      {isLoggedin ?
+      {isAuthenticated ?
         < MemberArea /> :
         <Redirect to="/login" />}
     </>
