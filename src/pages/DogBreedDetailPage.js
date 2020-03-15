@@ -48,12 +48,11 @@ const SectionWrapper = styled.section`
   flex-direction: row;
   border-radius: 50px 50px 50px 50px;
 
-
-  /* Tablet  & mobile */
+  /* Tablet & mobile */
   @media (min-width: 0px) and (max-width: 668px) {
     flex-direction: column;
     align-items: center;
-    border-radius: 50px 50px 50px 50px;
+    border-radius: 0px 0px 50px 50px;
   }
   /* Mobile */
   @media (max-width: 375px) {

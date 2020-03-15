@@ -1,8 +1,11 @@
 import React from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRulerCombined, faDog, faPaw, faCalendarAlt, faAddressCard } from '@fortawesome/free-solid-svg-icons'
+// Styled components
 import styled from 'styled-components/macro'
+
+// Font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRulerCombined, faDog, faPaw, faBolt, faWeightHanging, faHeartbeat } from '@fortawesome/free-solid-svg-icons'
 
 // Paths to assets
 import { PATHS } from 'App'
@@ -13,114 +16,146 @@ import { mainTheme } from '../lib/GlobalStyle'
 export const DogBreedDetailCard = ({ dogBreed }) => {
   return (
 
-    <CardWrapper>
+    <CardContainer>
 
       <BreedCard>
-        <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
-        <Content>
-          <TitleBar>
-            <FlexWrapper>
-              <SubTitle><FontAwesomeIcon icon={faAddressCard} /> {dogBreed.name}</SubTitle>
-            </FlexWrapper>
-            <FlexWrapper>
-              <Title>{dogBreed.name} <FontAwesomeIcon icon={faPaw} /></Title>
-            </FlexWrapper>
-            <GridWrapper>
-              <SubTitle align={"start"}><FontAwesomeIcon icon={faDog} /> {dogBreed.group.join(', ')}</SubTitle>
-              <SubTitle align={"end"}><FontAwesomeIcon icon={faRulerCombined} /> {dogBreed.size.join(', ')}</SubTitle>
-            </GridWrapper>
-          </TitleBar>
-          <FlexWrapper>
-            <BottomTitle> {dogBreed.description}</BottomTitle>
-          </FlexWrapper>
-          <FlexWrapper justify={"center"}>
-            <BottomTitle><FontAwesomeIcon icon={faCalendarAlt} /> {"temp"}</BottomTitle>
-          </FlexWrapper>
-        </Content>
+        <FlexWrapper flexDirection={'row'} flexWrap={'wrap'}>
+
+          <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
+
+          <DataInfo>
+            <SubTitle> Summary</SubTitle>
+            <GridIconWrapper>
+              <FontAwesomeIcon icon={faDog} /><Text> {dogBreed.group.join(', ')}</Text>
+              <FontAwesomeIcon icon={faBolt} /><Text> {dogBreed.activity.join(', ')}</Text>
+              <FontAwesomeIcon icon={faRulerCombined} /><Text> {dogBreed.size.join(', ')}</Text>
+              <FontAwesomeIcon icon={faWeightHanging} /><Text> {dogBreed.weight} </Text>
+              <FontAwesomeIcon icon={faHeartbeat} /><Text> {dogBreed.lifespan} </Text>
+
+            </GridIconWrapper>
+          </DataInfo>
+
+          <MainInfo>
+            <Title><FontAwesomeIcon icon={faPaw} /> {dogBreed.name}</Title>
+            <Text>{dogBreed.description}</Text>
+          </MainInfo>
+
+        </FlexWrapper>
+
       </BreedCard >
-    </CardWrapper>
+    </CardContainer>
   )
 }
 
 
 /* ------ STYLING ------ */
-const CardWrapper = styled.div`
-  flex-grow: 1;
+const CardContainer = styled.div`
   padding: 40px;
   border-radius: 15px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  
- /* Tablet & mobile */
-  @media (min-width: 0px) and (max-width: 1145px) {
-    flex-direction: column-reverse;
-    flex-wrap: nowrap;
+  /* Tablet & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    margin: 20px 0px 0px 0px;
   }
   /* Mobile */
   @media (max-width: 375px) {
-    margin: 50px 0px;;
     padding: 10px 10px 30px 10px;
+    margin: 50px 0px 0px 0px;
   }
 `
 
 const BreedCard = styled.div`
-  background: #fff;
-  padding: 10px 10px 0px 10px;
-  -webkit-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
-  -moz-box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
-  box-shadow: 0px 0px 17px -4px rgba(0,0,0,0.8);
   border-radius: 15px;
-  width:700px;
-  margin: 15px 15px 0px 15px;
-  display: flex;
-  flex-direction: column;
-`
-
-const FlexWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: ${props => props.justify ? props.justify : "space-between"};
-`
-const GridWrapper = styled.div`
-  width: 100%;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-auto-columns: 1fr 1fr;
   grid-auto-rows: auto;
+  /* Tablet & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr 1fr;
+  }
+`
+const DataInfo = styled.div`
+  padding: 20px;
+  width: 50%;
+  /* Tablet & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    width: 100%;
+    padding: 20px 0px;
+  }
 `
 
-const Title = styled.h1`
-  width: 100%;
-  text-align: center;
-  margin: 17px 0px;
-  font-size: 23px;
-`
-const SubTitle = styled.p`
-  margin: 3px 0px;
-  color: #6b6b6b;
-  justify-self: ${props => props.align};
-`
-const TitleBar = styled.div`
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-`
+
 const Image = styled.img`
-  align-self: center;
-  justify-self: center;
-  width: 100%;
+  width: 50%;
   -webkit-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
   -moz-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
   box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
   border-radius: 20px;
+  /* Tablet & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    width: 100%;
+  }
 `
-const Content = styled.div`
-  padding: 10px 20px 5px 20px;
+
+const MainInfo = styled.div`
+  padding: 20px 0px;
+  /* Tablet & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    padding: 10px 0px 20px 0px;
+  }
 `
-const BottomTitle = styled.div`
-  padding: 10px;
-  color: #6b6b6b;
+
+const FlexWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-wrap: ${props => props.flexWrap};
+  flex-direction: ${props => props.flexDirection};
+  justify-content: ${props => props.justifyContent};
+  align-items: ${props => props.alignItems};
+`
+const GridIconWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  & > * {
+    margin: 4px 0px;
+  }
+  & > svg {
+    color: ${mainTheme.blackish};
+    justify-self: center;
+  }
+  /* Tablet & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    grid-template-columns: 30px auto 30px auto;
+  }
+  /* Mobile */
+  @media (max-width: 375px) {
+    grid-template-columns: 30px auto;
+  }
+`
+
+const Title = styled.h1`
+  color: ${mainTheme.tertiary};
+  margin: 5px 0px;
+  font-size: 30px;
+  /* Mobile */
+  @media (max-width: 375px) {
+    font-size: 20px;
+  }
+`
+
+const SubTitle = styled.h3`
+  color: ${mainTheme.quaternary};
+  margin: 5px 5px;
+  font-size: 20px;
+  text-align: ${props => props.textalign};
+  justify-self: ${props => props.justifyself};;
+`
+
+const Text = styled.p`
+  color: ${mainTheme.blackish};
+  font-size: 15px;
+  text-align: ${props => props.textalign};
+  justify-self: ${props => props.justifyself};;
 `

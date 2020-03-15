@@ -12,7 +12,7 @@ import { mainTheme } from '../lib/GlobalStyle'
 
 export const LandingPage = () => {
   return (
-    <>
+    <Container>
       <HeroSection>
         <InnerText>Top section</InnerText>
       </ HeroSection>
@@ -20,7 +20,7 @@ export const LandingPage = () => {
         <DogFilterMenu />
         <DogList />
       </SectionWrapper>
-    </>
+    </Container>
   )
 }
 
@@ -41,12 +41,16 @@ const HeroSection = styled.section`
   width: 100%;
   height: 450px;
   border-radius: 50px 50px 0px 0px;
-  -webkit-box-shadow: inset 0px -9px 13px 0px rgba(0,0,0,0.34); 
-  box-shadow: inset 0px -9px 13px 0px rgba(0,0,0,0.34);
           
   @media (min-width: 0px) and (max-width: 668px) {
     border-radius: 0px;
   }
+`
+const Container = styled.div`
+  border-radius: 50px;
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
 `
 
 const SectionWrapper = styled.section`

@@ -1,8 +1,13 @@
 import React from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRulerCombined, faDog, faEnvelope, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave, faAddressCard, faPhone, faInfo, faMale, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+// Styled components
 import styled from 'styled-components/macro'
+
+// Font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBolt, faWeightHanging, faHeartbeat, faRulerCombined, faDog, faEnvelope, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave, faAddressCard, faPhone, faInfo, faMale, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+
+// Moment
 import moment from 'moment'
 
 // Paths to assets
@@ -21,16 +26,16 @@ export const DogDetailCard = ({ dog }) => {
           <InfoContainer>
             <Title><FontAwesomeIcon icon={faAddressCard} /> Contact information </Title>
             <hr />
-            <GridWrapper>
+            <GridIconWrapper>
 
-              <FontAwesomeIcon icon={faMale} /> <SubTitle>{dog.owner.name}</SubTitle>
-              <FontAwesomeIcon icon={faMapMarkedAlt} /> <SubTitle>{dog.location}</SubTitle>
-              <FontAwesomeIcon icon={faPhone} /> <SubTitle>{dog.phone ? dog.phone !== "" : "-"}</SubTitle>
-              <FontAwesomeIcon icon={faEnvelope} /> <SubTitle>{dog.owner.email}</SubTitle>
+              <FontAwesomeIcon icon={faMale} /> <Text>{dog.owner.name}</Text>
+              <FontAwesomeIcon icon={faMapMarkedAlt} /> <Text>{dog.location}</Text>
+              <FontAwesomeIcon icon={faPhone} /> <Text>{dog.phone ? dog.phone !== "" : "-"}</Text>
+              <FontAwesomeIcon icon={faEnvelope} /> <Text>{dog.owner.email}</Text>
 
-            </GridWrapper>
-            <FlexWrapper justify={'center'}>
-              <a href={`mailto:${dog.owner.email}`}><ContactButton> Contact seller</ContactButton ></a>
+            </GridIconWrapper>
+            <FlexWrapper justifyContent={'center'}>
+              <a href={`mailto:${dog.owner.email}`}><Button> Contact seller</Button ></a>
             </FlexWrapper>
           </InfoContainer>
         </ContactCard>
@@ -39,15 +44,14 @@ export const DogDetailCard = ({ dog }) => {
           <InfoContainer>
             <Title> <FontAwesomeIcon icon={faPaw} /> {dog.race.name}</Title>
             <hr />
-            <GridWrapper>
-
-              <FontAwesomeIcon icon={faInfoCircle} /><SubTitle> {dog.race.description}</SubTitle>
-              <FontAwesomeIcon icon={faDog} /><SubTitle> {dog.race.group.join(', ')}</SubTitle>
-              <FontAwesomeIcon icon={faRulerCombined} /><SubTitle> {dog.race.size.join(', ')}</SubTitle>
-
-            </GridWrapper>
-            <FlexWrapper justify={'center'}>
-              <a href={`/dogbreed/${dog.race._id}`}><ContactButton> Read more</ContactButton ></a>
+            <GridIconWrapper>
+              <FontAwesomeIcon icon={faDog} /><Text> {dog.race.group.join(', ')}</Text>
+              <FontAwesomeIcon icon={faBolt} /><Text> {dog.race.activity.join(', ')}</Text>
+              <FontAwesomeIcon icon={faRulerCombined} /><Text> {dog.race.size.join(', ')}</Text>
+              <FontAwesomeIcon icon={faWeightHanging} /><Text> {dog.race.weight} </Text>
+            </GridIconWrapper>
+            <FlexWrapper justifyContent={'center'}>
+              <a href={`/dogbreed/${dog.race._id}`}><Button> Read more</Button ></a>
             </FlexWrapper>
           </InfoContainer>
         </BreedCard>
@@ -56,32 +60,30 @@ export const DogDetailCard = ({ dog }) => {
       <DogCard>
         <Image filepath={PATHS.dogs.concat(dog.images.url)} />
         <Content>
-          <TitleBar>
+          <FlexWrapper flexDirection={'column'}>
 
-            <FlexWrapper flexdirection={'column'}>
-
-              <FlexWrapper flexdirection={'row'} justify={'space-between'}>
+            <FlexWrapper flexDirection={'column'}>
+              <FlexWrapper flexDirection={'row'} justifyContent={'space-between'}>
                 <Title> {dog.name} <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></Title>
                 <Title> {dog.price} SEK</Title>
               </FlexWrapper>
-              <SubTitle>{dog.description}</SubTitle>
+              <Text>{dog.description}</Text>
             </FlexWrapper>
 
-            <GridWrapper>
-              <FontAwesomeIcon icon={faBirthdayCake} /><SubTitle> {moment(dog.birthdate).format('YYYY-MM-DD')}  ({moment(dog.birthdate).fromNow(true)} old)</SubTitle>
-              <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /><SubTitle> {dog.sex}</SubTitle>
-            </GridWrapper>
+            <GridIconWrapper>
+              <FontAwesomeIcon icon={faBirthdayCake} /><Text> {moment(dog.birthdate).format('YYYY-MM-DD')}  ({moment(dog.birthdate).fromNow(true)} old)</Text>
+              <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /><Text> {dog.sex}</Text>
+            </GridIconWrapper>
 
-
-          </TitleBar>
+          </FlexWrapper>
           <FlexWrapper>
 
           </FlexWrapper>
           <hr />
-          <FlexWrapper justify={"center"}>
-            <GridWrapper>
+          <FlexWrapper justifyContent={"center"}>
+            <GridIconWrapper>
               <FontAwesomeIcon icon={faCalendarAlt} /><BottomTitle> {"Published: ".concat(moment(new Date(dog.addedAt)).fromNow())}</BottomTitle>
-            </GridWrapper>
+            </GridIconWrapper>
           </FlexWrapper>
         </Content>
       </DogCard>
@@ -98,7 +100,7 @@ export const DogDetailCard = ({ dog }) => {
 
 /* ------ STYLING ------ */
 
-const GridWrapper = styled.div`
+const GridIconWrapper = styled.div`
   display: grid;
   grid-template-columns: 30px auto;
   align-items: center;
@@ -127,7 +129,7 @@ const CardWrapper = styled.div`
   }
   /* Mobile */
   @media (max-width: 375px) {
-    margin: 50px 0px;;
+    margin: 50px 0px;
     padding: 10px 10px 30px 10px;
   }
 `
@@ -204,30 +206,31 @@ const FlexWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: ${props => props.flexdirection};
-  justify-content: ${props => props.justify};
-  align-items: ${props => props.align};
+  flex-direction: ${props => props.flexDirection};
+  justify-content: ${props => props.justifyContent};
+  align-items: ${props => props.alignItems};
 `
 
 const Title = styled.h1`
   color: ${mainTheme.tertiary};
-  margin: 0px 0px 0px 0px;
+  margin: 5px 0px;
   font-size: 23px;
   @media (max-width: 375px) {
     font-size: 20px;
   }
 `
-const SubTitle = styled.p`
-  margin: 10px 0px 3px 0px;
+const SubTitle = styled.h3`
+  color: ${mainTheme.blackish};
+  margin: 5px 0px;
   font-size: 15px;
-  color: ${mainTheme.quaternary};
   text-align: ${props => props.textalign};
   justify-self: ${props => props.justifyself};;
 `
-const TitleBar = styled.div`
-  display: flex;
-  flex-direction:column;
-  align-items: left;
+const Text = styled.p`
+  color: ${mainTheme.blackish};
+  font-size: 15px;
+  text-align: ${props => props.textalign};
+  justify-self: ${props => props.justifyself};;
 `
 const Image = styled.div`
   align-self: center;
@@ -254,7 +257,7 @@ const BottomTitle = styled.div`
   color: ${mainTheme.blackish};
 `
 
-const ContactButton = styled.button`
+const Button = styled.button`
   margin-top: 10px;
   background: ${mainTheme.tertiary};
   border-radius: 20px;
