@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 import { Link } from 'react-router-dom'
+
+
+import { useSelector, useDispatch } from 'react-redux'
+
+// Hamburger menu
 import { slide as Menu } from 'react-burger-menu'
 
 // Font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle, faUserPlus, faPaw, faUser, faDog, faPowerOff } from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle, faUserPlus, faPaw, faDog, faPowerOff } from '@fortawesome/free-solid-svg-icons'
 
+// authUser (from Reducer)
+import { authUser } from 'reducers/userdata'
 
-import { useSelector } from 'react-redux'
 
 // Styled components
 import styled from 'styled-components/macro'
@@ -16,7 +23,15 @@ import styled from 'styled-components/macro'
 import { mainTheme } from '../lib/GlobalStyle'
 
 export const NavBar = () => {
-  const { isAuthenticated } = useSelector((state) => state.userdata)
+  const dispatch = useDispatch()
+  let { isAuthenticated } = useSelector((state) => state.userdata)
+  const accessToken = window.sessionStorage.getItem('accessToken')
+
+  if (accessToken) {
+    dispatch(authUser(accessToken))
+
+  }
+  console.log("Navbar - isAuthenticated:", isAuthenticated)
 
 
   return (
@@ -42,9 +57,6 @@ export const NavBar = () => {
             <NavButton><FontAwesomeIcon icon={faDog} /> Dog Breeds</NavButton>
           </Link>
         </ButtonWrapper>
-        <Link to={'/members'} tabIndex='-1'>
-          <NavButton><FontAwesomeIcon icon={faUser} /> Members</NavButton>
-        </Link>
         {!isAuthenticated &&
           <ButtonWrapper>
             <Link to={'/login'} tabIndex='-1'>
@@ -56,9 +68,14 @@ export const NavBar = () => {
           </ButtonWrapper>
         }
         {isAuthenticated &&
-          <Link to={'/logout'} tabIndex='-1'>
-            <NavButton><FontAwesomeIcon icon={faPowerOff} /> Logout </NavButton>
-          </Link>
+          <ButtonWrapper>
+            <Link to={'/members'} tabIndex='-1'>
+              <NavButton><FontAwesomeIcon icon={faUserCircle} /> Profile </NavButton>
+            </Link>
+            <Link to={'/logout'} tabIndex='-1'>
+              <NavButton><FontAwesomeIcon icon={faPowerOff} /> Logout </NavButton>
+            </Link>
+          </ButtonWrapper>
         }
       </NavItems>
     </NavSection>
@@ -147,7 +164,7 @@ const NavItems = styled.nav`
 `
 const ButtonWrapper = styled.div`
  display:grid;
- grid-template-columns: 1fr 1fr;
+ grid-template-columns: 120px 120px;
 `
 
 
@@ -163,7 +180,6 @@ const NavButton = styled.button`
   border-bottom: 3px solid transparent;
   cursor: pointer;
   &:hover {
-    background: #5B5566;
     background-color: ${mainTheme.quaternary};
     color: ${mainTheme.whiteish};
     border-bottom: 3px solid ${mainTheme.quinary};

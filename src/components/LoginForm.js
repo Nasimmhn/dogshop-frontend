@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useHistory, useLocation, Redirect } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux'
 
 // Style component
@@ -15,8 +17,14 @@ import { loginUser } from 'reducers/userdata'
 import { mainTheme } from '../lib/GlobalStyle'
 
 export const LoginForm = () => {
+  const { messages } = useSelector((state) => state.userdata)
+  let history = useHistory()
+  let location = useLocation()
+
+  let { from } = location.state || { from: { pathname: "/" } }
+  console.log("location.state:", location.state)
+
   const dispatch = useDispatch()
-  // const isloginFailed = useSelector(state => state.userdata.isLoginFailed)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -28,6 +36,10 @@ export const LoginForm = () => {
 
   return (
     <>
+      {messages.success &&
+        <Redirect to={'/members'} />
+      }
+
       <Form onSubmit={handleLogin}>
         <div>
           <StyledTextField
@@ -55,7 +67,7 @@ export const LoginForm = () => {
           Login
         </StyledButton>
       </Form>
-      {true && <FailedText>Incorrect user and/or password.</FailedText>}
+      {messages.error && <FailedText> {messages.error} </FailedText>}
     </>
   )
 }

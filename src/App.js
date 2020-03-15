@@ -11,6 +11,7 @@ import { DogBreedDetailPage } from 'pages/DogBreedDetailPage'
 import { SignupPage } from 'pages/SignupPage'
 import { LoginPage } from 'pages/LoginPage'
 import { MemberPage } from 'pages/MemberPage'
+import { PrivateRoute } from 'components/PrivateRoute'
 
 // Components
 import { NavBar } from 'components/NavBar'
@@ -51,7 +52,9 @@ export const App = () => {
       <GlobalStyle />
 
       <BrowserRouter>
+
         <NavBar />
+
         <Switch>
 
           <Route path="/" exact>
@@ -78,9 +81,9 @@ export const App = () => {
             <LoginPage />
           </Route>
 
-          <Route path="/members">
-            < MemberPage />
-          </Route>
+          <PrivateRoute path="/members">
+            <MemberPage />
+          </PrivateRoute>
 
           <Route path="/settings">
             <div> settings </div>

@@ -8,7 +8,10 @@ export const userdata = createSlice({
     isRegistered: false,
     isLoggedin: false,
     isAuthenticated: false,
-    // isLoginFailed: false,
+    messages: {
+      error: null,
+      success: null
+    },
 
   },
   reducers: {
@@ -39,9 +42,14 @@ export const userdata = createSlice({
       state.isLoggedin = false
       state.isAuthenticated = false
     },
-    // setLoginFailed: (state, action) => {
-    //   state.isLoginFailed = action.payload
-    // }
+    setErrorMessage: (state, action) => {
+      state.messages.success = null
+      state.messages.error = action.payload
+    },
+    setSuccessMessage: (state, action) => {
+      state.messages.error = null
+      state.messages.success = action.payload
+    }
 
   }
 })
@@ -81,15 +89,20 @@ export const loginUser = (email, password) => {
     })
       .then(res => res.json())
       .then(user => {
-        // if (json === true) {
-        dispatch(userdata.actions.loggingIn(user))
+        window.sessionStorage.setItem('userId', user._id)
+        window.sessionStorage.setItem('name', user.name)
+        window.sessionStorage.setItem('isAuthenticated', true)
         window.sessionStorage.setItem('accessToken', user.accessToken)
-        // }
-        // else {
-        // dispatch(userdata.actions.setLoginFailed(true))
-        // }
+        dispatch(userdata.actions.loggingIn(user))
+        dispatch(userdata.actions.setSuccessMessage('Logged in!'))
+
+
       })
-      .catch(err => console.error('error', err))
+
+      .catch(err => {
+        console.error('error', err)
+        dispatch(userdata.actions.setErrorMessage('Failed to login'))
+      })
   }
 }
 
@@ -103,9 +116,9 @@ export const authUser = (accessToken) => {
       }
     })
       .then(res => res.json())
-      .then(user => {
-        console.log("authUser (reducer) - user:", user)
-        dispatch(userdata.actions.authenticating(user))
+      .then(auth => {
+        console.log("authUser (true/false):", auth)
+        dispatch(userdata.actions.authenticating(auth))
       })
       .catch(err => console.error('error', err))
   }

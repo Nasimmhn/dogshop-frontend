@@ -1,40 +1,85 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Route, Redirect } from 'react-router-dom'
 
-// Component
-import { MemberArea } from '../components/MemberArea'
-
-// From reducer
-import { authUser } from '../reducers/userdata'
+// Styled components
+import styled from 'styled-components/macro'
 
 
+// Components
+import { MemberAddDog } from '../components/MemberAddDog'
+import { MemberInfo } from '../components/MemberInfo'
+
+
+// Global color theme
+import { mainTheme } from '../lib/GlobalStyle'
 
 
 
 export const MemberPage = () => {
 
-  // const { _id, name, accessToken } = useSelector((state) => state.userdata.user)
-  // console.log("name:", name, "id:", _id, "accessToken:", accessToken)
-  let accessToken = window.sessionStorage.getItem('accessToken')
-  console.log("sessionStorage - accessToken:", accessToken)
-  const dispatch = useDispatch()
-  dispatch(authUser(accessToken))
-  // const isAuthenticated = useSelector((state) => state.userdata.isAuthenticated)
-  const isAuthenticated = useSelector((state) => state.userdata.isAuthenticated)
 
 
   return (
     <>
-      {isAuthenticated ?
-        < MemberArea /> :
-        <Redirect to="/login" />}
+      <TopSection>
+        Top section - Profile
+      </TopSection>
+
+      <SectionWrapper>
+        <GridWrapper>
+          <MemberAddDog />
+          <MemberInfo />
+        </GridWrapper>
+      </SectionWrapper>
     </>
   )
 }
 
 
+
+const GridWrapper = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+`
+
 /* ------ STYLING ------ */
 
+const TopSection = styled.section`
+  color: ${mainTheme.whiteish};
+  background-color: ${mainTheme.blackish};
+  border-radius: 50px 50px 0px 0px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* Tablet & Mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    border-radius: 0px;
+  }
 
+`
 
+const SectionWrapper = styled.section`
+  background-color: ${mainTheme.quinary};
+  background: url('assets/pink-pattern_a.jpg');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+  border-radius: 0px 0px 50px 50px;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0px;
+  /* Tablet & Mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    border-radius: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+`

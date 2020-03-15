@@ -18,8 +18,7 @@ export const DogList = () => {
   const dispatch = useDispatch()
 
   // From dogdata reducer
-  const allDogs = useSelector((state) => state.dogdata.dogs)
-  const dogFilter = useSelector((state) => state.dogdata.dogFilter)
+  const { dogs, dogFilter } = useSelector((state) => state.dogdata)
 
   useEffect(() => {
 
@@ -31,7 +30,7 @@ export const DogList = () => {
   // Map over the dogs here
   return (
     <CardsWrapper>
-      {allDogs.map((dog) => (
+      {dogs.map((dog) => (
         <Hyperlink key={dog._id} to={`/dog/${dog._id}`}>
           <DogCard
             dog={dog}

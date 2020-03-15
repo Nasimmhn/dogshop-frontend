@@ -1,6 +1,9 @@
 import React from 'react'
+
+// Styled components
 import styled from 'styled-components/macro'
 
+// Components
 import { LoginForm } from 'components/LoginForm'
 
 
@@ -101,7 +104,6 @@ const GridWrapper = styled.div`
   align-items: flex-end;
 
 `
-
 
 const InnerText = styled.p`
   font-size: 22px;

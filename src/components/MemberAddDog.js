@@ -1,33 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+
+// Styled components
 import styled from 'styled-components/macro'
+
+// React-select
 import Select from 'react-select'
 
 // From reducer
-import { createDogAd, fetchDogBreeds } from '../reducers/dogdata'
+import { createDogAd } from '../reducers/dogdata'
+import { authUser } from '../reducers/userdata'
 
+// Materialize UI
 import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
+import { TextField, Button } from '@material-ui/core'
 
+// Global color theme
+import { mainTheme } from '../lib/GlobalStyle'
 
-let BreedOptions = []
 
 export const MemberAddDog = () => {
+  const { message } = useSelector((state) => state.dogdata)
 
   const classes = useStyles()
-
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.userdata.user)
 
-  // BreedOptions populated by fetching from API
-  const breeds = useSelector((state) => state.dogdata.dogBreeds)
-  breeds.map((breed) => BreedOptions.push({ "value": breed._id, "label": breed.name }))
-
-  // console.log(breeds)
-  useEffect(() => {
-    dispatch(fetchDogBreeds(""))
-  }, [dispatch])
 
   const [name, setName] = useState('')
   const [selectedBreed, setSelectedBreed] = useState('')
@@ -38,10 +36,33 @@ export const MemberAddDog = () => {
   const [price, setPrice] = useState('')
   const [location, setLocation] = useState('')
   const [phone, setPhone] = useState('')
+  const [breedOptions, setBreedOptions] = useState([])
+
+
+  // BreedOptions populated by fetching from API
+  const fetchBreeds = () => {
+    fetch(`http://localhost:8080/dogbreeds`)
+      .then(res => res.json())
+      .then(dogBreeds => {
+        let options = []
+        dogBreeds.map((breed) => options.push({ "value": breed._id, "label": breed.name }))
+        setBreedOptions(options)
+      }
+      )
+  }
+
+  useEffect(() => {
+    fetchBreeds()
+  }, [])
 
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    const user = {
+      _id: window.sessionStorage.getItem('userId'),
+      accessToken: window.sessionStorage.getItem('accessToken')
+    }
+
     let newDog = {
       "name": name,
       "race": selectedBreed.value,
@@ -54,12 +75,23 @@ export const MemberAddDog = () => {
       "owner": user._id
     }
     dispatch(createDogAd(newDog, user)) // Sending the form values to the thunk in reducer
+    document.getElementById("create-dog-form").reset();
+    
+  }
+
+  if (message.success) {
+
+  }
+  if (message.error) {
+    
   }
 
 
-
+  
+  
+  
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <Form id={'create-dog-form'} onSubmit={handleSubmit}>
 
       <FlexWrapper flexdirection={"column"}>
         <Label>
@@ -76,7 +108,7 @@ export const MemberAddDog = () => {
           <Select
             theme={selectCustomTheme}
             placeholder={"Select a dog breed"}
-            options={BreedOptions}
+            options={breedOptions}
             onChange={setSelectedBreed}
           />
         </Label>
@@ -168,11 +200,12 @@ export const MemberAddDog = () => {
           required
         />
       </Label>
-      <Button type='submit' title='Submit'>
+      <StyledButton type='submit' title='Submit'>
         Submit
-      </Button>
-
-    </StyledForm>
+      </StyledButton>
+          { message.success && <div> {message.success} </div> }
+          { message.error && <div> {message.error} </div> }
+    </Form>
   )
 }
 
@@ -180,6 +213,32 @@ export const MemberAddDog = () => {
 
 
 /* ------ STYLING ------ */
+// const StyledForm = styled(Form)`
+//   width: 100%;
+//   min-width: 250px;
+//   background: rgba(255,255,255, 0.4);
+// `
+const Form = styled.form`
+  width: 100%;
+  margin: 15px 0;
+  width: 90%;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+`
+
+const StyledButton = styled(Button)`
+  && {
+    width: 100%;
+    margin: 10px 0px;
+    height: 50px;
+    background-color: ${mainTheme.secondary};
+  }
+  &&:hover{
+    background-color: ${mainTheme.tertiary};
+  }
+`
 
 // Dog breed selector custom theme 
 const selectCustomTheme = (theme) => {
@@ -212,49 +271,6 @@ const FlexWrapper = styled.div`
   justify-content: ${props => props.justify ? props.justify : "space-between"};
 `
 
-const Button = styled.button`
-  font-family: 'Open Sans', sans-serif;
-  height: 45px;
-  min-width: 60px;
-  border: 3px solid #fff;
-  border-radius: 6px;
-  background: rgba(0,0,0, 0.2);
-  transition: 0.6s;
-  color: #fff;
-  cursor: pointer;
-  &:hover {
-    background: gray;
-  }
-  &:focus {
-    outline-color: #BC7C43;
-    outline-offset: 5px;
-  }
-  @media (min-width: 450px) {
-    font-size: 16px;
-  }
-  @media (min-width: 992px) {
-    font-size: 20px;
-    padding: 0 15px;
-  }
-`
-export const Form = styled.form`
-  margin: 15px 0;
-  width: 90%;
-  padding: 20px 20px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 6px;
-  @media (min-width: 668px) {
-    width: 80%;
-    padding: 20px 40px;
-  }
-  @media (min-width: 800px) {
-    width: 60%;
-  }
-  @media (min-width: 992px) {
-    width: 50%;
-  }
-`
 const Label = styled.label`
   width: 100%;
   padding: 5px 0;
@@ -305,6 +321,3 @@ const TextAreaInput = styled.textarea`
   }
 `
 
-const StyledForm = styled(Form)`
-  background: rgba(255,255,255, 0.4);
-`
