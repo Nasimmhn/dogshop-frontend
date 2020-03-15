@@ -43,6 +43,11 @@ const TopSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* Tablet & Mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    border-radius: 0px;
+  }
+
 `
 
 const SectionWrapper = styled.section`
@@ -51,18 +56,17 @@ const SectionWrapper = styled.section`
   background-size: auto;
   background-repeat: repeat;
   background-position: center;
-
   border-radius: 0px 0px 50px 50px;
-  min-height: 680px;
   flex-grow: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 40px 0px;
   /* Tablet & Mobile */
   @media (min-width: 0px) and (max-width: 668px) {
-    border-radius: 0px 0px 50px 50px;
+    border-radius: 0px;
     flex-direction: column;
     align-items: center;
   }
@@ -77,6 +81,9 @@ const FormContainer = styled.div`
   width: 400px;
   /* Mobile */
   @media (max-width: 375px) {
+    -webkit-box-shadow: unset;
+    -moz-box-shadow: unset;
+    box-shadow: unset;
     width: 100%;
   }
 `

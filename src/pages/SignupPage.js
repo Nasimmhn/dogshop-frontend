@@ -91,7 +91,6 @@ const SectionWrapper = styled.section`
   background-position: center;
   padding: 40px;
   border-radius: 0px 0px 50px 50px;
-  min-height: 680px;
   flex-grow: 1;
   width: 100%;
   display: flex;

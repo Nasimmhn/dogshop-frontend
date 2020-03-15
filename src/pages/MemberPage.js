@@ -12,7 +12,6 @@ import { authUser } from '../reducers/userdata'
 
 
 
-
 export const MemberPage = () => {
 
   const { _id, name, accessToken } = useSelector((state) => state.userdata.user)
