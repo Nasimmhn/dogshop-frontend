@@ -46,7 +46,7 @@ export const DogList = () => {
 const CardsWrapper = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
   column-gap: 20px;
   row-gap: 20px;
   margin: 40px 30px 30px 10px;

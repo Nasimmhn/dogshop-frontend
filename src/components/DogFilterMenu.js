@@ -159,7 +159,6 @@ const selectCustomTheme = (theme) => {
     ...theme,
     colors: {
       ...theme.colors,
-      primary25: mainTheme.secondary, // hovering
       primary: mainTheme.secondary, // selected bg
       primary50: mainTheme.secondary, // highliht after selection bg
       neutral80: mainTheme.blackish, // selected text

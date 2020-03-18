@@ -170,7 +170,6 @@ const ButtonWrapper = styled.div`
 
 const NavButton = styled.button`
   background:transparent;
-  border-radius: 20px;
   color: ${mainTheme.blackish};
   padding: 8px;
   font-size:15px;
@@ -179,10 +178,13 @@ const NavButton = styled.button`
   border-style: none;
   border-bottom: 3px solid transparent;
   cursor: pointer;
+  outline: none;
   &:hover {
-    background-color: ${mainTheme.quaternary};
-    color: ${mainTheme.whiteish};
-    border-bottom: 3px solid ${mainTheme.quinary};
+    color: ${mainTheme.blackish};
+    border-bottom: 3px solid ${mainTheme.whiteish};
     transition: 0.1s;
+  }
+  &:focus {
+    outline: none;
   }
 `
