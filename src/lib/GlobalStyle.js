@@ -5,7 +5,7 @@ export const mainTheme = ({
   secondary: '#BF8F7E',
   tertiary: '#CC5D2F',
   quaternary: '#5D412C',
-  quinary: '#f7d6d4',
+  quinary: '#F2EFEF',
   blackish: '#17140D',
   whiteish: '#F2EFEF',
   grayish: '#BAAEAA',
@@ -36,7 +36,7 @@ export const mainTheme = ({
 export const GlobalStyle = createGlobalStyle`
   body {
     color: ${mainTheme.blackish};
-    background-color: ${mainTheme.whiteish};
+    background-color: ${mainTheme.grayish};
     height:100% !important;
     min-height: 100vh;
     width: 100%;

@@ -7,9 +7,7 @@ import styled from 'styled-components/macro'
 // Components
 
 
-
-
-export const MemberInfo = () => {
+export const Profile = () => {
 
   return (
     <FlexWrapper>

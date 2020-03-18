@@ -31,7 +31,6 @@ export const DogBreedDetailCard = ({ dogBreed }) => {
               <FontAwesomeIcon icon={faRulerCombined} /><Text> {dogBreed.size.join(', ')}</Text>
               <FontAwesomeIcon icon={faWeightHanging} /><Text> {dogBreed.weight} </Text>
               <FontAwesomeIcon icon={faHeartbeat} /><Text> {dogBreed.lifespan} </Text>
-
             </GridIconWrapper>
           </DataInfo>
 

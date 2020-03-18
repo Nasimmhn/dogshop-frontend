@@ -59,7 +59,7 @@ const GridWrapper = styled.div`
   align-items: center;
 `
 const HiddenContainer = styled.div`
-  color: ${mainTheme.quinary};
+  color: transparent;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -70,34 +70,36 @@ const HiddenContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  border-radius: 20px;
+  
 `
 
 const BottomTitle = styled.div`
   margin-bottom: 20px;
-  color: ${mainTheme.whiteish};
+  color: ${mainTheme.blackish};
 `
 const VisibleContainer = styled.div`
   z-index: 2;
   position: relative;
 `
 const HiddenText = styled.h3`
-  color: ${mainTheme.whiteish};
+  color: ${mainTheme.blackish};
   margin: 10px 0px;
   font-size: 25px;
 `
 
-const Card = styled.div`  
+const Card = styled.div`
   position: relative;
   background: transparent;
   display: flex;
   flex-direction: column;
-  &:hover ${VisibleContainer} {
-    filter: brightness(15%);
-    transition: 0.4s;
-  }
+  border: 1px solid ${mainTheme.blackish};
+  border-radius: 20px;
   &:hover ${HiddenContainer} {
     z-index: 5;
     transition: 0.4s;
+    background-color: rgb(230, 230, 230, 0.9);
+    color: ${mainTheme.blackish};
   }
 `
 
@@ -111,9 +113,7 @@ const Image = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
-  -webkit-box-shadow: inset 0px -8px 29px 0px rgba(23,20,13,0.69);
-  -moz-box-shadow: inset 0px -8px 29px 0px rgba(23,20,13,0.69);
-  box-shadow: inset 0px -8px 29px 0px rgba(23,20,13,0.69);
+
 `
 const Content = styled.div`
   height: 109px;

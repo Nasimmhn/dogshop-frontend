@@ -47,9 +47,9 @@ const CardsWrapper = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-  column-gap: 40px;
-  row-gap: 40px;
-  margin: 40px 50px 40px 10px;
+  column-gap: 20px;
+  row-gap: 20px;
+  margin: 40px 30px 30px 10px;
 
 /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {

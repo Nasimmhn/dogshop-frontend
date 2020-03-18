@@ -23,7 +23,7 @@ export const LoginPage = () => {
       <SectionWrapper>
         <FormContainer>
           <GridWrapper>
-            <Image src="assets/login-hero_d.png" />
+            <Image src="/assets/login-hero_d.png" />
             <LoginForm />
           </GridWrapper>
         </FormContainer>
@@ -55,7 +55,7 @@ const TopSection = styled.section`
 
 const SectionWrapper = styled.section`
   background-color: ${mainTheme.quinary};
-  background: url('assets/pink-pattern_a.jpg');
+  /* background: url("/assets/pink-pattern_a.jpg"); */
   background-size: auto;
   background-repeat: repeat;
   background-position: center;

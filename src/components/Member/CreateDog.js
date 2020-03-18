@@ -9,18 +9,18 @@ import styled from 'styled-components/macro'
 import Select from 'react-select'
 
 // From reducer
-import { createDogAd } from '../reducers/dogdata'
-import { authUser } from '../reducers/userdata'
+import { createDogAd } from '../../reducers/dogdata'
+import { authUser } from '../../reducers/userdata'
 
 // Materialize UI
 import { makeStyles } from '@material-ui/core/styles'
 import { TextField, Button } from '@material-ui/core'
 
 // Global color theme
-import { mainTheme } from '../lib/GlobalStyle'
+import { mainTheme } from '../../lib/GlobalStyle'
 
 
-export const MemberAddDog = () => {
+export const CreateDog = () => {
   const { message } = useSelector((state) => state.dogdata)
 
   const classes = useStyles()
@@ -28,6 +28,7 @@ export const MemberAddDog = () => {
 
 
   const [name, setName] = useState('')
+  const [image, setImage] = useState(null)
   const [selectedBreed, setSelectedBreed] = useState('')
   const [sex, setSex] = useState('')
   const [birthdate, setBirthdate] = useState('')
@@ -65,6 +66,7 @@ export const MemberAddDog = () => {
 
     let newDog = {
       "name": name,
+      "image": image,
       "race": selectedBreed.value,
       "sex": sex,
       "birthdate": birthdate,
@@ -76,20 +78,20 @@ export const MemberAddDog = () => {
     }
     dispatch(createDogAd(newDog, user)) // Sending the form values to the thunk in reducer
     document.getElementById("create-dog-form").reset();
-    
+
   }
 
   if (message.success) {
 
   }
   if (message.error) {
-    
+
   }
 
 
-  
-  
-  
+
+
+
   return (
     <Form id={'create-dog-form'} onSubmit={handleSubmit}>
 
@@ -103,6 +105,16 @@ export const MemberAddDog = () => {
             required
           />
         </Label>
+
+        <Label>
+          <LabelText> Upload an image</LabelText>
+          <Input
+            type="file"
+            onChange={event => setImage(event.target.files)}
+            accept=".jpg, .jpeg, .png"
+          />
+        </Label>
+
         <Label>
           <LabelText>Dog breed *</LabelText>
           <Select
@@ -203,8 +215,8 @@ export const MemberAddDog = () => {
       <StyledButton type='submit' title='Submit'>
         Submit
       </StyledButton>
-          { message.success && <div> {message.success} </div> }
-          { message.error && <div> {message.error} </div> }
+      {message.success && <div> {message.success} </div>}
+      {message.error && <div> {message.error} </div>}
     </Form>
   )
 }

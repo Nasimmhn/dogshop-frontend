@@ -16,6 +16,7 @@ import { PrivateRoute } from 'components/PrivateRoute'
 // Components
 import { NavBar } from 'components/NavBar'
 import { Footer } from 'components/Footer'
+import { Logout } from 'components/Logout'
 
 
 // Global style
@@ -24,7 +25,8 @@ import { GlobalStyle } from './lib/GlobalStyle'
 // Reducer
 import { dogdata } from './reducers/dogdata'
 import { userdata } from './reducers/userdata'
-import { Logout } from 'components/Logout'
+import { ui } from './reducers/ui'
+
 
 
 
@@ -40,6 +42,7 @@ export const PATHS = {
 const reducer = combineReducers({
   dogdata: dogdata.reducer,
   userdata: userdata.reducer,
+  ui: ui.reducer
 
 })
 

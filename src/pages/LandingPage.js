@@ -20,7 +20,7 @@ export const LandingPage = () => {
     <Container>
       <HeroSection>
         <TextContainer>
-          <InnerSpan>Dream about a best friend? </InnerSpan>
+          <InnerSpan>Dreaming about a best friend? </InnerSpan>
           <InnerText >Go ahead and take a look at these precious ones <FontAwesomeIcon icon={faPaw} /></InnerText>
         </TextContainer>
       </ HeroSection>
@@ -37,7 +37,7 @@ export const LandingPage = () => {
 const HeroSection = styled.section`
   color: ${mainTheme.whiteish};
   background: ${mainTheme.blackish};
-  background: url('assets/hero10a.jpg');
+  background: url("/assets/hero10a.jpg");
   background-size: cover;
   background-position: center;
   /* box-shadow: inset 100vmax 0 0 100vmax rgba(23, 20, 13, 0.4); */
@@ -63,7 +63,7 @@ const Container = styled.div`
 
 const SectionWrapper = styled.section`
   background-color: ${mainTheme.quinary};
-  background: url('assets/pink-pattern_a.jpg');
+  /* background: url("/assets/pink-pattern_a.jpg"); */
   background-size: auto;
   background-repeat: repeat;
   background-position: center;

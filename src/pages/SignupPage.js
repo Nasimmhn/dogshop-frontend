@@ -85,7 +85,7 @@ const TopSection = styled.section`
 
 const SectionWrapper = styled.section`
   background-color: ${mainTheme.quinary};
-  background: url('assets/pink-pattern_a.jpg');
+  /* background: url("/assets/pink-pattern_a.jpg"); */
   background-size: auto;
   background-repeat: repeat;
   background-position: center;
