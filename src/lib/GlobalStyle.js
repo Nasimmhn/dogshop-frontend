@@ -34,6 +34,7 @@ export const mainTheme = ({
 */
 
 export const GlobalStyle = createGlobalStyle`
+
   body {
     color: ${mainTheme.blackish};
     background-color: ${mainTheme.grayish};

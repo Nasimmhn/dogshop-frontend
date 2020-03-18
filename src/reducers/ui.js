@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const ui = createSlice({
   name: 'ui',
   initialState: {
-    showProfile: false,
+    showProfile: true,
     showCreateDogForm: false,
     showDogList: false
   },

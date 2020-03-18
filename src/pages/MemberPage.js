@@ -45,17 +45,14 @@ export const MemberPage = () => {
 
           <ButtonCard onClick={handleShowProfile} selected={showProfile}>
             <Title>Profile</Title>
-            <InfoText> View and change your profile details </InfoText>
           </ButtonCard>
 
           <ButtonCard onClick={handleShowCreateDogForm} selected={showCreateDogForm}>
-            <Title> Create New Ad </Title>
-            <InfoText> Tell us about your dog </InfoText>
+            <Title> Create Ad </Title>
           </ButtonCard>
 
           <ButtonCard onClick={handleShowDogList} selected={showDogList}>
-            <Title> Show My Ads </Title>
-            <InfoText> Display list of the ads you have created </InfoText>
+            <Title> Show Ads </Title>
           </ButtonCard>
         </MenuWrapper>
 
@@ -72,34 +69,33 @@ export const MemberPage = () => {
 
 /* ------ STYLING ------ */
 
-const Title = styled.h3`
+const Title = styled.span`
   text-align: center;
+  font-size: 15px;
+  @media (min-width: 0px) and (max-width: 410px) {
+    font-size: 12px;
+  }
 `
 
-const InfoText = styled.p`
-  text-align: center;
-`
 
 const ButtonCard = styled.div`
   padding: 20px;
-  height: 200px;  
+  height: 20px;  
   max-width: 200px;
   width: 100%;
-  background-color: ${props => props.selected ? 'red' : 'white'};
+  background-color: ${props => props.selected ? `${mainTheme.whiteish}` : "transparent"};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  -webkit-box-shadow: 2px 2px 2px 3px rgba(23,20,13,1);
-  -moz-box-shadow: 2px 2px 2px 3px rgba(23,20,13,1);
-  box-shadow: 2px 2px 2px 3px rgba(23,20,13,1);
-  border-radius: 10px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 5px 5px 0px 0px;
+  border-color: ${props => props.selected ? 'transparent' : `${mainTheme.blackish}`};
   &&:hover {
-    background-color: gray;
-    -webkit-box-shadow: 0px 0px 10px 3px rgba(23,20,13,1);
-    -moz-box-shadow: 0px 0px 10px 3px rgba(23,20,13,1);
-    box-shadow: 0px 0px 10px 3px rgba(23,20,13,1);
+    font-weight: bold;
   }
+
 `
 
 
@@ -111,14 +107,18 @@ const Dashboard = styled.div`
   justify-content: center;
 `
 const MenuWrapper = styled.div`
+  border-left: 1px solid ${mainTheme.whiteish};
+  border-right: 1px solid ${mainTheme.whiteish};
+  background-color: ${ mainTheme.grayish};
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto auto;
-  align-content: center;
-  align-items: center;
-  border-bottom: 1px solid black;
+  grid-template-columns: 100px 150px 120px;
+  align-items: flex-start;
   && > div {
     justify-self: center;
+  }
+  @media (min-width: 0px) and (max-width: 410px) {
+    grid-template-columns: 75px 105px 105px;
   }
 
 `
@@ -152,7 +152,7 @@ const SectionWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 0px;
+  padding: 0px 0px;
   /* Tablet & Mobile */
   @media (min-width: 0px) and (max-width: 668px) {
     border-radius: 0px;

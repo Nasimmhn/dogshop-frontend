@@ -91,12 +91,11 @@ export const loginUser = (email, password) => {
       .then(user => {
         window.sessionStorage.setItem('userId', user._id)
         window.sessionStorage.setItem('name', user.name)
+        window.sessionStorage.setItem('email', user.email)
         window.sessionStorage.setItem('isAuthenticated', true)
         window.sessionStorage.setItem('accessToken', user.accessToken)
         dispatch(userdata.actions.loggingIn(user))
         dispatch(userdata.actions.setSuccessMessage('Logged in!'))
-
-
       })
 
       .catch(err => {
@@ -132,3 +131,20 @@ export const logoutUser = () => {
 
   }
 }
+
+export const getUser = (userId, accessToken) => {
+  return dispatch => {
+    fetch(`http://localhost:8080/user/id/${userId}`, {
+      method: 'GET',
+      headers: {
+        Authorization: accessToken
+      }
+    })
+      .then(res => res.json())
+      .then(auth => {
+
+      })
+      .catch(err => console.error('error', err))
+  }
+}
+

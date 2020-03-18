@@ -10,7 +10,7 @@ import Select from 'react-select'
 
 // From reducer
 import { createDogAd } from '../../reducers/dogdata'
-import { authUser } from '../../reducers/userdata'
+import { ui } from '../../reducers/ui'
 
 // Materialize UI
 import { makeStyles } from '@material-ui/core/styles'
@@ -78,6 +78,7 @@ export const CreateDog = () => {
     }
     dispatch(createDogAd(newDog, user)) // Sending the form values to the thunk in reducer
     document.getElementById("create-dog-form").reset();
+    dispatch(ui.actions.setShowDogList())
 
   }
 
@@ -95,7 +96,7 @@ export const CreateDog = () => {
   return (
     <Form id={'create-dog-form'} onSubmit={handleSubmit}>
 
-      <FlexWrapper flexdirection={"column"}>
+      <FlexWrapper flexDirection={"column"}>
         <Label>
           <LabelText>Name *</LabelText>
           <Input
@@ -110,7 +111,7 @@ export const CreateDog = () => {
           <LabelText> Upload an image</LabelText>
           <Input
             type="file"
-            onChange={event => setImage(event.target.files)}
+            onChange={event => setImage(event.target.files[0])}
             accept=".jpg, .jpeg, .png"
           />
         </Label>
@@ -126,8 +127,8 @@ export const CreateDog = () => {
         </Label>
       </FlexWrapper>
 
-      <FlexWrapper flexdirection={"row"}>
-        <FlexWrapper flexdirection={"column"} justify={"space-center"}>
+      <FlexWrapper flexDirection={"row"}>
+        <FlexWrapper flexDirection={"column"} justifyContent={"space-center"}>
           <LabelText>Gender *</LabelText>
 
           <Label htmlFor="male">
@@ -183,27 +184,27 @@ export const CreateDog = () => {
           rows='4'
           placeholder='Type here..' />
       </Label>
+      <FlexWrapper flexDirection={"row"} justifyContent={"space-between"}>
+        <Label width={'90%'}>
+          <LabelText>Price *</LabelText>
+          <Input
+            onChange={event => setPrice(event.target.value)}
+            type='number'
+            placeholder='SEK'
+            required
+          />
+        </Label>
 
-      <Label>
-        <LabelText>Price *</LabelText>
-        <Input
-          onChange={event => setPrice(event.target.value)}
-          type='number'
-          placeholder='SEK'
-          required
-        />
-      </Label>
-
-      <Label>
-        <LabelText>Location *</LabelText>
-        <Input
-          onChange={event => setLocation(event.target.value)}
-          type='text'
-          placeholder='Stockholm, Göteborg...'
-          required
-        />
-      </Label>
-
+        <Label width={'90%'}>
+          <LabelText>Location *</LabelText>
+          <Input
+            onChange={event => setLocation(event.target.value)}
+            type='text'
+            placeholder='Stockholm, Göteborg...'
+            required
+          />
+        </Label>
+      </FlexWrapper>
       <Label>
         <LabelText>Phone *</LabelText>
         <Input
@@ -231,6 +232,7 @@ export const CreateDog = () => {
 //   background: rgba(255,255,255, 0.4);
 // `
 const Form = styled.form`
+  max-width: 500px;
   width: 100%;
   margin: 15px 0;
   width: 90%;
@@ -243,7 +245,7 @@ const Form = styled.form`
 const StyledButton = styled(Button)`
   && {
     width: 100%;
-    margin: 10px 0px;
+    margin: 20px 0px;
     height: 50px;
     background-color: ${mainTheme.secondary};
   }
@@ -279,13 +281,15 @@ const useStyles = makeStyles(theme => ({
 const FlexWrapper = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: ${props => props.flexdirection ? props.flexdirection : "row"};;
-  justify-content: ${props => props.justify ? props.justify : "space-between"};
+  flex-direction: ${props => props.flexDirection};
+  justify-content: ${props => props.justifyContent ? props.justifyContent : "space-between"};
+  align-items: ${props => props.alignItems};
 `
 
 const Label = styled.label`
-  width: 100%;
-  padding: 5px 0;
+  width: ${props => props.width ? props.width : "100%"};
+  display: inline-block;
+  padding: 0px 5px;
 `
 const LabelText = styled.p`
   margin: 15px 0 8px 0;
@@ -302,6 +306,7 @@ const Input = styled.input`
   border-radius: 3px;
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
   @media (min-width: 668px) {
     font-size: 16px;
   }
@@ -323,10 +328,11 @@ const TextAreaInput = styled.textarea`
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  resize: "none";
+  resize: none;
   border: 2px solid #e6e6e6;
   border-radius: 3px;
   font-size: 14px;
+  box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   @media (min-width: 668px) {
     font-size: 16px;
