@@ -1,20 +1,28 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 // import heroImage from '../public/assets/hero.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaw } from '@fortawesome/free-solid-svg-icons'
 
 // Components
 import { DogList } from 'components/DogList'
 import { DogFilterMenu } from 'components/DogFilterMenu'
 
-
 // Global color theme
 import { mainTheme } from '../lib/GlobalStyle'
+
+
+
+
 
 export const LandingPage = () => {
   return (
     <Container>
       <HeroSection>
-        <InnerText>Top section</InnerText>
+        <TextContainer>
+          <InnerSpan>Dream about a best friend? </InnerSpan>
+          <InnerText >Go ahead and take a look at these precious ones <FontAwesomeIcon icon={faPaw} /></InnerText>
+        </TextContainer>
       </ HeroSection>
       <SectionWrapper>
         <DogFilterMenu />
@@ -65,7 +73,6 @@ const SectionWrapper = styled.section`
   display: flex;
   flex-direction: row;
   border-radius: 0px 0px 50px 50px;
-  
   /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {
     flex-direction: column;
@@ -77,10 +84,52 @@ const SectionWrapper = styled.section`
   }
 `
 
-const InnerText = styled.p`
-  color: ${mainTheme.whiteish};
-  font-size: 22px;
-  width:100%;
-  text-align: center;
+
+const TextContainer = styled.div`
+  position: absolute;
+  top: 120px;
+  left:15px;
+  width: 550px;
+    /* Tablet */
+    @media (min-width: 0px) and (max-width: 668px) {
+      width: 100%;
+      
+    }
+    /* Mobile */
+    @media (max-width: 375px) {
+    
+  }
+  
 `
 
+const InnerSpan = styled.h1`
+  color:${mainTheme.tertiary};
+  margin-bottom:5px;
+  /* text-shadow: 0 1px 10px #4d4751, 0 0 4px #4d4751; */
+  font-size:40px;
+    /* Tablet */
+    @media (min-width: 0px) and (max-width: 668px) {
+      
+    }
+    /* Mobile */
+    @media (max-width: 375px) {
+    
+  }
+  
+`
+
+const InnerText = styled.p`
+  color: ${ mainTheme.quaternary};
+  font-size: 18px;
+  margin-top: 15px;
+  width:90%;
+    /* Tablet */
+    @media (min-width: 0px) and (max-width: 668px) {
+      
+    }
+    /* Mobile */
+    @media (max-width: 375px) {
+    
+  }
+  
+`

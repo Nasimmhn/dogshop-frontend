@@ -14,7 +14,7 @@ export const DogBreedPage = () => {
   return (
     <>
       <HeroSection>
-        <InnerText>Top - Dog breeds</InnerText>
+        {/* <InnerText></InnerText> */}
       </HeroSection>
 
       <SectionWrapper>

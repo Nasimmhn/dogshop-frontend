@@ -141,6 +141,7 @@ const Title = styled.h1`
   text-align: center;
   margin: 0px 0px 0px 0px;
   font-size: 23px;
+  font-family: 'Raleway';
 `
 const SubTitle = styled.p`
   margin: 0px 0px;

@@ -212,6 +212,7 @@ const FlexWrapper = styled.div`
 `
 
 const Title = styled.h1`
+font-family: 'Raleway';
   color: ${mainTheme.tertiary};
   margin: 5px 0px;
   font-size: 23px;

@@ -10,12 +10,35 @@ import { mainTheme } from '../lib/GlobalStyle'
 
 export const Footer = () => {
   return (
-    <>
-      <StyledFooter>
-        <InnerText>This is footer</InnerText>
-        <InnerText>This is footer</InnerText>
-      </StyledFooter>
-    </>
+
+    <StyledFooter>
+
+      <FlexWrapper >
+
+        <WrapperInner>
+          <Title>About us</Title>
+          <InnerText>This is footer</InnerText>
+          <InnerText>This is footer</InnerText>
+          <InnerText>This is footer</InnerText>
+        </WrapperInner>
+        <WrapperInner>
+          <Title>Dog care topics</Title>
+          <InnerText>This is footer</InnerText>
+          <InnerText>This is footer</InnerText>
+          <InnerText>This is footer</InnerText>
+        </WrapperInner>
+        <WrapperInner>
+          <Title>Contact</Title>
+          <InnerText>this is footert</InnerText>
+          <InnerText>This is footer</InnerText>
+          <InnerText>This is footer</InnerText>
+        </WrapperInner>
+
+      </FlexWrapper >
+
+    </StyledFooter>
+
+
   )
 }
 
@@ -31,16 +54,35 @@ const StyledFooter = styled.footer`
   margin-top: 50px;
   width:100%;
   height:250px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  
 `
+
+const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around;
+  height:100%;
+
+
+`
+
+const WrapperInner = styled.div`
+  
+`
+
+
+const Title = styled.h4`
+  color: ${mainTheme.quinary};
+  font-size: 19px;
+  width:100%;
+  text-align: center;
+`
+
 
 const InnerText = styled.p`
   color: ${mainTheme.whiteish};
-  font-size: 22px;
+  font-size: 15px;
   width:100%;
   text-align: center;
 `

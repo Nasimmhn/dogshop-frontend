@@ -41,9 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     width: 100%;
     min-width: 250px;
-
-    font-family: 'Roboto';
-    
+    font-family: 'Montserrat', sans-serif;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
