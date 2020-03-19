@@ -38,7 +38,7 @@ export const NavBar = () => {
     <NavSection>
       <HamburgerContainer>
         <Menu styles={burgerStyle} >
-          <a id="dogs" className="menu-item" href="/">Dogs</a>
+          <a id="dogs" className="menu-item" href="/">Find dogs</a>
           <a id="dogbreeds" className="menu-item" href="/dogbreeds">Dog breeds</a>
           <a id="members" className="menu-item" href="/members">Members</a>
           {!isAuthenticated && <a id="login" className="menu-item" href="/login">Login</a>}
@@ -51,7 +51,7 @@ export const NavBar = () => {
       <NavItems>
         <ButtonWrapper>
           <Link to={'/'} tabIndex='-1'>
-            <NavButton><FontAwesomeIcon icon={faPaw} /> Dogs</NavButton>
+            <NavButton><FontAwesomeIcon icon={faPaw} /> Find dogs</NavButton>
           </Link>
           <Link to={'/dogbreeds'} tabIndex='-1'>
             <NavButton><FontAwesomeIcon icon={faDog} /> Dog Breeds</NavButton>

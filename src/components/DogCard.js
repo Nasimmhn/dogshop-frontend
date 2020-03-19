@@ -76,6 +76,7 @@ const HiddenContainer = styled.div`
 
 const BottomTitle = styled.div`
   margin-bottom: 20px;
+  font-size: 12px;
   color: ${mainTheme.blackish};
 `
 const VisibleContainer = styled.div`
@@ -85,7 +86,7 @@ const VisibleContainer = styled.div`
 const HiddenText = styled.h3`
   color: ${mainTheme.blackish};
   margin: 10px 0px;
-  font-size: 25px;
+  font-size: 19px;
 `
 
 const Card = styled.div`

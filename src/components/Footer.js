@@ -14,13 +14,6 @@ export const Footer = () => {
     <StyledFooter>
 
       <FlexWrapper >
-
-        <WrapperInner>
-          <Title>About us</Title>
-          <InnerText>This is footer</InnerText>
-          <InnerText>This is footer</InnerText>
-          <InnerText>This is footer</InnerText>
-        </WrapperInner>
         <WrapperInner>
           <Title>Dog care topics</Title>
           <InnerText>This is footer</InnerText>

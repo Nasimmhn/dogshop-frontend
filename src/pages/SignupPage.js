@@ -21,7 +21,7 @@ export const SignupPage = () => {
   return (
     <>
       <TopSection>
-        <InnerText>Top section - Sign-Up</InnerText>
+        <InnerText>In order to create an ad, you need to sign up here</InnerText>
       </TopSection>
       <SectionWrapper>
         {!isRegistered &&

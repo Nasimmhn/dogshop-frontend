@@ -6,7 +6,7 @@ export const mainTheme = ({
   tertiary: '#CC5D2F',
   quaternary: '#5D412C',
   quinary: '#F2EFEF',
-  blackish: '#17140D',
+  blackish: '#130d0c',
   whiteish: '#F2EFEF',
   grayish: '#BAAEAA',
 })
