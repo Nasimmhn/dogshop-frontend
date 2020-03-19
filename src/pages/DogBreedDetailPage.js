@@ -53,11 +53,11 @@ const SectionWrapper = styled.section`
   @media (min-width: 0px) and (max-width: 668px) {
     flex-direction: column;
     align-items: center;
-    margin: 20px 0px 0px 0px;
+    margin: 0px;
+    padding-top: 60px;
   }
   /* Mobile */
   @media (max-width: 375px) {
-    padding: 10px 10px 30px 10px;
-    margin: 50px 0px 0px 0px;
+    padding-top: 60px;
   }
 `

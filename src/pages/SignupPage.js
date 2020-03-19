@@ -27,9 +27,11 @@ export const SignupPage = () => {
         {!isRegistered &&
           <GridWrapper>
             <SignupInfo>
-              <InnerText>In order to create an ad, you need to sign up here</InnerText>
               <Title>Signup information</Title>
-              <Text>Signup information</Text>
+              <InnerText>In order to create an ad, you need to sign up here</InnerText>
+              <Title> <FontAwesomeIcon icon={faCheckCircle} />Free </Title>
+              <Title> <FontAwesomeIcon icon={faCheckCircle} />Easy</Title>
+              <Title> <FontAwesomeIcon icon={faCheckCircle} />Safe</Title>
             </SignupInfo>
             <SignupForm />
           </GridWrapper>
@@ -54,8 +56,8 @@ export const SignupPage = () => {
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: minmax(250px, 400px) minmax(250px, 400px);
-  column-gap: 20px;
-  row-gap: 20px;
+  column-gap: 30px;
+  row-gap: 30px;
   align-items: top;
   @media (min-width: 0px) and (max-width: 668px) {
     grid-template-columns: minmax(250px, 400px);
@@ -84,12 +86,7 @@ const TopSection = styled.section`
 
 const SectionWrapper = styled.section`
    background-color: ${mainTheme.lightgray};
-  /* background: url("/assets/pink-pattern_a.jpg"); */
-  background-size: auto;
-  background-repeat: repeat;
-  background-position: center;
   padding: 40px;
-  /* border-radius: 0px 0px 50px 50px; */
   flex-grow: 1;
   width: 100%;
   display: flex;
@@ -120,29 +117,31 @@ const ConfirmDiv = styled.div`
   height: 300px;
 `
 const IconDiv = styled.div`
+ color: ${mainTheme.tertiary};
   align-self: center;
   & > * {
-    font-size:50px;
+    font-size:60px;
   }
 `
 
 const Button = styled.button`
-  margin-top: 10px;
   background: ${mainTheme.tertiary};
   border-radius: 20px;
   color: ${mainTheme.whiteish};
-  padding: 8px;
-  width:200px;
+  padding: 10px;
+  width:250px;
   font-size:15px;
   font-weight:bold;
   transition: 0.2s; 
-  border-style: none;
-  border-bottom: 3px solid transparent;
+  border:  1px solid transparent; 
+  margin-top: 10px;
   cursor: pointer;
   &:hover {
-    background-color: ${mainTheme.quaternary};
-    color: ${mainTheme.whiteish};
+    background-color: transparent;
+    border: 1px solid ${ mainTheme.tertiary};
+    color: ${ mainTheme.tertiary};
     transition: 0.1s;
+    
   }
 `
 const Title = styled.h1`

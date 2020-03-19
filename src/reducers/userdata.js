@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+import { ui } from './ui'
 
 export const userdata = createSlice({
   name: 'userdata',
@@ -38,19 +38,10 @@ export const userdata = createSlice({
     },
     clearUser: (state, action) => {
       state.user = {}
-      state.isRegistered = false
       state.isLoggedin = false
       state.isAuthenticated = false
-    },
-    setErrorMessage: (state, action) => {
-      state.messages.success = null
-      state.messages.error = action.payload
-    },
-    setSuccessMessage: (state, action) => {
-      state.messages.error = null
-      state.messages.success = action.payload
+      state.isRegistered = false
     }
-
   }
 })
 
@@ -67,12 +58,18 @@ export const registerNewUser = (name, email, password) => {
       }),
       headers: { 'Content-Type': 'application/json' }
     })
-      .then(res => res.json())
+      .then(res => {
+        console.log("res", res)
+        if (res.status !== 201) { throw new Error(res.status) }
+        else { return res.json() }
+      })
       .then(json => {
-        console.log("json", json)
+        dispatch(ui.actions.setSuccessMessage('User created!'))
         dispatch(userdata.actions.registerUser(json))
       })
-      .catch(err => console.error('error', err))
+      .catch(err => {
+        dispatch(ui.actions.setErrorMessage('User already exist'))
+      })
   }
 }
 
@@ -95,12 +92,10 @@ export const loginUser = (email, password) => {
         window.sessionStorage.setItem('isAuthenticated', true)
         window.sessionStorage.setItem('accessToken', user.accessToken)
         dispatch(userdata.actions.loggingIn(user))
-        dispatch(userdata.actions.setSuccessMessage('Logged in!'))
       })
-
       .catch(err => {
         console.error('error', err)
-        dispatch(userdata.actions.setErrorMessage('Failed to login'))
+        dispatch(ui.actions.setErrorMessage('Failed to login'))
       })
   }
 }
@@ -124,13 +119,6 @@ export const authUser = (accessToken) => {
 }
 
 
-export const logoutUser = () => {
-  return dispatch => {
-    window.sessionStorage.clear()
-    dispatch(userdata.actions.clearUser())
-
-  }
-}
 
 export const getUser = (userId, accessToken) => {
   return dispatch => {

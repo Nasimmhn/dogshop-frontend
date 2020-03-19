@@ -6,7 +6,11 @@ export const ui = createSlice({
   initialState: {
     showProfile: true,
     showCreateDogForm: false,
-    showDogList: false
+    showDogList: false,
+    message: {
+      success: null,
+      error: null,
+    },
   },
 
   reducers: {
@@ -25,6 +29,14 @@ export const ui = createSlice({
       state.showDogList = true
       state.showProfile = false
       state.showCreateDogForm = false
-    }
+    },
+    setSuccessMessage: (state, action) => {
+      state.message.error = null
+      state.message.success = action.payload
+    },
+    setErrorMessage: (state, action) => {
+      state.message.success = null
+      state.message.error = action.payload
+    },
   }
 })

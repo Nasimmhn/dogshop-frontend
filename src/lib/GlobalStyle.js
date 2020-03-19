@@ -7,11 +7,17 @@ export const mainTheme = ({
   quaternary: '#5D412C',
   quinary: '#F2EFEF',
   blackish: '#130d0c',
-  whiteish: '#FFF',
+  whiteish: '#f9fafa',
   grayish: '#BAAEAA',
   lightgray: '#EFEBE9',
+  lightbeige: '#a58881',
+  darkbrown: '#2a211e'
 })
 
+
+
+
+//new theme
 // export const mainTheme = ({
 //   primary: '#196DFA',
 //   secondary: '#BF8F7E',
@@ -22,6 +28,7 @@ export const mainTheme = ({
 //   whiteish: '#F2EFEF',
 //   grayish: '#BAAEAA',
 // whiteish: '#f0f0f7',
+// lightgray: '#EFEBE9',
 // })
 
 /*
@@ -36,7 +43,6 @@ export const mainTheme = ({
 */
 
 export const GlobalStyle = createGlobalStyle`
-
   body {
     color: ${mainTheme.blackish};
     background-color: ${mainTheme.whiteish};

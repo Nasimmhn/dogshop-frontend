@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation, Redirect } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,33 +10,34 @@ import styled from 'styled-components/macro'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-// loginUser (from reducer)
+// Reducer
 import { loginUser } from 'reducers/userdata'
+import { ui } from 'reducers/ui'
 
 // Global theme
 import { mainTheme } from '../lib/GlobalStyle'
 
 export const LoginForm = () => {
-  const { messages } = useSelector((state) => state.userdata)
-  let history = useHistory()
-  let location = useLocation()
-
-  let { from } = location.state || { from: { pathname: "/" } }
-  console.log("location.state:", location.state)
-
   const dispatch = useDispatch()
+
+  const { message } = useSelector((state) => state.ui)
+  const { isAuthenticated } = useSelector((state) => state.userdata)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  useEffect(() => {
+
+  }, [dispatch, isAuthenticated])
+
 
   const handleLogin = (event) => {
     event.preventDefault()
     dispatch(loginUser(email, password))
   }
 
-
   return (
     <>
-      {messages.success &&
+      {isAuthenticated &&
         <Redirect to={'/members'} />
       }
 
@@ -67,7 +68,7 @@ export const LoginForm = () => {
           Login
         </StyledButton>
       </Form>
-      {messages.error && <FailedText> {messages.error} </FailedText>}
+      {message.error && <ErrorMsg> {message.error} </ErrorMsg>}
     </>
   )
 }
@@ -84,10 +85,18 @@ const Form = styled.form`
   align-items: center;
 `
 
-const FailedText = styled.p`
-  font-size: 16px;
+const ErrorMsg = styled.p`
+  font-size: 19px;
   color: red;
   margin:5px 0;
+  text-align:center;
+`
+
+const SuccessMsg = styled.p`
+  font-size: 19px;
+  color: red;
+  margin:5px 0;
+  text-align:center;
 `
 const StyledTextField = styled(TextField)`
   && {
@@ -115,7 +124,7 @@ const StyledTextField = styled(TextField)`
 
 const StyledButton = styled(Button)`
   && {
-    width: 100%;
+    width: 380px;
     margin: 10px 0px;
     height: 50px;
     color:${mainTheme.whiteish};
@@ -126,5 +135,8 @@ const StyledButton = styled(Button)`
     background-color: transparent;
     border: 1px solid ${mainTheme.tertiary};
     color:${mainTheme.tertiary};
+  }
+  @media (min-width: 0px) and (max-width: 668px) {
+    width: 100%;
   }
 `

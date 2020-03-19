@@ -107,7 +107,6 @@ export const DogFilterMenu = () => {
         onChange={setGroup}
         noOptionsMessage={() => "No other groups"}
         isMulti
-        autoFocus
         isSearchable
       />
 
@@ -126,7 +125,7 @@ export const DogFilterMenu = () => {
         onChange={setSize}
         noOptionsMessage={() => "No other sizes"}
         isMulti
-        autoFocus
+
       />
 
       <div className={classes.priceRange}>
@@ -181,7 +180,11 @@ const useStyles = makeStyles({
 });
 
 const FilterWrapper = styled.div`
+  background-color: ${mainTheme.whiteish};
   color: ${mainTheme.blackish};
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
   padding: 35px;
   width: 400px !important;
 
@@ -204,11 +207,10 @@ const StyledInput = styled.input`
   width: 100%;
   font-size: 16px;
   padding: 0px 8px;
-  border: 1px solid transparent;
+  border: 1px solid ${mainTheme.secondary};
   outline: none;
   box-sizing:border-box;
   color: ${mainTheme.blackish};
-  font-family:Roboto;
   border-radius: 5px;
   height:38px;
   & :focus {

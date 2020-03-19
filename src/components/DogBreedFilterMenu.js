@@ -79,7 +79,6 @@ export const DogBreedFilterMenu = () => {
         onChange={setGroup}
         noOptionsMessage={() => "No other groups"}
         isMulti
-        autoFocus
         isSearchable
       />
 
@@ -91,7 +90,6 @@ export const DogBreedFilterMenu = () => {
         onChange={setSize}
         noOptionsMessage={() => "No other sizes"}
         isMulti
-        autoFocus
       />
 
     </FilterWrapper>
@@ -117,26 +115,32 @@ const selectCustomTheme = (theme) => {
       danger: mainTheme.whiteish, // remove button 
     },
 
+
   }
 }
 
 
 const FilterWrapper = styled.div`
   color: ${mainTheme.blackish};
-  padding: 35px;
-  margin-right:20px;
-  width: 400px !important;
+  background-color: ${mainTheme.whiteish};
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  padding: 30px;
+  width: 100%;
+  min-width: 200px;
+  max-width: 350px;
 
   & > * {
     margin: 20px 0px;
   }
   /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {
+    max-width: unset;
+    padding: 50px 10px 35px 10px;
     width: 100% !important;
-    }
-  /* Mobile */
-  @media (max-width: 375px) {  
-    padding: 35px 10px; 
+    margin-right:0px;
+    max-width: 100%;
   }
 `
 
@@ -145,11 +149,10 @@ const StyledInput = styled.input`
   width: 100%;
   font-size: 16px;
   padding: 0px 8px;
-  border: 1px solid transparent;
+  border: 1px solid ${mainTheme.secondary};
   outline: none;
   box-sizing:border-box;
   color: ${mainTheme.blackish};
-  font-family:Roboto;
   border-radius: 5px;
   height:38px;
   & :focus {

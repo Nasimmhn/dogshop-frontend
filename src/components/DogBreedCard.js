@@ -17,17 +17,15 @@ export const DogBreedCard = ({ dogBreed }) => {
     <BreedCard >
       <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
       <Content>
-        <TitleBar>
-          <FlexWrapper>
-            <Title>{dogBreed.name}</Title>
-          </FlexWrapper>
-        </TitleBar>
-        <TitleBar>
-          <GridWrapper>
-            <SubTitle>{dogBreed.group.join(', ')} <FontAwesomeIcon icon={faDog} /></SubTitle>
-            <SubTitle>{dogBreed.size.join(', ')} <FontAwesomeIcon icon={faRulerCombined} /></SubTitle>
-          </GridWrapper>
-        </TitleBar>
+
+        <Title>{dogBreed.name}</Title>
+
+
+        <GridWrapper>
+          <FontAwesomeIcon icon={faDog} /><SubTitle>{dogBreed.group.join(', ')} </SubTitle>
+          <FontAwesomeIcon icon={faRulerCombined} /><SubTitle>{dogBreed.size.join(', ')} </SubTitle>
+        </GridWrapper>
+
       </Content>
     </BreedCard >
 
@@ -39,19 +37,19 @@ export const DogBreedCard = ({ dogBreed }) => {
 
 const BreedCard = styled.div`
   color: ${mainTheme.blackish};
-  /* background: url("/assets/pink-pattern_a.jpg"); */
-  /* background-size: auto;
-  background-repeat: repeat;
-  background-position: center; */
-  width:calc(100%-20px);
-  border-bottom: solid 3px ${mainTheme.whiteish} ;
-  height: 110px;
+  background-color: ${mainTheme.whiteish};
+  border-bottom: solid 1px ${mainTheme.whiteish} ;
+  height: 120px;
+  margin-bottom:10px;
   display: flex;
-  padding-left: 10px;
+  padding:5px 15px;
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
   &:hover {
-    border-bottom: solid 3px ${mainTheme.tertiary};
+    border-bottom: solid 1px ${mainTheme.tertiary};
     filter: brightness(85%);
-    background-color:${mainTheme.grayish};
+    background-color:${mainTheme.whiteish};
     transition: 0.4s;
   }
 `
@@ -59,14 +57,10 @@ const Image = styled.img`
   align-self: center;
   justify-self: center;
   height: 90%;
-  -webkit-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
-  -moz-box-shadow: 0px 0px 5px -4px rgba(0,0,0,0.8);
-  box-shadow: 0px 5px 5px -4px rgba(0,0,0,0.8);
   border-radius: 50%;
 `
 
 const Content = styled.div`
-  padding: 10px 20px 5px 20px;
   width:100%;
   display: flex;
   flex-direction: row;
@@ -74,35 +68,35 @@ const Content = styled.div`
   align-items: center;
 `
 
-const TitleBar = styled.div`
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-`
 
 const Title = styled.h1`
   color: ${mainTheme.blackish};
   width: 100%;
-  text-align: center;
-  margin: 17px 0px;
   font-size: 18px;
+  padding: 0px  10px;
 `
 
 const FlexWrapper = styled.div`
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: ${props => props.justify ? props.justify : "space-between"};
+  flex-wrap: ${props => props.flexWrap};
+  flex-direction: ${props => props.flexDirection};
+  justify-content: ${props => props.justifyContent};
+  align-items: ${props => props.alignItems};
 `
 const GridWrapper = styled.div`
-  min-width: 150px;
-  width: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr ;
+  grid-template-columns: 40px 100px;
   grid-auto-rows: auto;
+  && > * {
+    align-self: center;
+  }
+  /* Mobile */
+  @media (max-width: 375px) {
+    grid-template-columns: 40px 100px;
+  }
 `
 
-const SubTitle = styled.p`
+const SubTitle = styled.span`
   margin: 3px 0px;
   color: ${mainTheme.blackish};
   display: flex;

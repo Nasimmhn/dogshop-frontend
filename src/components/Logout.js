@@ -4,14 +4,14 @@ import { Redirect } from 'react-router'
 import { useDispatch } from 'react-redux'
 
 // Reducer
-import { logoutUser } from '../reducers/userdata'
+import { userdata } from '../reducers/userdata'
 
 
 export const Logout = () => {
   const dispatch = useDispatch()
-  dispatch(logoutUser())
-
+  dispatch(userdata.actions.clearUser())
+  window.sessionStorage.clear()
   return (
-    <Redirect to="/login" />
+    <Redirect to="/" />
   )
 }

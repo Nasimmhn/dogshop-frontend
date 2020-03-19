@@ -21,7 +21,7 @@ import { mainTheme } from '../../lib/GlobalStyle'
 
 
 export const CreateDog = () => {
-  const { message } = useSelector((state) => state.dogdata)
+  const { message } = useSelector((state) => state.ui)
 
   const classes = useStyles()
   const dispatch = useDispatch()

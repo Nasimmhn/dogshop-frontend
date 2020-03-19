@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 // Style component
 import styled from 'styled-components/macro'
@@ -20,6 +20,7 @@ import { mainTheme } from '../lib/GlobalStyle'
 
 
 export const SignupForm = () => {
+  const { message } = useSelector((state) => state.ui)
 
   const dispatch = useDispatch()
   const [name, setName] = useState('')
@@ -78,9 +79,16 @@ export const SignupForm = () => {
           >
             Create account
          </StyledButton>
+
+          <Messages>
+            <ErrorMsg>{message.error} </ErrorMsg>
+            <SuccessMsg>{message.success}</SuccessMsg>
+          </Messages>
+
         </InputWrapper>
 
       </ Form>
+
     </>
   )
 }
@@ -141,3 +149,15 @@ const InputWrapper = styled.div`
   background: lightyellow; */
 `
 
+const Messages = styled.p`
+  height: 25px;
+  font-size: 19px;
+  text-align:center;
+`
+const ErrorMsg = styled.span`
+  color: red;
+`
+
+const SuccessMsg = styled.span`
+  color: green;
+`

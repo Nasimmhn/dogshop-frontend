@@ -145,6 +145,7 @@ const HamburgerContainer = styled.div`
 
 const NavSection = styled.section`
   width:100%;
+  background-color: ${mainTheme.lightbeige};
 `
 
 const NavItems = styled.nav`
@@ -165,12 +166,13 @@ const NavItems = styled.nav`
 const ButtonWrapper = styled.div`
  display:grid;
  grid-template-columns: 120px 120px;
+ column-gap:15px;
 `
 
 
 const NavButton = styled.button`
   background:transparent;
-  color: ${mainTheme.blackish};
+  color: ${mainTheme.whiteish};
   padding: 8px;
   font-size:15px;
   font-weight:bold;
@@ -180,7 +182,7 @@ const NavButton = styled.button`
   cursor: pointer;
   outline: none;
   &:hover {
-    color: ${mainTheme.blackish};
+    color: ${mainTheme.darkbrown};
     border-bottom: 3px solid ${mainTheme.tertiary};
     transition: 0.1s;
   }

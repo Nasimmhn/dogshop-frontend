@@ -36,13 +36,11 @@ export const MemberPage = () => {
 
   return (
     <>
-      <TopSection>
-        Top section - Profile
-      </TopSection>
 
       <SectionWrapper>
-        <MenuWrapper>
+        <Header>Overview</Header>
 
+        <MenuWrapper>
           <ButtonCard onClick={handleShowProfile} selected={showProfile}>
             <Title>Profile</Title>
           </ButtonCard>
@@ -61,6 +59,7 @@ export const MemberPage = () => {
           {showProfile && <Profile />}
           {showDogList && <MyDogList />}
         </Dashboard>
+
       </SectionWrapper>
     </>
   )
@@ -68,6 +67,15 @@ export const MemberPage = () => {
 
 
 /* ------ STYLING ------ */
+
+
+const Header = styled.h2`
+  text-align: center;
+  @media (min-width: 0px) and (max-width: 410px) {
+    font-size: 12px;
+  }
+`
+
 
 const Title = styled.span`
   text-align: center;

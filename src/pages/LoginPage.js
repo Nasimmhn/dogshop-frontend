@@ -79,8 +79,8 @@ const FormContainer = styled.div`
   -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
   -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
   box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
-  width: 400px;
-  height:500px;
+  width: 500px;
+  height:600px;
   /* Mobile */
   @media (max-width: 375px) {
     -webkit-box-shadow: unset;

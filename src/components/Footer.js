@@ -42,8 +42,7 @@ export const Footer = () => {
 /* ------ STYLING ------ */
 
 const StyledFooter = styled.footer`
-  background: ${mainTheme.blackish};
-  /* border-radius: 50px 50px 0px 0px; */
+  background-color: ${mainTheme.lightbeige};
   /* margin-top: 50px; */
   width:100%;
   height:200px;
