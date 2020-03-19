@@ -27,8 +27,12 @@ import { dogdata } from './reducers/dogdata'
 import { userdata } from './reducers/userdata'
 import { ui } from './reducers/ui'
 
+export let API = 'https://dog-shop-by-nasim.herokuapp.com'
 
-export const API = 'https://dog-shop-by-nasim.herokuapp.com'
+if (process.env.NODE_ENV === "development") {
+  API = 'http://localhost:8080'
+  console.log("NODE_ENV: ", process.env)
+}
 
 // Object with path to images
 export const PATHS = {
@@ -36,8 +40,6 @@ export const PATHS = {
   dogs: "",
   uploads: `${API}/uploads`
 }
-
-
 
 // Combined reducers
 const reducer = combineReducers({
