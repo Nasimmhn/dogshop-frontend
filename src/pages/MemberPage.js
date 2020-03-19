@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // Styled components
@@ -132,21 +132,6 @@ const MenuWrapper = styled.div`
 
 `
 
-const TopSection = styled.section`
-  color: ${mainTheme.whiteish};
-  background-color: ${mainTheme.blackish};
-  /* border-radius: 50px 50px 0px 0px; */
-  width: 100%;
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  /* Tablet & Mobile */
-  @media (min-width: 0px) and (max-width: 668px) {
-    border-radius: 0px;
-  }
-`
 
 const SectionWrapper = styled.section`
   background-color: ${mainTheme.lightgray};

@@ -1,14 +1,13 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import { Route, Redirect, useHistory } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
 import { authUser } from '../reducers/userdata'
 
 
 export const PrivateRoute = ({ children, ...rest }) => {
 
-  let history = useHistory()
 
   const dispatch = useDispatch()
   // const { isAuthenticated } = useSelector((state) => state.userdata)

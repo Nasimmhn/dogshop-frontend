@@ -20,9 +20,6 @@ export const SignupPage = () => {
   const isRegistered = useSelector((state) => state.userdata.isRegistered)
   return (
     <>
-      {/* <TopSection>
-        <InnerText>In order to create an ad, you need to sign up here</InnerText>
-      </TopSection> */}
       <SectionWrapper>
         {!isRegistered &&
           <GridWrapper>
@@ -68,20 +65,6 @@ const GridWrapper = styled.div`
 const SignupInfo = styled.div`
   width: 100%;
   
-`
-const TopSection = styled.section`
-  color: ${mainTheme.whiteish};
-  background-color: ${mainTheme.blackish};
-  /* border-radius: 50px 50px 0px 0px; */
-  width: 100%;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media (min-width: 0px) and (max-width: 668px) {
-    border-radius: 0px;
-  }
 `
 
 const SectionWrapper = styled.section`
@@ -151,11 +134,4 @@ const Title = styled.h1`
   @media (max-width: 375px) {
     font-size: 20px;
   }
-`
-
-const Text = styled.p`
-  color: ${mainTheme.blackish};
-  font-size: 15px;
-  text-align: ${props => props.textalign};
-  justify-self: ${props => props.justifyself};;
 `

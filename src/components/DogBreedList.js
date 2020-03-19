@@ -7,8 +7,6 @@ import styled from 'styled-components/macro'
 // Components
 import { DogBreedCard } from 'components/DogBreedCard'
 
-// Global color theme
-import { mainTheme } from '../lib/GlobalStyle'
 
 // fetchDogs from reducer
 import { fetchDogBreeds } from 'reducers/dogdata'

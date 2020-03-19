@@ -5,13 +5,10 @@ import styled from 'styled-components/macro'
 
 // Font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBolt, faWeightHanging, faHeartbeat, faRulerCombined, faDog, faEnvelope, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faMoneyBillWave, faAddressCard, faPhone, faInfo, faMale, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faBolt, faWeightHanging, faRulerCombined, faDog, faEnvelope, faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, faAddressCard, faPhone, faMale } from '@fortawesome/free-solid-svg-icons'
 
 // Moment
 import moment from 'moment'
-
-// Paths to assets
-import { PATHS } from 'App'
 
 // Global theme
 import { mainTheme } from '../lib/GlobalStyle'

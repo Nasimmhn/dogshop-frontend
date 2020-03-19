@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory, useLocation, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -12,7 +12,6 @@ import Button from '@material-ui/core/Button'
 
 // Reducer
 import { loginUser } from 'reducers/userdata'
-import { ui } from 'reducers/ui'
 
 // Global theme
 import { mainTheme } from '../lib/GlobalStyle'

@@ -76,13 +76,6 @@ const Title = styled.h1`
   padding: 0px  10px;
 `
 
-const FlexWrapper = styled.div`
-  display: flex;
-  flex-wrap: ${props => props.flexWrap};
-  flex-direction: ${props => props.flexDirection};
-  justify-content: ${props => props.justifyContent};
-  align-items: ${props => props.alignItems};
-`
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: 40px 100px;

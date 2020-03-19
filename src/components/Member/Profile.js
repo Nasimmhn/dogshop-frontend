@@ -1,12 +1,7 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 
 // Style component
 import styled from 'styled-components/macro'
-
-// Reducer
-import { getUser } from '../../reducers/userdata'
-import { faWindowRestore } from '@fortawesome/free-solid-svg-icons'
 
 
 export const Profile = () => {

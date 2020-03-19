@@ -15,7 +15,6 @@ export const dogdata = createSlice({
       success: null,
       error: null,
     },
-
   },
 
   reducers: {
@@ -124,8 +123,6 @@ export const createDogAd = (newDog, user) => {
       })
   }
 }
-
-
 
 export const uploadFile = (image) => {
   console.log(image)

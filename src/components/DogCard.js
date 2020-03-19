@@ -8,8 +8,6 @@ import { faMapMarkedAlt, faBirthdayCake, faPaw, faMars, faVenus, faCalendarAlt, 
 // Moment
 import moment from 'moment'
 
-// Paths to assets
-import { PATHS } from 'App'
 
 // Global theme
 import { mainTheme } from '../lib/GlobalStyle'

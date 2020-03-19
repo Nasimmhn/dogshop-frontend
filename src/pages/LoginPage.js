@@ -17,9 +17,6 @@ export const LoginPage = () => {
 
   return (
     <>
-      {/* <TopSection>
-        <InnerText>Top section - login page</InnerText>
-      </TopSection> */}
       <SectionWrapper>
         <FormContainer>
           <GridWrapper>
@@ -34,22 +31,6 @@ export const LoginPage = () => {
 
 /* ------ STYLING ------ */
 
-const TopSection = styled.section`
-  color: ${mainTheme.whiteish};
-  background-color: ${mainTheme.blackish};
-  /* border-radius: 50px 50px 0px 0px; */
-  width: 100%;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* Tablet & Mobile */
-  @media (min-width: 0px) and (max-width: 668px) {
-    border-radius: 0px;
-  }
-
-`
 
 const SectionWrapper = styled.section`
  background-color: ${mainTheme.lightgray};
@@ -102,8 +83,4 @@ const GridWrapper = styled.div`
   grid-template-rows: auto auto;
   align-items: flex-end;
 
-`
-
-const InnerText = styled.p`
-  font-size: 22px;
 `
