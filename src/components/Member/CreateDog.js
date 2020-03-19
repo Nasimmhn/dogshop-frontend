@@ -9,7 +9,7 @@ import styled from 'styled-components/macro'
 import Select from 'react-select'
 
 // From reducer
-import { createDogAd } from '../../reducers/dogdata'
+import { createDogAd, uploadFile } from '../../reducers/dogdata'
 import { ui } from '../../reducers/ui'
 
 // Materialize UI
@@ -19,6 +19,7 @@ import { TextField, Button } from '@material-ui/core'
 // Global color theme
 import { mainTheme } from '../../lib/GlobalStyle'
 
+import { PATHS, API } from '../../App'
 
 export const CreateDog = () => {
   const { message } = useSelector((state) => state.ui)
@@ -42,7 +43,7 @@ export const CreateDog = () => {
 
   // BreedOptions populated by fetching from API
   const fetchBreeds = () => {
-    fetch(`http://localhost:8080/dogbreeds`)
+    fetch(`${API}/dogbreeds`)
       .then(res => res.json())
       .then(dogBreeds => {
         let options = []
@@ -66,7 +67,9 @@ export const CreateDog = () => {
 
     let newDog = {
       "name": name,
-      "image": image,
+      "images": {
+        url: image ? `${PATHS.uploads}/${image.name}` : undefined,
+      },
       "race": selectedBreed.value,
       "sex": sex,
       "birthdate": birthdate,
@@ -76,6 +79,7 @@ export const CreateDog = () => {
       "phone": phone,
       "owner": user._id
     }
+    dispatch(uploadFile(image)) // Upload image
     dispatch(createDogAd(newDog, user)) // Sending the form values to the thunk in reducer
     document.getElementById("create-dog-form").reset();
     dispatch(ui.actions.setShowDogList())

@@ -28,12 +28,13 @@ import { userdata } from './reducers/userdata'
 import { ui } from './reducers/ui'
 
 
-
+export const API = 'https://dog-shop-by-nasim.herokuapp.com'
 
 // Object with path to images
 export const PATHS = {
   dog_races: "/assets/dog_races/",
-  dogs: "/assets/dogs/"
+  dogs: "",
+  uploads: `${API}/uploads`
 }
 
 

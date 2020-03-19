@@ -58,7 +58,7 @@ export const DogDetailCard = ({ dog }) => {
       </SmallCardWrapper>
 
       <DogCard>
-        <Image filepath={PATHS.dogs.concat(dog.images.url)} />
+        <Image filepath={dog.images.url} />
         <Content>
           <FlexWrapper flexDirection={'column'}>
 

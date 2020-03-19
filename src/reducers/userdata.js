@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
+
+import { API } from '../App'
 import { ui } from './ui'
+
 
 export const userdata = createSlice({
   name: 'userdata',
@@ -49,7 +52,7 @@ export const userdata = createSlice({
 export const registerNewUser = (name, email, password) => {
 
   return dispatch => {
-    fetch(`http://localhost:8080/register`, {
+    fetch(`${API}/register`, {
       method: 'POST',
       body: JSON.stringify({
         'name': name,
@@ -76,7 +79,7 @@ export const registerNewUser = (name, email, password) => {
 export const loginUser = (email, password) => {
 
   return dispatch => {
-    fetch(`http://localhost:8080/login`, {
+    fetch(`${API}/login`, {
       method: 'POST',
       body: JSON.stringify({
         'email': email,
@@ -103,7 +106,7 @@ export const loginUser = (email, password) => {
 
 export const authUser = (accessToken) => {
   return dispatch => {
-    fetch(`http://localhost:8080/auth`, {
+    fetch(`${API}/auth`, {
       method: 'GET',
       headers: {
         Authorization: accessToken
@@ -122,7 +125,7 @@ export const authUser = (accessToken) => {
 
 export const getUser = (userId, accessToken) => {
   return dispatch => {
-    fetch(`http://localhost:8080/user/id/${userId}`, {
+    fetch(`${API}/user/id/${userId}`, {
       method: 'GET',
       headers: {
         Authorization: accessToken

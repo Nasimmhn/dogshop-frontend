@@ -16,11 +16,10 @@ import { mainTheme } from '../lib/GlobalStyle'
 
 export const DogCard = ({ dog }) => {
 
-  console.log(PATHS.dogs.concat(dog.images.url))
   return (
     <Card>
       <VisibleContainer>
-        <Image filepath={PATHS.dogs.concat(dog.images.url)} />
+        <Image filepath={dog.images.url} />
         <Content>
           <TitleBar>
             <FlexWrapper flexdirection={"column"} justify={"space-evenly"}>

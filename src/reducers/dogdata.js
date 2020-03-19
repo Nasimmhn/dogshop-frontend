@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { API } from '../App'
+
 export const dogdata = createSlice({
   name: "dogdata",
   initialState: {
@@ -54,7 +56,7 @@ export const dogdata = createSlice({
 export const fetchDog = (dogId) => {
   console.log("fetchDog", dogId)
   return dispatch => {
-    fetch(`http://localhost:8080/dog/id/${dogId}`)
+    fetch(`${API}/dog/id/${dogId}`)
       .then(res => res.json())
       .then(dog => {
         console.log("dog", dog)
@@ -66,7 +68,7 @@ export const fetchDog = (dogId) => {
 export const fetchDogs = (query) => {
   console.log("QUERY:", query)
   return dispatch => {
-    fetch(`http://localhost:8080/dogs/${query}`)
+    fetch(`${API}/dogs/${query}`)
       .then(res => res.json())
       .then(doggies => {
         console.log("doggies:", doggies)
@@ -79,7 +81,7 @@ export const fetchDogs = (query) => {
 
 export const fetchDogBreed = (breedId) => {
   return dispatch => {
-    fetch(`http://localhost:8080/dogbreed/${breedId}`)
+    fetch(`${API}/dogbreed/${breedId}`)
       .then(res => res.json())
       .then(dogBreed => {
         dispatch(dogdata.actions.setDogBreed(dogBreed))
@@ -89,7 +91,7 @@ export const fetchDogBreed = (breedId) => {
 
 export const fetchDogBreeds = (query) => {
   return dispatch => {
-    fetch(`http://localhost:8080/dogbreeds/${query}`)
+    fetch(`${API}/dogbreeds/${query}`)
       .then(res => res.json())
       .then(dogBreeds => {
         dispatch(dogdata.actions.setDogBreeds(dogBreeds))
@@ -102,7 +104,7 @@ export const createDogAd = (newDog, user) => {
   console.log("createDogAd - newDog:", newDog)
   console.log("user:", user)
   return dispatch => {
-    fetch(`http://localhost:8080/dog`, {
+    fetch(`${API}/dog`, {
       method: 'POST',
       body: JSON.stringify(newDog),
       headers: {
@@ -119,6 +121,27 @@ export const createDogAd = (newDog, user) => {
         console.error("ERROR:", err)
         dispatch(dogdata.actions.message({ error: `Error! Failed to save` }))
 
+      })
+  }
+}
+
+
+
+export const uploadFile = (image) => {
+  console.log(image)
+  const formData = new FormData
+  formData.append('file', image)
+  return dispatch => {
+    fetch(`${API}/upload`, {
+      method: 'POST',
+      body: formData
+    })
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+      })
+      .catch(err => {
+        console.error('error', err)
       })
   }
 }
