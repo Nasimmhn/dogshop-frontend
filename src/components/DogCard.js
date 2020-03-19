@@ -93,13 +93,17 @@ const Card = styled.div`
   background: transparent;
   display: flex;
   flex-direction: column;
-  border: 1px solid ${mainTheme.blackish};
+  border: 1px solid lightgray;
   border-radius: 20px;
+  
   &:hover ${HiddenContainer} {
     z-index: 5;
     transition: 0.4s;
     background-color: rgb(230, 230, 230, 0.9);
+    border: 1px solid ${mainTheme.blackish};
     color: ${mainTheme.blackish};
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   }
 `
 
