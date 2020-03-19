@@ -17,9 +17,9 @@ export const LoginPage = () => {
 
   return (
     <>
-      <TopSection>
+      {/* <TopSection>
         <InnerText>Top section - login page</InnerText>
-      </TopSection>
+      </TopSection> */}
       <SectionWrapper>
         <FormContainer>
           <GridWrapper>
@@ -27,8 +27,6 @@ export const LoginPage = () => {
             <LoginForm />
           </GridWrapper>
         </FormContainer>
-
-
       </SectionWrapper>
     </>
   )
@@ -39,7 +37,7 @@ export const LoginPage = () => {
 const TopSection = styled.section`
   color: ${mainTheme.whiteish};
   background-color: ${mainTheme.blackish};
-  border-radius: 50px 50px 0px 0px;
+  /* border-radius: 50px 50px 0px 0px; */
   width: 100%;
   height: 100px;
   display: flex;
@@ -54,12 +52,12 @@ const TopSection = styled.section`
 `
 
 const SectionWrapper = styled.section`
-  background-color: ${mainTheme.quinary};
+ background-color: ${mainTheme.lightgray};
   /* background: url("/assets/pink-pattern_a.jpg"); */
   background-size: auto;
   background-repeat: repeat;
   background-position: center;
-  border-radius: 0px 0px 50px 50px;
+  /* border-radius: 0px 0px 50px 50px; */
   flex-grow: 1;
   width: 100%;
   display: flex;
@@ -82,6 +80,7 @@ const FormContainer = styled.div`
   -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
   box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
   width: 400px;
+  height:500px;
   /* Mobile */
   @media (max-width: 375px) {
     -webkit-box-shadow: unset;

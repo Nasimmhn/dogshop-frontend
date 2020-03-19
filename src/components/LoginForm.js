@@ -118,9 +118,13 @@ const StyledButton = styled(Button)`
     width: 100%;
     margin: 10px 0px;
     height: 50px;
-    background-color: ${mainTheme.secondary};
+    color:${mainTheme.whiteish};
+    font-size: 19px;
+    background-color: ${mainTheme.tertiary};
   }
   &&:hover{
-    background-color: ${mainTheme.tertiary};
+    background-color: transparent;
+    border: 1px solid ${mainTheme.tertiary};
+    color:${mainTheme.tertiary};
   }
 `

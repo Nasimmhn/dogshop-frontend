@@ -7,8 +7,9 @@ export const mainTheme = ({
   quaternary: '#5D412C',
   quinary: '#F2EFEF',
   blackish: '#130d0c',
-  whiteish: '#F2EFEF',
+  whiteish: '#FFF',
   grayish: '#BAAEAA',
+  lightgray: '#EFEBE9',
 })
 
 // export const mainTheme = ({
@@ -20,6 +21,7 @@ export const mainTheme = ({
 //   blackish: '#17140D',
 //   whiteish: '#F2EFEF',
 //   grayish: '#BAAEAA',
+// whiteish: '#f0f0f7',
 // })
 
 /*
@@ -37,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     color: ${mainTheme.blackish};
-    background-color: ${mainTheme.grayish};
+    background-color: ${mainTheme.whiteish};
     height:100% !important;
     min-height: 100vh;
     width: 100%;
@@ -47,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction:column;
     justify-content:space-between;
     align-items: center;
-    padding: 0px 50px;
+    /* padding: 0px 50px; */
 
     /* Tablet & mobile */
     @media (min-width: 0px) and (max-width: 668px) {
@@ -61,7 +63,7 @@ export const GlobalStyle = createGlobalStyle`
   } 
 
   #root {
-    max-width: 1280px;
+    max-width: 1700px;
     height:100%;
     min-height:100vh;
     width:100%;

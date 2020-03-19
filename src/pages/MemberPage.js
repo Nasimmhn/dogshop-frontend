@@ -83,6 +83,7 @@ const ButtonCard = styled.div`
   height: 20px;  
   max-width: 200px;
   width: 100%;
+  cursor:pointer;
   background-color: ${props => props.selected ? `${mainTheme.whiteish}` : "transparent"};
   display: flex;
   flex-direction: column;
@@ -126,7 +127,7 @@ const MenuWrapper = styled.div`
 const TopSection = styled.section`
   color: ${mainTheme.whiteish};
   background-color: ${mainTheme.blackish};
-  border-radius: 50px 50px 0px 0px;
+  /* border-radius: 50px 50px 0px 0px; */
   width: 100%;
   height: 100px;
   display: flex;
@@ -140,12 +141,12 @@ const TopSection = styled.section`
 `
 
 const SectionWrapper = styled.section`
-  background-color: ${mainTheme.quinary};
+  background-color: ${mainTheme.lightgray};
   /* background: url("/assets/pink-pattern_a.jpg"); */
   background-size: auto;
   background-repeat: repeat;
   background-position: center;
-  border-radius: 0px 0px 50px 50px;
+  /* border-radius: 0px 0px 50px 50px; */
   flex-grow: 1;
   width: 100%;
   display: flex;

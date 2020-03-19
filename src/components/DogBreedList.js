@@ -7,8 +7,13 @@ import styled from 'styled-components/macro'
 // Components
 import { DogBreedCard } from 'components/DogBreedCard'
 
+// Global color theme
+import { mainTheme } from '../lib/GlobalStyle'
+
 // fetchDogs from reducer
 import { fetchDogBreeds } from 'reducers/dogdata'
+
+
 
 
 export const DogBreedList = () => {
@@ -43,7 +48,7 @@ const BreedListWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  margin-bottom: 50px;
+  
 `
 
 const Hyperlink = styled(Link)`

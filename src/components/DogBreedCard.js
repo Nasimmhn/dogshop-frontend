@@ -39,21 +39,19 @@ export const DogBreedCard = ({ dogBreed }) => {
 
 const BreedCard = styled.div`
   color: ${mainTheme.blackish};
-  background-color: ${mainTheme.quinary};
   /* background: url("/assets/pink-pattern_a.jpg"); */
-  background-size: auto;
+  /* background-size: auto;
   background-repeat: repeat;
-  background-position: center;
-  
+  background-position: center; */
   width:calc(100%-20px);
+  border-bottom: solid 3px ${mainTheme.whiteish} ;
   height: 110px;
   display: flex;
   padding-left: 10px;
-  &:last-child{
-    border-bottom: solid 2px ${mainTheme.whiteish};
-  }
-  & :hover {
+  &:hover {
+    border-bottom: solid 3px ${mainTheme.tertiary};
     filter: brightness(85%);
+    background-color:${mainTheme.grayish};
     transition: 0.4s;
   }
 `

@@ -34,15 +34,12 @@ const HeroSection = styled.section`
   background-size: cover;
   background-position: center;
   /* box-shadow: inset 100vmax 0 0 100vmax rgba(23, 20, 13, 0.4); */
-  
   /* filter: brightness(80%); */
-
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 450px;
-  border-radius: 50px 50px 0px 0px;
-
+  /* border-radius: 50px 50px 0px 0px; */
   -webkit-box-shadow: inset 0px -9px 13px 0px rgba(0,0,0,0.34); 
   box-shadow: inset 0px -9px 13px 0px rgba(0,0,0,0.34);
   
@@ -53,18 +50,17 @@ const HeroSection = styled.section`
 
 
 const SectionWrapper = styled.section`
-  background-color: ${mainTheme.quinary};
+  background-color: ${mainTheme.lightgray};
   /* background: url("/assets/pink-pattern_a.jpg"); */
-  background-size: auto;
+  /* background-size: auto;
   background-repeat: repeat;
-  background-position: center;
-  
+  background-position: center; */
   min-height: 680px;
   flex-grow: 1;
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-radius: 0px 0px 50px 50px;
+  /* border-radius: 0px 0px 50px 50px; */
   
   /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {

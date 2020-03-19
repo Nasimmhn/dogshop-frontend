@@ -58,6 +58,7 @@ const GridWrapper = styled.div`
   grid-template-columns: 50px 1fr;
   align-items: center;
 `
+
 const HiddenContainer = styled.div`
   color: transparent;
   height: 100%;
@@ -96,15 +97,14 @@ const Card = styled.div`
   flex-direction: column;
   border: 1px solid lightgray;
   border-radius: 20px;
-  
   &:hover ${HiddenContainer} {
     z-index: 5;
     transition: 0.4s;
     background-color: rgb(230, 230, 230, 0.9);
-    border: 1px solid ${mainTheme.blackish};
+    border: 1px solid ${ mainTheme.quaternary};
     color: ${mainTheme.blackish};
     -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   }
 `
 
@@ -112,7 +112,6 @@ const Image = styled.div`
   position: relative;
   width: 100%;
   padding-top: 100%;
-
   background-image: url(${props => props.filepath ? props.filepath : "/assets/dogs/no-dog.jpg"});
   background-size: cover;
   background-position: center;

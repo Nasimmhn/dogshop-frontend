@@ -94,7 +94,7 @@ var burgerStyle = {
     top: '15px'
   },
   bmBurgerBars: {
-    background: mainTheme.whiteish, // Hamburger icon
+    background: mainTheme.secondary, // Hamburger icon
   },
   bmBurgerBarsHover: {
     background: mainTheme.primary,
@@ -181,7 +181,7 @@ const NavButton = styled.button`
   outline: none;
   &:hover {
     color: ${mainTheme.blackish};
-    border-bottom: 3px solid ${mainTheme.whiteish};
+    border-bottom: 3px solid ${mainTheme.tertiary};
     transition: 0.1s;
   }
   &:focus {

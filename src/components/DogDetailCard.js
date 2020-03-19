@@ -20,7 +20,7 @@ export const DogDetailCard = ({ dog }) => {
 
   return (
 
-    <CardWrapper>
+    <>
       <SmallCardWrapper>
         <ContactCard>
           <InfoContainer>
@@ -90,7 +90,7 @@ export const DogDetailCard = ({ dog }) => {
 
 
 
-    </CardWrapper>
+    </>
 
 
   )
@@ -112,27 +112,7 @@ const GridIconWrapper = styled.div`
     color: ${mainTheme.blackish}
   }
 `
-const CardWrapper = styled.div`
-  flex-grow: 1;
-  padding: 40px;
-  border-radius: 15px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  
- /* Tablet & mobile */
-  @media (min-width: 0px) and (max-width: 1145px) {
-    flex-direction: column-reverse;
-    flex-wrap: nowrap;
-  }
-  /* Mobile */
-  @media (max-width: 375px) {
-    margin: 50px 0px;
-    padding: 10px 10px 30px 10px;
-  }
-`
+
 
 const SmallCardWrapper = styled.div`
   display: flex;
@@ -268,12 +248,12 @@ const Button = styled.button`
   font-size:15px;
   font-weight:bold;
   transition: 0.2s; 
-  border-style: none;
-  border-bottom: 3px solid transparent;
+  border:  1px solid transparent;
   cursor: pointer;
   &:hover {
-    background-color: ${mainTheme.quaternary};
-    color: ${mainTheme.whiteish};
+    background-color: transparent;
+    border: 1px solid ${ mainTheme.tertiary};
+    color: ${ mainTheme.tertiary};
     transition: 0.1s;
   }
 `

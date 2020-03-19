@@ -17,7 +17,7 @@ import { mainTheme } from '../lib/GlobalStyle'
 
 export const LandingPage = () => {
   return (
-    <Container>
+    <>
       <HeroSection>
         <TextContainer>
           <InnerSpan>Dreaming about a best friend? </InnerSpan>
@@ -28,7 +28,7 @@ export const LandingPage = () => {
         <DogFilterMenu />
         <DogList />
       </SectionWrapper>
-    </Container>
+    </>
   )
 }
 
@@ -36,7 +36,7 @@ export const LandingPage = () => {
 
 const HeroSection = styled.section`
   color: ${mainTheme.whiteish};
-  background: ${mainTheme.blackish};
+  background: ${mainTheme.grayish};
   background: url("/assets/hero10b.jpg");
   background-size: cover;
   background-position: center;
@@ -48,29 +48,28 @@ const HeroSection = styled.section`
   flex-direction: column;
   width: 100%;
   height: 450px;
-  border-radius: 50px 50px 0px 0px;
+  /* border-radius: 50px 50px 0px 0px; */
           
   @media (min-width: 0px) and (max-width: 668px) {
     border-radius: 0px;
     background-position:right;
   }
 `
-const Container = styled.div`
-  border-radius: 50px;
-  -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
-  -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
-  box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
-`
+// const Container = styled.div`
+//   border-radius: 50px;
+//   -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+//   -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+//   box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+// `
 
 const SectionWrapper = styled.section`
-  background-color: ${mainTheme.quinary};
-
+  background-color: ${mainTheme.lightgray};
   min-height: 680px;
   flex-grow: 1;
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-radius: 0px 0px 50px 50px;
+  /* border-radius: 0px 0px 50px 50px; */
   /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {
     flex-direction: column;

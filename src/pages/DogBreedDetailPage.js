@@ -41,21 +41,23 @@ export const DogBreedDetailPage = () => {
 /* ------ STYLING ------ */
 
 const SectionWrapper = styled.section`
+  padding: 40px;
   flex-grow: 1;
   width: 100%;
   display: flex;
-  background-color: ${mainTheme.quinary} ;
+  background-color: ${mainTheme.lightgray};
   flex-direction: row;
-  border-radius: 50px 50px 50px 50px;
+  /* border-radius: 50px 50px 50px 50px; */
 
   /* Tablet & mobile */
   @media (min-width: 0px) and (max-width: 668px) {
     flex-direction: column;
     align-items: center;
-    border-radius: 0px 0px 50px 50px;
+    margin: 20px 0px 0px 0px;
   }
   /* Mobile */
   @media (max-width: 375px) {
-    border-radius: 0px;
+    padding: 10px 10px 30px 10px;
+    margin: 50px 0px 0px 0px;
   }
 `

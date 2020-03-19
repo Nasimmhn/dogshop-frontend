@@ -20,13 +20,14 @@ export const SignupPage = () => {
   const isRegistered = useSelector((state) => state.userdata.isRegistered)
   return (
     <>
-      <TopSection>
+      {/* <TopSection>
         <InnerText>In order to create an ad, you need to sign up here</InnerText>
-      </TopSection>
+      </TopSection> */}
       <SectionWrapper>
         {!isRegistered &&
           <GridWrapper>
             <SignupInfo>
+              <InnerText>In order to create an ad, you need to sign up here</InnerText>
               <Title>Signup information</Title>
               <Text>Signup information</Text>
             </SignupInfo>
@@ -52,12 +53,10 @@ export const SignupPage = () => {
 /* ------ STYLING ------ */
 const GridWrapper = styled.div`
   display: grid;
-  
   grid-template-columns: minmax(250px, 400px) minmax(250px, 400px);
   column-gap: 20px;
   row-gap: 20px;
   align-items: top;
-
   @media (min-width: 0px) and (max-width: 668px) {
     grid-template-columns: minmax(250px, 400px);
     grid-template-rows: auto auto;
@@ -71,7 +70,7 @@ const SignupInfo = styled.div`
 const TopSection = styled.section`
   color: ${mainTheme.whiteish};
   background-color: ${mainTheme.blackish};
-  border-radius: 50px 50px 0px 0px;
+  /* border-radius: 50px 50px 0px 0px; */
   width: 100%;
   height: 100px;
   display: flex;
@@ -84,13 +83,13 @@ const TopSection = styled.section`
 `
 
 const SectionWrapper = styled.section`
-  background-color: ${mainTheme.quinary};
+   background-color: ${mainTheme.lightgray};
   /* background: url("/assets/pink-pattern_a.jpg"); */
   background-size: auto;
   background-repeat: repeat;
   background-position: center;
   padding: 40px;
-  border-radius: 0px 0px 50px 50px;
+  /* border-radius: 0px 0px 50px 50px; */
   flex-grow: 1;
   width: 100%;
   display: flex;

@@ -16,7 +16,7 @@ import { mainTheme } from '../lib/GlobalStyle'
 export const DogBreedDetailCard = ({ dogBreed }) => {
   return (
 
-    <CardContainer>
+    <>
 
       <BreedCard>
         <FlexWrapper flexDirection={'row'} flexWrap={'wrap'}>
@@ -42,26 +42,26 @@ export const DogBreedDetailCard = ({ dogBreed }) => {
         </FlexWrapper>
 
       </BreedCard >
-    </CardContainer>
+    </>
   )
 }
 
 
 /* ------ STYLING ------ */
-const CardContainer = styled.div`
-  padding: 40px;
-  border-radius: 15px;
-  width: 100%;
-  /* Tablet & mobile */
-  @media (min-width: 0px) and (max-width: 668px) {
-    margin: 20px 0px 0px 0px;
-  }
-  /* Mobile */
-  @media (max-width: 375px) {
-    padding: 10px 10px 30px 10px;
-    margin: 50px 0px 0px 0px;
-  }
-`
+// const CardContainer = styled.div`
+//   padding: 40px;
+//   width: 100%;
+//   background-color:red;
+//   /* Tablet & mobile */
+//   @media (min-width: 0px) and (max-width: 668px) {
+//     margin: 20px 0px 0px 0px;
+//   }
+//   /* Mobile */
+//   @media (max-width: 375px) {
+//     padding: 10px 10px 30px 10px;
+//     margin: 50px 0px 0px 0px;
+//   }
+// `
 
 const BreedCard = styled.div`
   border-radius: 15px;

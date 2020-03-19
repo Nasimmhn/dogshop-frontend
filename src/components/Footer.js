@@ -43,10 +43,10 @@ export const Footer = () => {
 
 const StyledFooter = styled.footer`
   background: ${mainTheme.blackish};
-  border-radius: 50px 50px 0px 0px;
-  margin-top: 50px;
+  /* border-radius: 50px 50px 0px 0px; */
+  /* margin-top: 50px; */
   width:100%;
-  height:250px;
+  height:200px;
   
 `
 

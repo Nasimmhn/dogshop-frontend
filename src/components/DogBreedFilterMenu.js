@@ -123,8 +123,8 @@ const selectCustomTheme = (theme) => {
 
 const FilterWrapper = styled.div`
   color: ${mainTheme.blackish};
-  border-right: 1px solid ${mainTheme.whiteish};
   padding: 35px;
+  margin-right:20px;
   width: 400px !important;
 
   & > * {
