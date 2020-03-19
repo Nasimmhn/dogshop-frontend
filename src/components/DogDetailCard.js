@@ -136,7 +136,11 @@ const SmallCardWrapper = styled.div`
 const DogCard = styled.div`
   margin: 10px;
   flex-grow: 1;
+  max-width: 700px;
   
+  @media (min-width: 669px) and (max-width: 1145px) {
+    max-width: unset;
+  }
   /* Tablet & mobile */
   @media (min-width: 0px) and (max-width: 668px) {
     width: 100%;

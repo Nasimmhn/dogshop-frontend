@@ -38,27 +38,6 @@ export const DogDetailPage = () => {
 
 /* ------ STYLING ------ */
 
-// const SectionWrapper = styled.section`
-//   background-color: ${mainTheme.lightgray};
-//   flex-grow: 1;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   /* border-radius: 50px 50px 50px 50px; */
-
-//   /* Tablet  & mobile */
-//   @media (min-width: 0px) and (max-width: 668px) {
-//     flex-direction: column;
-//     align-items: center;
-//     border-radius: 0px 0px 50px 50px;
-//   }
-//   /* Mobile */
-//   @media (max-width: 375px) {
-//     border-radius: 0px;
-//   }
-// `
-
-
 const SectionWrapper = styled.section`
   background-color: ${mainTheme.lightgray};
   flex-grow: 1;
@@ -67,15 +46,12 @@ const SectionWrapper = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   
  /* Tablet & mobile */
   @media (min-width: 0px) and (max-width: 1145px) {
+    padding: 50px 10px 20px 10px;
     flex-direction: column-reverse;
     flex-wrap: nowrap;
   }
-  /* Mobile */
-  @media (max-width: 375px) {
-    margin: 50px 0px;
-    padding: 10px 10px 30px 10px;
-  }`
+ `
