@@ -69,7 +69,7 @@ export const MemberPage = () => {
 /* ------ STYLING ------ */
 
 
-const Header = styled.h2`
+const Header = styled.h1`
   text-align: center;
   @media (min-width: 0px) and (max-width: 410px) {
     font-size: 12px;

@@ -15,16 +15,16 @@ export const Footer = () => {
 
       <FlexWrapper >
         <WrapperInner>
-          <Title>Dog care topics</Title>
-          <InnerText>This is footer</InnerText>
-          <InnerText>This is footer</InnerText>
-          <InnerText>This is footer</InnerText>
+          <Title>Dogs</Title>
+          <InnerText>Find dogs</InnerText>
+          <InnerText>Dog breeds</InnerText>
+          <InnerText>Dog care</InnerText>
         </WrapperInner>
         <WrapperInner>
-          <Title>Contact</Title>
-          <InnerText>this is footert</InnerText>
-          <InnerText>This is footer</InnerText>
-          <InnerText>This is footer</InnerText>
+          <Title>About us</Title>
+          <InnerText>Login</InnerText>
+          <InnerText>Sign Up</InnerText>
+          <InnerText>FAQ</InnerText>
         </WrapperInner>
 
       </FlexWrapper >
@@ -66,15 +66,23 @@ const WrapperInner = styled.div`
 
 const Title = styled.h4`
   color: ${mainTheme.quinary};
-  font-size: 19px;
+  font-size: 22px;
   width:100%;
-  text-align: center;
+  text-align: left;
+  margin-bottom:15px;
+
 `
 
 
 const InnerText = styled.p`
   color: ${mainTheme.whiteish};
-  font-size: 15px;
-  width:100%;
-  text-align: center;
+  font-size: 19px;
+  width:150px;
+  text-align: left;
+  border-bottom: 2px solid transparent;
+  margin:8px 0px;
+  &&:hover{
+    text-decoration:underline ${mainTheme.whiteish};
+    cursor:pointer;
+  }
 `

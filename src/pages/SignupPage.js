@@ -25,10 +25,10 @@ export const SignupPage = () => {
           <GridWrapper>
             <SignupInfo>
               <Title>Signup information</Title>
-              <InnerText>In order to create an ad, you need to sign up here</InnerText>
-              <Title> <FontAwesomeIcon icon={faCheckCircle} />Free </Title>
-              <Title> <FontAwesomeIcon icon={faCheckCircle} />Easy</Title>
-              <Title> <FontAwesomeIcon icon={faCheckCircle} />Safe</Title>
+              <InnerText>In order to publish an ad, you have to sign up!</InnerText>
+              <SubTitle> <FontAwesomeIcon icon={faCheckCircle} /> Free </SubTitle >
+              <SubTitle > <FontAwesomeIcon icon={faCheckCircle} /> Easy</SubTitle >
+              <SubTitle > <FontAwesomeIcon icon={faCheckCircle} /> Safe</SubTitle >
             </SignupInfo>
             <SignupForm />
           </GridWrapper>
@@ -52,8 +52,8 @@ export const SignupPage = () => {
 /* ------ STYLING ------ */
 const GridWrapper = styled.div`
   display: grid;
-  grid-template-columns: minmax(250px, 400px) minmax(250px, 400px);
-  column-gap: 30px;
+  grid-template-columns: minmax(250px, 550px) minmax(250px, 400px);
+  column-gap: 50px;
   row-gap: 30px;
   align-items: top;
   @media (min-width: 0px) and (max-width: 668px) {
@@ -127,10 +127,20 @@ const Button = styled.button`
     
   }
 `
-const Title = styled.h1`
-  color: ${mainTheme.tertiary};
+const Title = styled.h2`
+  color:${ mainTheme.redish};
   margin: 5px 0px;
   font-size: 23px;
+  @media (max-width: 375px) {
+    font-size: 20px;
+  }
+`
+
+const SubTitle = styled.h4`
+  color:${ mainTheme.redish};
+  padding:10px;
+  margin: 5px 0px;
+  font-size: 19px;
   @media (max-width: 375px) {
     font-size: 20px;
   }

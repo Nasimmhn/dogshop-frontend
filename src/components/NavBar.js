@@ -183,7 +183,7 @@ const NavButton = styled.button`
   outline: none;
   &:hover {
     color: ${mainTheme.darkbrown};
-    border-bottom: 3px solid ${mainTheme.tertiary};
+    border-bottom: 3px solid ${mainTheme.whiteish};
     transition: 0.1s;
   }
   &:focus {

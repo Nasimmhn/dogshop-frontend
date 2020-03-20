@@ -11,7 +11,8 @@ export const mainTheme = ({
   grayish: '#BAAEAA',
   lightgray: '#EFEBE9',
   lightbeige: '#a58881',
-  darkbrown: '#2a211e'
+  darkbrown: '#2a211e',
+  redish: '#af3432'
 })
 
 

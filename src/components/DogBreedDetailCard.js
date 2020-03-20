@@ -48,20 +48,6 @@ export const DogBreedDetailCard = ({ dogBreed }) => {
 
 
 /* ------ STYLING ------ */
-// const CardContainer = styled.div`
-//   padding: 40px;
-//   width: 100%;
-//   background-color:red;
-//   /* Tablet & mobile */
-//   @media (min-width: 0px) and (max-width: 668px) {
-//     margin: 20px 0px 0px 0px;
-//   }
-//   /* Mobile */
-//   @media (max-width: 375px) {
-//     padding: 10px 10px 30px 10px;
-//     margin: 50px 0px 0px 0px;
-//   }
-// `
 
 const BreedCard = styled.div`
   border-radius: 15px;
@@ -98,7 +84,7 @@ const Image = styled.img`
 `
 
 const MainInfo = styled.div`
-  padding: 20px 0px;
+  padding: 50px 50px;
   /* Tablet & mobile */
   @media (min-width: 0px) and (max-width: 668px) {
     padding: 10px 0px 20px 0px;
@@ -144,17 +130,17 @@ const Title = styled.h1`
   }
 `
 
-const SubTitle = styled.h3`
-  color: ${mainTheme.quaternary};
+const SubTitle = styled.h1`
+  color: ${mainTheme.tertiary};
   margin: 5px 5px;
-  font-size: 20px;
+  font-size: 24px;
   text-align: ${props => props.textalign};
   justify-self: ${props => props.justifyself};;
 `
 
 const Text = styled.p`
   color: ${mainTheme.blackish};
-  font-size: 15px;
+  font-size: 19px;
   text-align: ${props => props.textalign};
   justify-self: ${props => props.justifyself};;
 `

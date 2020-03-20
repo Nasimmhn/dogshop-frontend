@@ -17,15 +17,11 @@ export const DogBreedCard = ({ dogBreed }) => {
     <BreedCard >
       <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
       <Content>
-
         <Title>{dogBreed.name}</Title>
-
-
         <GridWrapper>
           <FontAwesomeIcon icon={faDog} /><SubTitle>{dogBreed.group.join(', ')} </SubTitle>
           <FontAwesomeIcon icon={faRulerCombined} /><SubTitle>{dogBreed.size.join(', ')} </SubTitle>
         </GridWrapper>
-
       </Content>
     </BreedCard >
 

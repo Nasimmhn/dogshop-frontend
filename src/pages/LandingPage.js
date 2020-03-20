@@ -132,6 +132,7 @@ const InnerSpan = styled.h1`
 const InnerText = styled.p`
   margin-left: 50px;
   width: 600px;
+  font-weight:bold;
   color: ${ mainTheme.quaternary};
   font-size: 18px;
   margin-top: 15px;
