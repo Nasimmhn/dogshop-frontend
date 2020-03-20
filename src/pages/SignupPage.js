@@ -123,8 +123,7 @@ const Button = styled.button`
     background-color: transparent;
     border: 1px solid ${ mainTheme.tertiary};
     color: ${ mainTheme.tertiary};
-    transition: 0.1s;
-    
+    transition: 0.1s; 
   }
 `
 const Title = styled.h2`

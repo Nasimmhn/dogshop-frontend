@@ -40,7 +40,6 @@ const SectionWrapper = styled.section`
   min-height: 700px;
   width:100%;
   flex-grow: 1;
-
   display: flex;
   flex-direction: row;
   

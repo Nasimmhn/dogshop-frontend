@@ -35,14 +35,15 @@ export const MemberPage = () => {
 
 
   return (
-    <>
-
+    <Container>
       <SectionWrapper>
-        <Header>Overview</Header>
 
+        <HeaderWrapper>
+          <Header>Profile Overview</Header>
+        </HeaderWrapper>
         <MenuWrapper>
           <ButtonCard onClick={handleShowProfile} selected={showProfile}>
-            <Title>Profile</Title>
+            <Title>Account</Title>
           </ButtonCard>
 
           <ButtonCard onClick={handleShowCreateDogForm} selected={showCreateDogForm}>
@@ -50,7 +51,7 @@ export const MemberPage = () => {
           </ButtonCard>
 
           <ButtonCard onClick={handleShowDogList} selected={showDogList}>
-            <Title> Show Ads </Title>
+            <Title> Ads history </Title>
           </ButtonCard>
         </MenuWrapper>
 
@@ -61,7 +62,7 @@ export const MemberPage = () => {
         </Dashboard>
 
       </SectionWrapper>
-    </>
+    </Container>
   )
 }
 
@@ -69,8 +70,19 @@ export const MemberPage = () => {
 /* ------ STYLING ------ */
 
 
-const Header = styled.h1`
-  text-align: center;
+const HeaderWrapper = styled.div`
+  height:150px;
+  width: 100%;
+  display: flex;
+  padding-left:20px; 
+  
+`
+
+const Header = styled.h2`
+  font-size: 28px;
+  font-weight:lighter;
+  text-align: left;
+  line-height:150px;
   @media (min-width: 0px) and (max-width: 410px) {
     font-size: 12px;
   }
@@ -79,6 +91,7 @@ const Header = styled.h1`
 
 const Title = styled.span`
   text-align: center;
+  font-weight: bold;
   font-size: 15px;
   @media (min-width: 0px) and (max-width: 410px) {
     font-size: 12px;
@@ -88,26 +101,26 @@ const Title = styled.span`
 
 const ButtonCard = styled.div`
   padding: 20px;
-  height: 20px;  
-  max-width: 200px;
+  height: 70px;  
+  max-width: 250px;
   width: 100%;
   cursor:pointer;
-  background-color: ${props => props.selected ? `${mainTheme.whiteish}` : "transparent"};
+  background-color: transparent;
+  /* background-color: ${props => props.selected ? `${mainTheme.lightbeige}` : `${mainTheme.lightgray}`}; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid black;
+  /* border-right: 1px solid black;
   border-bottom: 1px solid black;
-  border-radius: 5px 5px 0px 0px;
-  border-color: ${props => props.selected ? 'transparent' : `${mainTheme.blackish}`};
+  border-radius: 5px 5px 0px 0px; */
+  border: 2px solid ${mainTheme.lightgray};
+  border-color: ${props => props.selected ? `${mainTheme.redish}` : `${mainTheme.grayish}`};
   &&:hover {
     font-weight: bold;
   }
 
 `
-
-
 const Dashboard = styled.div`
   padding: 20px;
   flex-grow: 1;
@@ -116,12 +129,13 @@ const Dashboard = styled.div`
   justify-content: center;
 `
 const MenuWrapper = styled.div`
-  border-left: 1px solid ${mainTheme.whiteish};
-  border-right: 1px solid ${mainTheme.whiteish};
-  background-color: ${ mainTheme.grayish};
+  /* border-left: 1px solid ${mainTheme.darkbrown};
+  border-right: 1px solid ${mainTheme.darkbrown}; */
+  background-color: transparent;
   width: 100%;
   display: grid;
-  grid-template-columns: 100px 150px 120px;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: 150px 150px 150px; */
   align-items: flex-start;
   && > div {
     justify-self: center;
@@ -133,24 +147,48 @@ const MenuWrapper = styled.div`
 `
 
 
+// const SectionWrapper = styled.section`
+//   background-color: ${mainTheme.lightgray};
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0px 0px;
+//   /* Tablet & Mobile */
+//   @media (min-width: 0px) and (max-width: 668px) {
+//     border-radius: 0px;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// `
+
+
 const SectionWrapper = styled.section`
-  background-color: ${mainTheme.lightgray};
-  /* background: url("/assets/pink-pattern_a.jpg"); */
-  background-size: auto;
-  background-repeat: repeat;
-  background-position: center;
-  /* border-radius: 0px 0px 50px 50px; */
-  flex-grow: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 0px;
-  /* Tablet & Mobile */
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
+  width:100%;
+  max-width:900px;
+  height:100%;
+  min-height: 700px;
+  /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {
-    border-radius: 0px;
     flex-direction: column;
     align-items: center;
   }
+  /* Mobile */
+  @media (max-width: 375px) {
+    
+  }
+`
+
+const Container = styled.div`
+  background-color: ${mainTheme.lightgray};
+  width:100%;
+  flex-grow: 1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 `

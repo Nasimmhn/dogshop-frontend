@@ -246,15 +246,23 @@ const Form = styled.form`
   border-radius: 6px;
 `
 
+
 const StyledButton = styled(Button)`
   && {
+    transition: 0.2s; 
+    border:  1px solid transparent; 
+    cursor: pointer;
+    background: ${mainTheme.tertiary};
+    color: ${mainTheme.whiteish};
     width: 100%;
     margin: 20px 0px;
     height: 50px;
-    background-color: ${mainTheme.secondary};
   }
   &&:hover{
-    background-color: ${mainTheme.tertiary};
+    background-color: transparent;
+    border: 1px solid ${ mainTheme.tertiary};
+    color: ${ mainTheme.tertiary};
+    transition: 0.1s; 
   }
 `
 
