@@ -86,16 +86,6 @@ export const CreateDog = () => {
 
   }
 
-  if (message.success) {
-
-  }
-  if (message.error) {
-
-  }
-
-
-
-
 
   return (
     <Form id={'create-dog-form'} onSubmit={handleSubmit}>
