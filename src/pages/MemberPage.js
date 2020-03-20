@@ -118,6 +118,7 @@ const ButtonCard = styled.div`
   border-color: ${props => props.selected ? `${mainTheme.redish}` : `${mainTheme.grayish}`};
   &&:hover {
     font-weight: bold;
+    border-color: ${mainTheme.darkbrown};
   }
 
 `

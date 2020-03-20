@@ -149,7 +149,7 @@ const NavSection = styled.section`
 `
 
 const NavItems = styled.nav`
- padding: 10px 0px;
+ padding: 20px 0px;
  display:flex;
  flex-direction:row;
  justify-content:space-around;
@@ -182,7 +182,6 @@ const NavButton = styled.button`
   cursor: pointer;
   outline: none;
   &:hover {
-    color: ${mainTheme.darkbrown};
     border-bottom: 3px solid ${mainTheme.whiteish};
     transition: 0.1s;
   }

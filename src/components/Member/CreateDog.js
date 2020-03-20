@@ -252,7 +252,7 @@ const StyledButton = styled(Button)`
     transition: 0.2s; 
     border:  1px solid transparent; 
     cursor: pointer;
-    background: ${mainTheme.tertiary};
+    background: ${mainTheme.redish};
     color: ${mainTheme.whiteish};
     width: 100%;
     margin: 20px 0px;
@@ -260,8 +260,8 @@ const StyledButton = styled(Button)`
   }
   &&:hover{
     background-color: transparent;
-    border: 1px solid ${ mainTheme.tertiary};
-    color: ${ mainTheme.tertiary};
+    border: 1px solid ${ mainTheme.redish};
+    color: ${ mainTheme.redish};
     transition: 0.1s; 
   }
 `

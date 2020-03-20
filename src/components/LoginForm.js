@@ -85,7 +85,7 @@ const Form = styled.form`
 `
 
 const ErrorMsg = styled.p`
-  font-size: 19px;
+  font-size: 22px;
   color: red;
   margin:5px 0;
   text-align:center;
@@ -106,17 +106,17 @@ const StyledTextField = styled(TextField)`
     color: ${mainTheme.blackish};
   }
   label.Mui-focused {
-    color: ${mainTheme.tertiary};
+    color: ${mainTheme.redish};
   }
   .MuiOutlinedInput-root {
     fieldset {
       border-color: ${mainTheme.grayish};
     }
     &:hover fieldset {
-      border-color: ${mainTheme.tertiary};
+      border-color: ${mainTheme.redish};
     }
     &.Mui-focused fieldset {
-      border-color: ${mainTheme.tertiary};
+      border-color: ${mainTheme.redish};
     }
   }
 `
@@ -128,12 +128,12 @@ const StyledButton = styled(Button)`
     height: 50px;
     color:${mainTheme.whiteish};
     font-size: 19px;
-    background-color: ${mainTheme.tertiary};
+    background-color: ${mainTheme.redish};
   }
   &&:hover{
     background-color: transparent;
-    border: 1px solid ${mainTheme.tertiary};
-    color:${mainTheme.tertiary};
+    border: 1px solid ${mainTheme.redish};
+    color:${mainTheme.redish};
   }
   @media (min-width: 0px) and (max-width: 668px) {
     width: 100%;

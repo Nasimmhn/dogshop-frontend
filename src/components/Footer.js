@@ -45,7 +45,7 @@ const StyledFooter = styled.footer`
   background-color: ${mainTheme.lightbeige};
   /* margin-top: 50px; */
   width:100%;
-  height:200px;
+  height:150px;
   
 `
 
@@ -69,7 +69,7 @@ const Title = styled.h4`
   font-size: 22px;
   width:100%;
   text-align: left;
-  margin-bottom:15px;
+  margin: 15px 0px;
 
 `
 

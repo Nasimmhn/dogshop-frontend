@@ -38,7 +38,7 @@ export const SignupPage = () => {
             <IconDiv>
               <FontAwesomeIcon icon={faCheckCircle} />
             </IconDiv>
-            <InnerText> You are now signed up!</InnerText>
+            <InnerText>Thank you for signing up!</InnerText>
             <Link to={'/login'} tabIndex='-1'>
               <Button variant="contained" href="#contained-buttons"> Click here to login </Button>
             </Link>
@@ -100,7 +100,7 @@ const ConfirmDiv = styled.div`
   height: 300px;
 `
 const IconDiv = styled.div`
- color: ${mainTheme.tertiary};
+ color: ${mainTheme.redish};
   align-self: center;
   & > * {
     font-size:60px;
@@ -108,7 +108,7 @@ const IconDiv = styled.div`
 `
 
 const Button = styled.button`
-  background: ${mainTheme.tertiary};
+  background: ${mainTheme.redish};
   border-radius: 20px;
   color: ${mainTheme.whiteish};
   padding: 10px;
@@ -121,8 +121,8 @@ const Button = styled.button`
   cursor: pointer;
   &:hover {
     background-color: transparent;
-    border: 1px solid ${ mainTheme.tertiary};
-    color: ${ mainTheme.tertiary};
+    border: 1px solid ${ mainTheme.redish};
+    color: ${ mainTheme.redish};
     transition: 0.1s; 
   }
 `

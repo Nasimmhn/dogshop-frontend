@@ -105,17 +105,17 @@ const StyledTextField = styled(TextField)`
     color: ${mainTheme.blackish};
   }
   label.Mui-focused {
-    color: ${mainTheme.tertiary};
+    color: ${mainTheme.redish};
   }
   .MuiOutlinedInput-root {
     fieldset {
       border-color: ${mainTheme.grayish};
     }
     &:hover fieldset {
-      border-color: ${mainTheme.tertiary};
+      border-color: ${mainTheme.redish};
     }
     &.Mui-focused fieldset {
-      border-color: ${mainTheme.tertiary};
+      border-color: ${mainTheme.redish};
     }
   }
 `
@@ -127,12 +127,12 @@ const StyledButton = styled(Button)`
     height: 50px;
     color:${mainTheme.whiteish};
     font-size: 19px;
-    background-color: ${mainTheme.tertiary};
+    background-color: ${mainTheme.redish};
   }
   &&:hover{
     background-color: transparent;
-    border: 1px solid ${mainTheme.tertiary};
-    color:${mainTheme.tertiary};
+    border: 1px solid ${mainTheme.redish};
+    color:${mainTheme.redish};
   }
 `
 
@@ -156,6 +156,7 @@ const Messages = styled.p`
 `
 const ErrorMsg = styled.span`
   color: red;
+  font-size: 22px;
 `
 
 const SuccessMsg = styled.span`
