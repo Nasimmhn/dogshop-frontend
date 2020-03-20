@@ -38,5 +38,12 @@ export const ui = createSlice({
       state.message.success = null
       state.message.error = action.payload
     },
+    resetUI: (state, action) => {
+      state.message.success = null
+      state.message.error = null
+      state.showProfile = true
+      state.showCreateDogForm = false
+      state.showDogList = false
+    },
   }
 })

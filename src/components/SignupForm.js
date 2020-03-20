@@ -76,6 +76,7 @@ export const SignupForm = () => {
             variant="contained"
             disableElevation
             type="submit"
+            disabled={(password !== confirmPwd) && confirmPwd !== ""}
           >
             Create account
          </StyledButton>
