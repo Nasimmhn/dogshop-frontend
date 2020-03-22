@@ -40,6 +40,15 @@ export const CreateDog = () => {
   const [phone, setPhone] = useState('')
   const [breedOptions, setBreedOptions] = useState([])
 
+  let errorMsg = ""
+
+  const handleSelectFile = (file) => {
+    setImage(file)
+    if ((file) && (file.size > 1500000)) {
+      errorMsg = "Max size 1.5 Mb"
+      console.error(errorMsg)
+    }
+  }
 
   // BreedOptions populated by fetching from API
   const fetchBreeds = () => {
@@ -103,11 +112,14 @@ export const CreateDog = () => {
 
         <Label>
           <LabelText> Upload an image</LabelText>
-          <Input
-            type="file"
-            onChange={event => setImage(event.target.files[0])}
-            accept=".jpg, .jpeg, .png"
-          />
+          <FlexWrapper>
+            <Input
+              type="file"
+              onChange={event => handleSelectFile(event.target.files[0])}
+              accept=".jpg, .jpeg, .png"
+            />
+            <ErrorMsg> {errorMsg} </ErrorMsg>
+          </FlexWrapper>
         </Label>
 
         <Label>
@@ -210,7 +222,6 @@ export const CreateDog = () => {
       <StyledButton type='submit' title='Submit'>
         Submit
       </StyledButton>
-
     </Form>
   )
 }
@@ -219,6 +230,11 @@ export const CreateDog = () => {
 
 
 /* ------ STYLING ------ */
+
+const ErrorMsg = styled.span`
+  width: 100px;
+  color: red;
+`
 // const StyledForm = styled(Form)`
 //   width: 100%;
 //   min-width: 250px;
