@@ -43,11 +43,11 @@ export const CreateDog = () => {
 
   // BreedOptions populated by fetching from API
   const fetchBreeds = () => {
-    fetch(`${API}/dogbreeds`)
+    fetch(`${API}/breed`)
       .then(res => res.json())
-      .then(dogBreeds => {
+      .then(breeds => {
         let options = []
-        dogBreeds.map((breed) => options.push({ "value": breed._id, "label": breed.name }))
+        breeds.map((breed) => options.push({ "value": breed._id, "label": breed.name }))
         setBreedOptions(options)
       }
       )

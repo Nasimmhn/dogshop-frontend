@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
 // Components
-import { DogDetailCard } from '../components/DogDetailCard'
+import { DogDetailCard } from '../components/Dog/DogDetailCard'
 
 // Global color theme
 import { mainTheme } from '../lib/GlobalStyle'

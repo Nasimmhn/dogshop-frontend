@@ -5,7 +5,7 @@ import styled from 'styled-components/macro'
 
 
 // Components
-import { DogCard } from 'components/DogCard'
+import { DogCard } from 'components/Dog/DogCard'
 
 // fetchDogs function (from reducer)
 import { fetchDogs } from 'reducers/dogdata'

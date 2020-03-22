@@ -7,7 +7,7 @@ import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
 
 // Reducer
-import { dogdata } from '../reducers/dogdata'
+import { dogdata } from '../../reducers/dogdata'
 
 // Global color theme
 import { mainTheme } from 'lib/GlobalStyle'
@@ -31,7 +31,7 @@ const sizeOptions = [
 ]
 
 
-export const DogBreedFilterMenu = () => {
+export const BreedFilterMenu = () => {
   const dispatch = useDispatch()
 
   const [breed, setBreed] = useState('')
@@ -55,7 +55,7 @@ export const DogBreedFilterMenu = () => {
 
     setQuery(`?&breed=${breed}&group=${groupQuery.toString()}&size=${sizeQuery.toString()}`)
 
-    dispatch(dogdata.actions.setDogBreedFilter(query))
+    dispatch(dogdata.actions.setBreedFilter(query))
   }, [dispatch, query, breed, group, size])
 
 

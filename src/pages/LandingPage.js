@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaw } from '@fortawesome/free-solid-svg-icons'
 
 // Components
-import { DogList } from 'components/DogList'
-import { DogFilterMenu } from 'components/DogFilterMenu'
+import { DogList } from 'components/Dog/DogList'
+import { DogFilterMenu } from 'components/Dog/DogFilterMenu'
 
 // Global color theme
 import { mainTheme } from '../lib/GlobalStyle'

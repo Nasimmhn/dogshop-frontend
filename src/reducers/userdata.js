@@ -114,7 +114,6 @@ export const authUser = (accessToken) => {
     })
       .then(res => res.json())
       .then(auth => {
-        console.log("authUser (true/false):", auth)
         dispatch(userdata.actions.authenticating(auth))
       })
       .catch(err => console.error('error', err))
@@ -133,7 +132,7 @@ export const getUser = (userId, accessToken) => {
     })
       .then(res => res.json())
       .then(auth => {
-        console.log("Auth: ", auth)
+        console.log("Authenthicated: ", auth)
 
       })
       .catch(err => console.error('error', err))

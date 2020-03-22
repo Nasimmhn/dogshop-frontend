@@ -6,8 +6,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // Pages
 import { LandingPage } from './pages/LandingPage'
 import { DogDetailPage } from 'pages/DogDetailPage'
-import { DogBreedPage } from 'pages/DogBreedPage'
-import { DogBreedDetailPage } from 'pages/DogBreedDetailPage'
+import { BreedPage } from 'pages/BreedPage'
+import { BreedDetailPage } from 'pages/BreedDetailPage'
 import { SignupPage } from 'pages/SignupPage'
 import { LoginPage } from 'pages/LoginPage'
 import { MemberPage } from 'pages/MemberPage'
@@ -71,12 +71,12 @@ export const App = () => {
             <DogDetailPage />
           </Route>
 
-          <Route path="/dogbreeds">
-            <DogBreedPage />
+          <Route path="/breeds">
+            <BreedPage />
           </Route>
 
-          <Route path="/dogbreed/:breedId">
-            <DogBreedDetailPage />
+          <Route path="/breed/:breedId">
+            <BreedDetailPage />
           </Route>
 
           <Route path="/signup">
@@ -90,14 +90,6 @@ export const App = () => {
           <PrivateRoute path="/members">
             <MemberPage />
           </PrivateRoute>
-
-          <Route path="/settings">
-            <div> settings </div>
-          </Route>
-
-          <Route path="/add">
-            <div> add dog </div>
-          </Route>
 
           <Route path="/logout">
             <Logout />

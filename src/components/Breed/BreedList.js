@@ -5,34 +5,34 @@ import styled from 'styled-components/macro'
 
 
 // Components
-import { DogBreedCard } from 'components/DogBreedCard'
+import { BreedCard } from './BreedCard'
 
 
 // fetchDogs from reducer
-import { fetchDogBreeds } from 'reducers/dogdata'
+import { fetchBreeds } from 'reducers/dogdata'
 
 
 
 
-export const DogBreedList = () => {
+export const BreedList = () => {
   const dispatch = useDispatch()
 
   // From dogdata reducer
-  const dogBreeds = useSelector((state) => state.dogdata.dogBreeds)
-  const dogBreedFilter = useSelector((state) => state.dogdata.dogBreedFilter)
+  const breeds = useSelector((state) => state.dogdata.breeds)
+  const breedFilter = useSelector((state) => state.dogdata.breedFilter)
 
   useEffect(() => {
-    dispatch(fetchDogBreeds(dogBreedFilter))
+    dispatch(fetchBreeds(breedFilter))
 
-  }, [dispatch, dogBreedFilter])
+  }, [dispatch, breedFilter])
 
 
-  // Map over the dogBreeds here
+  // Map over the breeds here
   return (
     <BreedListWrapper>
-      {dogBreeds.map((breed) => (
-        <Hyperlink key={breed._id} to={`/dogbreed/${breed._id}`}>
-          <DogBreedCard breed={breed} />
+      {breeds.map((breed) => (
+        <Hyperlink key={breed._id} to={`/breed/${breed._id}`}>
+          <BreedCard breed={breed} />
         </Hyperlink>
       ))}
     </BreedListWrapper>

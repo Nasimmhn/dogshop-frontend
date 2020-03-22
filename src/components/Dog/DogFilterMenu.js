@@ -14,7 +14,7 @@ import { Typography, Slider } from '@material-ui/core'
 import { mainTheme } from 'lib/GlobalStyle'
 
 // Reducer
-import { dogdata } from '../reducers/dogdata'
+import { dogdata } from '../../reducers/dogdata'
 
 
 

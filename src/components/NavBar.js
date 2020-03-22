@@ -31,15 +31,13 @@ export const NavBar = () => {
     dispatch(authUser(accessToken))
 
   }
-  console.log("Navbar - isAuthenticated:", isAuthenticated)
-
 
   return (
     <NavSection>
       <HamburgerContainer>
         <Menu styles={burgerStyle} >
           <a id="dogs" className="menu-item" href="/">Find dogs</a>
-          <a id="dogbreeds" className="menu-item" href="/dogbreeds">Dog breeds</a>
+          <a id="breeds" className="menu-item" href="/breeds">Dog breeds</a>
           <a id="members" className="menu-item" href="/members">Members</a>
           {!isAuthenticated && <a id="login" className="menu-item" href="/login">Login</a>}
           {!isAuthenticated && <a id="signup" className="menu-item" href="/signup">Signup</a>}
@@ -53,7 +51,7 @@ export const NavBar = () => {
           <Link to={'/'} tabIndex='-1'>
             <NavButton><FontAwesomeIcon icon={faPaw} /> Find dogs</NavButton>
           </Link>
-          <Link to={'/dogbreeds'} tabIndex='-1'>
+          <Link to={'/breeds'} tabIndex='-1'>
             <NavButton><FontAwesomeIcon icon={faDog} /> Dog Breeds</NavButton>
           </Link>
         </ButtonWrapper>

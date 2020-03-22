@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 // Components
-import { DogList } from '../DogList'
+import { DogList } from '../Dog/DogList'
 
 // Style component
 import styled from 'styled-components/macro'

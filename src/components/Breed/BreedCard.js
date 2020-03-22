@@ -7,15 +7,14 @@ import { faRulerCombined, faDog } from '@fortawesome/free-solid-svg-icons'
 import { PATHS } from 'App'
 
 // Global theme
-import { mainTheme } from '../lib/GlobalStyle'
+import { mainTheme } from '../../lib/GlobalStyle'
 
 
-export const DogBreedCard = ({ breed }) => {
-  console.log("BREED IN DOGBREED CARD", breed.images)
-  console.log("PATHS.breeds", PATHS.breeds)
+export const BreedCard = ({ breed }) => {
+
   return (
 
-    <BreedCard >
+    <BreedCardContainer >
       <Image src={PATHS.breeds.concat(breed.images.url)} />
       <Content>
         <Title>{breed.name}</Title>
@@ -24,7 +23,7 @@ export const DogBreedCard = ({ breed }) => {
           <FontAwesomeIcon icon={faRulerCombined} /><SubTitle>{breed.size.join(', ')} </SubTitle>
         </GridWrapper>
       </Content>
-    </BreedCard >
+    </BreedCardContainer >
 
   )
 }
@@ -32,7 +31,7 @@ export const DogBreedCard = ({ breed }) => {
 
 /* ------ STYLING ------ */
 
-const BreedCard = styled.div`
+const BreedCardContainer = styled.div`
   color: ${mainTheme.blackish};
   background-color: ${mainTheme.whiteish};
   border-bottom: solid 1px ${mainTheme.whiteish} ;

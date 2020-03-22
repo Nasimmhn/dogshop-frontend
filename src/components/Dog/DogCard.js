@@ -10,7 +10,7 @@ import moment from 'moment'
 
 
 // Global theme
-import { mainTheme } from '../lib/GlobalStyle'
+import { mainTheme } from '../../lib/GlobalStyle'
 
 export const DogCard = ({ dog }) => {
 

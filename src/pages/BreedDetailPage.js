@@ -3,26 +3,26 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-import { DogBreedDetailCard } from '../components/DogBreedDetailCard'
+import { BreedDetailCard } from '../components/Breed/BreedDetailCard'
 
 
 // Global color theme
 import { mainTheme } from '../lib/GlobalStyle'
 
-// fetchDogBreed (reducer)
-import { fetchDogBreed } from '../reducers/dogdata'
+// Reducer
+import { fetchBreed } from '../reducers/dogdata'
 
 
-export const DogBreedDetailPage = () => {
+export const BreedDetailPage = () => {
   const dispatch = useDispatch()
   const { breedId } = useParams()
 
 
-  const breed = useSelector((state) => state.dogdata.dogBreed)
+  const breed = useSelector((state) => state.dogdata.breed)
   useEffect(() => {
 
     console.log("TEST")
-    dispatch(fetchDogBreed(breedId))
+    dispatch(fetchBreed(breedId))
   }, [dispatch, breedId])
 
 
@@ -30,7 +30,7 @@ export const DogBreedDetailPage = () => {
 
     <SectionWrapper>
       {breed &&
-        <DogBreedDetailCard breed={breed} />
+        <BreedDetailCard breed={breed} />
       }
     </SectionWrapper>
   )

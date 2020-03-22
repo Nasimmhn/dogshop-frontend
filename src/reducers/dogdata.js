@@ -8,9 +8,9 @@ export const dogdata = createSlice({
     dog: null,
     dogs: [],
     dogFilter: "",
-    dogBreed: null,
-    dogBreeds: [],
-    dogBreedFilter: "",
+    breed: null,
+    breeds: [],
+    breedFilter: "",
     message: {
       success: null,
       error: null,
@@ -31,14 +31,14 @@ export const dogdata = createSlice({
     },
 
     // Dog breed
-    setDogBreed: (state, action) => {
-      state.dogBreed = action.payload
+    setBreed: (state, action) => {
+      state.breed = action.payload
     },
-    setDogBreeds: (state, action) => {
-      state.dogBreeds = action.payload
+    setBreeds: (state, action) => {
+      state.breeds = action.payload
     },
-    setDogBreedFilter: (state, action) => {
-      state.dogBreedFilter = action.payload
+    setBreedFilter: (state, action) => {
+      state.breedFilter = action.payload
     },
 
     message: (state, action) => {
@@ -78,22 +78,22 @@ export const fetchDogs = (query) => {
 }
 
 
-export const fetchDogBreed = (breedId) => {
+export const fetchBreed = (breedId) => {
   return dispatch => {
     fetch(`${API}/breed/id/${breedId}`)
       .then(res => res.json())
-      .then(dogBreed => {
-        dispatch(dogdata.actions.setDogBreed(dogBreed))
+      .then(breed => {
+        dispatch(dogdata.actions.setBreed(breed))
       })
   }
 }
 
-export const fetchDogBreeds = (query) => {
+export const fetchBreeds = (query) => {
   return dispatch => {
     fetch(`${API}/breed${query}`)
       .then(res => res.json())
-      .then(dogBreeds => {
-        dispatch(dogdata.actions.setDogBreeds(dogBreeds))
+      .then(breeds => {
+        dispatch(dogdata.actions.setBreeds(breeds))
       })
   }
 }

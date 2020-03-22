@@ -2,20 +2,20 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 // Components
-import { DogBreedList } from 'components/DogBreedList'
-import { DogBreedFilterMenu } from 'components/DogBreedFilterMenu'
+import { BreedList } from 'components/Breed/BreedList'
+import { BreedFilterMenu } from 'components/Breed/BreedFilterMenu'
 
 
 // Global color theme
 import { mainTheme } from '../lib/GlobalStyle'
 
 
-export const DogBreedPage = () => {
+export const BreedPage = () => {
   return (
     <Container>
       <SectionWrapper>
-        <DogBreedFilterMenu />
-        <DogBreedList />
+        <BreedFilterMenu />
+        <BreedList />
       </SectionWrapper>
     </Container>
   )

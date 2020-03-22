@@ -11,7 +11,7 @@ import { faBolt, faWeightHanging, faRulerCombined, faDog, faEnvelope, faMapMarke
 import moment from 'moment'
 
 // Global theme
-import { mainTheme } from '../lib/GlobalStyle'
+import { mainTheme } from '../../lib/GlobalStyle'
 
 export const DogDetailCard = ({ dog }) => {
 
@@ -48,7 +48,7 @@ export const DogDetailCard = ({ dog }) => {
               <FontAwesomeIcon icon={faWeightHanging} /><Text> {dog.breed.weight} </Text>
             </GridIconWrapper>
             <FlexWrapper justifyContent={'center'}>
-              <a href={`/dogbreed/${dog.breed._id}`}><Button> Read more</Button ></a>
+              <a href={`/breed/${dog.breed._id}`}><Button> Read more</Button ></a>
             </FlexWrapper>
           </InfoContainer>
         </BreedCard>

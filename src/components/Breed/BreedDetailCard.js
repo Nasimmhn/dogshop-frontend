@@ -11,10 +11,9 @@ import { faRulerCombined, faDog, faPaw, faBolt, faWeightHanging, faHeartbeat } f
 import { PATHS } from 'App'
 
 // Global theme
-import { mainTheme } from '../lib/GlobalStyle'
+import { mainTheme } from '../../lib/GlobalStyle'
 
-export const DogBreedDetailCard = ({ breed }) => {
-  console.log("DogBreedDetailCard, breed:", breed)
+export const BreedDetailCard = ({ breed }) => {
   return (
 
     <>
