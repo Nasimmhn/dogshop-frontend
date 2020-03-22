@@ -69,13 +69,10 @@ export const fetchDog = (dogId) => {
 }
 
 export const fetchDogs = (query) => {
-  console.log("QUERY:", query)
   return dispatch => {
     fetch(`${API}/dog${query}`)
       .then(res => res.json())
       .then(doggies => {
-        console.log("doggies:", doggies)
-
         dispatch(dogdata.actions.setDogs(doggies))
       })
   }

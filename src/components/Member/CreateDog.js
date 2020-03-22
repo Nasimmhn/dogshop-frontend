@@ -101,7 +101,6 @@ export const CreateDog = () => {
     dispatch(ui.actions.setShowDogList())
 
   }
-  console.log("filename", filename)
 
   return (
     <Form id={'create-dog-form'} onSubmit={handleSubmit}>
