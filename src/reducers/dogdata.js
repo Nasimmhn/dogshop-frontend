@@ -11,6 +11,7 @@ export const dogdata = createSlice({
     breed: null,
     breeds: [],
     breedFilter: "",
+    filename: null,
     message: {
       success: null,
       error: null,
@@ -40,10 +41,13 @@ export const dogdata = createSlice({
     setBreedFilter: (state, action) => {
       state.breedFilter = action.payload
     },
-
-    message: (state, action) => {
+    setMessage: (state, action) => {
       // Takes all form values from adsForm and adds to array of dogs
       state.message = action.payload
+    },
+    setFilename: (state, action) => {
+      // Takes all form values from adsForm and adds to array of dogs
+      state.filename = action.payload
     },
   }
 })
@@ -114,18 +118,37 @@ export const createDogAd = (newDog, user) => {
       .then(res => res.json())
       .then((json) => {
         console.log("createDogAd - response:", json)
-        dispatch(dogdata.actions.message({ success: `Successfully saved` }))
+        dispatch(dogdata.actions.setMessage({ success: `Successfully saved` }))
       })
       .catch((err) => {
         console.error("ERROR:", err)
-        dispatch(dogdata.actions.message({ error: `Error! Failed to save` }))
+        dispatch(dogdata.actions.setMessage({ error: `Error! Failed to save` }))
 
       })
   }
 }
 
+// export const uploadFile = (image) => {
+//   console.log(image)
+//   const formData = new FormData
+//   formData.append('file', image)
+//   return dispatch => {
+//     fetch(`${API}/upload`, {
+//       method: 'POST',
+//       body: formData
+//     })
+//       .then(res => res.json())
+//       .then(json => {
+//         console.log(json)
+//       })
+//       .catch(err => {
+//         console.error('error', err)
+//       })
+//   }
+// }
+
 export const uploadFile = (image) => {
-  console.log(image)
+  console.log("image", image)
   const formData = new FormData
   formData.append('file', image)
   return dispatch => {
@@ -135,10 +158,12 @@ export const uploadFile = (image) => {
     })
       .then(res => res.json())
       .then(json => {
-        console.log(json)
+        console.log("JSON", json)
+        dispatch(dogdata.actions.setFilename(json.file.filename))
       })
       .catch(err => {
         console.error('error', err)
       })
   }
 }
+

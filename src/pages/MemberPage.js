@@ -148,22 +148,6 @@ const MenuWrapper = styled.div`
 `
 
 
-// const SectionWrapper = styled.section`
-//   background-color: ${mainTheme.lightgray};
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding: 0px 0px;
-//   /* Tablet & Mobile */
-//   @media (min-width: 0px) and (max-width: 668px) {
-//     border-radius: 0px;
-//     flex-direction: column;
-//     align-items: center;
-//   }
-// `
-
 
 const SectionWrapper = styled.section`
   -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
@@ -172,6 +156,7 @@ const SectionWrapper = styled.section`
   width:100%;
   max-width:900px;
   height:100%;
+  flex-grow: 1;
   min-height: 700px;
   /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {

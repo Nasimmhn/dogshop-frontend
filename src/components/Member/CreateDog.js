@@ -9,7 +9,7 @@ import styled from 'styled-components/macro'
 import Select from 'react-select'
 
 // From reducer
-import { createDogAd, uploadFile } from '../../reducers/dogdata'
+import { dogdata, createDogAd, uploadFile } from '../../reducers/dogdata'
 import { ui } from '../../reducers/ui'
 
 // Materialize UI
@@ -22,12 +22,12 @@ import { mainTheme } from '../../lib/GlobalStyle'
 import { PATHS, API } from '../../App'
 
 export const CreateDog = () => {
-  const { message } = useSelector((state) => state.ui)
+  const { filename } = useSelector((state) => state.dogdata)
 
   const classes = useStyles()
   const dispatch = useDispatch()
 
-
+  const [message, setMessage] = useState(null)
   const [name, setName] = useState('')
   const [image, setImage] = useState(null)
   const [selectedBreed, setSelectedBreed] = useState('')
@@ -40,13 +40,22 @@ export const CreateDog = () => {
   const [phone, setPhone] = useState('')
   const [breedOptions, setBreedOptions] = useState([])
 
-  let errorMsg = ""
-
+  // Handle file selection
   const handleSelectFile = (file) => {
     setImage(file)
-    if ((file) && (file.size > 1500000)) {
-      errorMsg = "Max size 1.5 Mb"
-      console.error(errorMsg)
+
+    // if no file selected
+    if (!file) {
+      console.log('No file selected')
+    }
+    else if ((file) && (file.size > 2000000)) {
+      setMessage("Max size 2 Mb")
+      dispatch(dogdata.actions.setFilename(null))
+    }
+    // file selected
+    else {
+      dispatch(uploadFile(file)) // Upload image
+      setMessage(null)
     }
   }
 
@@ -58,8 +67,7 @@ export const CreateDog = () => {
         let options = []
         breeds.map((breed) => options.push({ "value": breed._id, "label": breed.name }))
         setBreedOptions(options)
-      }
-      )
+      })
   }
 
   useEffect(() => {
@@ -77,7 +85,7 @@ export const CreateDog = () => {
     let newDog = {
       "name": name,
       "images": {
-        url: image ? `${PATHS.uploads}/${image.name}` : undefined,
+        url: image ? `${PATHS.uploads}/${filename}` : undefined,
       },
       "breed": selectedBreed.value,
       "sex": sex,
@@ -88,13 +96,12 @@ export const CreateDog = () => {
       "phone": phone,
       "owner": user._id
     }
-    dispatch(uploadFile(image)) // Upload image
     dispatch(createDogAd(newDog, user)) // Sending the form values to the thunk in reducer
-    document.getElementById("create-dog-form").reset();
+    document.getElementById("create-dog-form").reset() // Reset form
     dispatch(ui.actions.setShowDogList())
 
   }
-
+  console.log("filename", filename)
 
   return (
     <Form id={'create-dog-form'} onSubmit={handleSubmit}>
@@ -118,7 +125,7 @@ export const CreateDog = () => {
               onChange={event => handleSelectFile(event.target.files[0])}
               accept=".jpg, .jpeg, .png"
             />
-            <ErrorMsg> {errorMsg} </ErrorMsg>
+            <ErrorMsg>{message}</ErrorMsg>
           </FlexWrapper>
         </Label>
 
@@ -219,7 +226,11 @@ export const CreateDog = () => {
           required
         />
       </Label>
-      <StyledButton type='submit' title='Submit'>
+      <StyledButton
+        type='submit'
+        title='Submit'
+        disabled={(message !== null)}
+      >
         Submit
       </StyledButton>
     </Form>
@@ -232,14 +243,11 @@ export const CreateDog = () => {
 /* ------ STYLING ------ */
 
 const ErrorMsg = styled.span`
-  width: 100px;
+  font-size: 15px;
+  width: 200px;
   color: red;
+  align-self: center;
 `
-// const StyledForm = styled(Form)`
-//   width: 100%;
-//   min-width: 250px;
-//   background: rgba(255,255,255, 0.4);
-// `
 const Form = styled.form`
   max-width: 500px;
   width: 100%;

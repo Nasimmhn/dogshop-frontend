@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === "development") {
 export const PATHS = {
   breeds: "/assets/breeds/",
   dogs: "",
-  uploads: `${API}/uploads`
+  uploads: `${API}/upload/image`
 }
 
 // Combined reducers
