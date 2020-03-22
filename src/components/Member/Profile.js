@@ -39,8 +39,11 @@ const FlexWrapper = styled.div`
   flex-direction: ${props => props.flexDirection};
   justify-content: ${props => props.justifyContent};
   align-items: ${props => props.alignItems};
+  /* Tablet & mobile */
+  @media (min-width: 0px) and (max-width: 668px) {
+    justify-content: center;
+  }
 `
-
 const ProfileInfo = styled.div`
   margin-top: 20px;
   padding: 40px;
@@ -49,36 +52,24 @@ const ProfileInfo = styled.div`
   align-self: flex-start;
   background-color:${mainTheme.whiteish};
 `
-
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
 
 `
-
 const SubTitle = styled.div`
   margin: 10px;
   font-weight: bold;
   text-align: right;
 
 `
-
-const Title = styled.h1`
-
-`
-
-
 const ButtonWrapper = styled.div`
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
- 
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
-
-
-
 const Button = styled.button`
   background: transparent;
   border-radius: 20px;
@@ -96,22 +87,15 @@ const Button = styled.button`
     border: 1px solid ${mainTheme.whiteish};
     color: ${mainTheme.whiteish};
     transition: 0.1s;
-    
   } 
-
 `
-
-
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   margin: 15px 0px;
-
 `
-
-
 const Image = styled.div`
-   background-image: url(${props => props.filepath ? props.filepath : "/assets/profile-avatar.png"});
+  background-image: url(${props => props.filepath ? props.filepath : "/assets/profile-avatar.png"});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -119,7 +103,6 @@ const Image = styled.div`
   height: 150px;
   width: 150px;
   border: 1px solid ${mainTheme.lightbeige};
-
 `
 
 

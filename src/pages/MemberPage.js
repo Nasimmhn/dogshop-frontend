@@ -69,36 +69,25 @@ export const MemberPage = () => {
 
 /* ------ STYLING ------ */
 
-
 const HeaderWrapper = styled.div`
   height:150px;
   width: 100%;
   display: flex;
   padding-left:20px; 
-  
 `
-
 const Header = styled.h2`
   font-size: 28px;
   font-weight:lighter;
   text-align: left;
   line-height:150px;
   @media (min-width: 0px) and (max-width: 410px) {
-    font-size: 12px;
   }
 `
-
-
 const Title = styled.span`
   text-align: center;
   font-weight: bold;
   font-size: 15px;
-  @media (min-width: 0px) and (max-width: 410px) {
-    font-size: 12px;
-  }
 `
-
-
 const ButtonCard = styled.div`
   padding: 20px;
   height: 70px;  
@@ -106,14 +95,11 @@ const ButtonCard = styled.div`
   width: 100%;
   cursor:pointer;
   background-color: transparent;
-  /* background-color: ${props => props.selected ? `${mainTheme.lightbeige}` : `${mainTheme.lightgray}`}; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  border-radius: 5px 5px 0px 0px; */
+
   border: 2px solid ${mainTheme.lightgray};
   border-color: ${props => props.selected ? `${mainTheme.redish}` : `${mainTheme.grayish}`};
   &&:hover {
@@ -141,14 +127,8 @@ const MenuWrapper = styled.div`
   && > div {
     justify-self: center;
   }
-  @media (min-width: 0px) and (max-width: 410px) {
-    grid-template-columns: 75px 105px 105px;
-  }
 
 `
-
-
-
 const SectionWrapper = styled.section`
   -webkit-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
   -moz-box-shadow: 0px 0px 15px -4px rgba(186,174,170,1);
@@ -163,12 +143,7 @@ const SectionWrapper = styled.section`
     flex-direction: column;
     align-items: center;
   }
-  /* Mobile */
-  @media (max-width: 375px) {
-    
-  }
 `
-
 const Container = styled.div`
   background-color: ${mainTheme.lightgray};
   width:100%;
