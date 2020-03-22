@@ -52,7 +52,7 @@ export const userdata = createSlice({
 export const registerNewUser = (name, email, password) => {
 
   return dispatch => {
-    fetch(`${API}/register`, {
+    fetch(`${API}/user/register`, {
       method: 'POST',
       body: JSON.stringify({
         'name': name,
@@ -79,7 +79,7 @@ export const registerNewUser = (name, email, password) => {
 export const loginUser = (email, password) => {
 
   return dispatch => {
-    fetch(`${API}/login`, {
+    fetch(`${API}/user/login`, {
       method: 'POST',
       body: JSON.stringify({
         'email': email,
@@ -106,7 +106,7 @@ export const loginUser = (email, password) => {
 
 export const authUser = (accessToken) => {
   return dispatch => {
-    fetch(`${API}/auth`, {
+    fetch(`${API}/user/auth`, {
       method: 'GET',
       headers: {
         Authorization: accessToken
@@ -133,6 +133,7 @@ export const getUser = (userId, accessToken) => {
     })
       .then(res => res.json())
       .then(auth => {
+        console.log("Auth: ", auth)
 
       })
       .catch(err => console.error('error', err))

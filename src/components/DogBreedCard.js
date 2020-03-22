@@ -10,17 +10,18 @@ import { PATHS } from 'App'
 import { mainTheme } from '../lib/GlobalStyle'
 
 
-export const DogBreedCard = ({ dogBreed }) => {
-
+export const DogBreedCard = ({ breed }) => {
+  console.log("BREED IN DOGBREED CARD", breed.images)
+  console.log("PATHS.breeds", PATHS.breeds)
   return (
 
     <BreedCard >
-      <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
+      <Image src={PATHS.breeds.concat(breed.images.url)} />
       <Content>
-        <Title>{dogBreed.name}</Title>
+        <Title>{breed.name}</Title>
         <GridWrapper>
-          <FontAwesomeIcon icon={faDog} /><SubTitle>{dogBreed.group.join(', ')} </SubTitle>
-          <FontAwesomeIcon icon={faRulerCombined} /><SubTitle>{dogBreed.size.join(', ')} </SubTitle>
+          <FontAwesomeIcon icon={faDog} /><SubTitle>{breed.group.join(', ')} </SubTitle>
+          <FontAwesomeIcon icon={faRulerCombined} /><SubTitle>{breed.size.join(', ')} </SubTitle>
         </GridWrapper>
       </Content>
     </BreedCard >

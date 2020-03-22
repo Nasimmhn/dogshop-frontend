@@ -13,7 +13,8 @@ import { PATHS } from 'App'
 // Global theme
 import { mainTheme } from '../lib/GlobalStyle'
 
-export const DogBreedDetailCard = ({ dogBreed }) => {
+export const DogBreedDetailCard = ({ breed }) => {
+  console.log("DogBreedDetailCard, breed:", breed)
   return (
 
     <>
@@ -21,22 +22,22 @@ export const DogBreedDetailCard = ({ dogBreed }) => {
       <BreedCard>
         <FlexWrapper flexDirection={'row'} flexWrap={'wrap'}>
 
-          <Image src={PATHS.dog_races.concat(dogBreed.images.url)} />
+          <Image src={PATHS.breeds.concat(breed.images.url)} />
 
           <DataInfo>
             <SubTitle> Summary</SubTitle>
             <GridIconWrapper>
-              <FontAwesomeIcon icon={faDog} /><Text> {dogBreed.group.join(', ')}</Text>
-              <FontAwesomeIcon icon={faBolt} /><Text> {dogBreed.activity.join(', ')}</Text>
-              <FontAwesomeIcon icon={faRulerCombined} /><Text> {dogBreed.size.join(', ')}</Text>
-              <FontAwesomeIcon icon={faWeightHanging} /><Text> {dogBreed.weight} </Text>
-              <FontAwesomeIcon icon={faHeartbeat} /><Text> {dogBreed.lifespan} </Text>
+              <FontAwesomeIcon icon={faDog} /><Text> {breed.group.join(', ')}</Text>
+              <FontAwesomeIcon icon={faBolt} /><Text> {breed.activity.join(', ')}</Text>
+              <FontAwesomeIcon icon={faRulerCombined} /><Text> {breed.size.join(', ')}</Text>
+              <FontAwesomeIcon icon={faWeightHanging} /><Text> {breed.weight} </Text>
+              <FontAwesomeIcon icon={faHeartbeat} /><Text> {breed.lifespan} </Text>
             </GridIconWrapper>
           </DataInfo>
 
           <MainInfo>
-            <Title><FontAwesomeIcon icon={faPaw} /> {dogBreed.name}</Title>
-            <Text>{dogBreed.description}</Text>
+            <Title><FontAwesomeIcon icon={faPaw} /> {breed.name}</Title>
+            <Text>{breed.description}</Text>
           </MainInfo>
 
         </FlexWrapper>

@@ -39,16 +39,16 @@ export const DogDetailCard = ({ dog }) => {
 
         <BreedCard>
           <InfoContainer>
-            <Title> <FontAwesomeIcon icon={faPaw} /> {dog.race.name}</Title>
+            <Title> <FontAwesomeIcon icon={faPaw} /> {dog.breed.name}</Title>
             <hr />
             <GridIconWrapper>
-              <FontAwesomeIcon icon={faDog} /><Text> {dog.race.group.join(', ')}</Text>
-              <FontAwesomeIcon icon={faBolt} /><Text> {dog.race.activity.join(', ')}</Text>
-              <FontAwesomeIcon icon={faRulerCombined} /><Text> {dog.race.size.join(', ')}</Text>
-              <FontAwesomeIcon icon={faWeightHanging} /><Text> {dog.race.weight} </Text>
+              <FontAwesomeIcon icon={faDog} /><Text> {dog.breed.group.join(', ')}</Text>
+              <FontAwesomeIcon icon={faBolt} /><Text> {dog.breed.activity.join(', ')}</Text>
+              <FontAwesomeIcon icon={faRulerCombined} /><Text> {dog.breed.size.join(', ')}</Text>
+              <FontAwesomeIcon icon={faWeightHanging} /><Text> {dog.breed.weight} </Text>
             </GridIconWrapper>
             <FlexWrapper justifyContent={'center'}>
-              <a href={`/dogbreed/${dog.race._id}`}><Button> Read more</Button ></a>
+              <a href={`/dogbreed/${dog.breed._id}`}><Button> Read more</Button ></a>
             </FlexWrapper>
           </InfoContainer>
         </BreedCard>

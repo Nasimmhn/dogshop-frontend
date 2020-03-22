@@ -70,7 +70,7 @@ export const CreateDog = () => {
       "images": {
         url: image ? `${PATHS.uploads}/${image.name}` : undefined,
       },
-      "race": selectedBreed.value,
+      "breed": selectedBreed.value,
       "sex": sex,
       "birthdate": birthdate,
       "description": description,
@@ -210,8 +210,7 @@ export const CreateDog = () => {
       <StyledButton type='submit' title='Submit'>
         Submit
       </StyledButton>
-      {message.success && <div> {message.success} </div>}
-      {message.error && <div> {message.error} </div>}
+
     </Form>
   )
 }

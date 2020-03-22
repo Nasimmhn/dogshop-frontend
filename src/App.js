@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === "development") {
 
 // Object with path to images
 export const PATHS = {
-  dog_races: "/assets/dog_races/",
+  breeds: "/assets/breeds/",
   dogs: "",
   uploads: `${API}/uploads`
 }

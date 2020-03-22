@@ -67,7 +67,7 @@ export const fetchDog = (dogId) => {
 export const fetchDogs = (query) => {
   console.log("QUERY:", query)
   return dispatch => {
-    fetch(`${API}/dogs/${query}`)
+    fetch(`${API}/dog${query}`)
       .then(res => res.json())
       .then(doggies => {
         console.log("doggies:", doggies)
@@ -80,7 +80,7 @@ export const fetchDogs = (query) => {
 
 export const fetchDogBreed = (breedId) => {
   return dispatch => {
-    fetch(`${API}/dogbreed/${breedId}`)
+    fetch(`${API}/breed/id/${breedId}`)
       .then(res => res.json())
       .then(dogBreed => {
         dispatch(dogdata.actions.setDogBreed(dogBreed))
@@ -90,7 +90,7 @@ export const fetchDogBreed = (breedId) => {
 
 export const fetchDogBreeds = (query) => {
   return dispatch => {
-    fetch(`${API}/dogbreeds/${query}`)
+    fetch(`${API}/breed${query}`)
       .then(res => res.json())
       .then(dogBreeds => {
         dispatch(dogdata.actions.setDogBreeds(dogBreeds))

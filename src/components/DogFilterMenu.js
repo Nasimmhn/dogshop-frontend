@@ -53,7 +53,7 @@ export const DogFilterMenu = () => {
   const dispatch = useDispatch()
 
   const [sex, setSex] = useState({ value: "" })
-  const [race, setRace] = useState('')
+  const [breed, setBreed] = useState('')
   const [size, setSize] = useState([])
   const [priceRange, setPriceRange] = useState([0, 9999999])
   const [group, setGroup] = useState([])
@@ -80,10 +80,10 @@ export const DogFilterMenu = () => {
     else { sizeQuery = size.map(item => item.value) }
 
     if (priceRange[1] === 40000) { priceRange[1] = 999999 }  // To query prices over 40000SEK
-    setQuery(`?sex=${sex.value}&race=${race}&group=${groupQuery.toString()}&size=${sizeQuery.toString()}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`)
+    setQuery(`?sex=${sex.value}&breed=${breed}&group=${groupQuery.toString()}&size=${sizeQuery.toString()}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`)
 
     dispatch(dogdata.actions.setDogFilter(query))
-  }, [dispatch, query, sex, race, group, priceRange, size])
+  }, [dispatch, query, sex, breed, group, priceRange, size])
 
 
 
@@ -95,7 +95,7 @@ export const DogFilterMenu = () => {
         <StyledInput
           placeholder="Search by breed ..."
           type="text"
-          onInput={(e) => setRace(e.target.value)}
+          onInput={(e) => setBreed(e.target.value)}
         />
       </div>
 

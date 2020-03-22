@@ -18,7 +18,7 @@ export const DogBreedDetailPage = () => {
   const { breedId } = useParams()
 
 
-  const dogBreed = useSelector((state) => state.dogdata.dogBreed)
+  const breed = useSelector((state) => state.dogdata.dogBreed)
   useEffect(() => {
 
     console.log("TEST")
@@ -29,8 +29,8 @@ export const DogBreedDetailPage = () => {
   return (
 
     <SectionWrapper>
-      {dogBreed &&
-        <DogBreedDetailCard dogBreed={dogBreed} />
+      {breed &&
+        <DogBreedDetailCard breed={breed} />
       }
     </SectionWrapper>
   )

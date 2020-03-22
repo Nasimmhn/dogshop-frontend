@@ -22,7 +22,7 @@ export const DogCard = ({ dog }) => {
           <TitleBar>
             <FlexWrapper flexdirection={"column"} justify={"space-evenly"}>
               <Title>{dog.name} <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></Title>
-              <SubTitle>{dog.race.name} <FontAwesomeIcon icon={faPaw} /></SubTitle>
+              <SubTitle>{dog.breed.name} <FontAwesomeIcon icon={faPaw} /></SubTitle>
             </FlexWrapper>
           </TitleBar>
         </Content>

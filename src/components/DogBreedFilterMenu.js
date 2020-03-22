@@ -34,7 +34,7 @@ const sizeOptions = [
 export const DogBreedFilterMenu = () => {
   const dispatch = useDispatch()
 
-  const [race, setRace] = useState('')
+  const [breed, setBreed] = useState('')
   const [size, setSize] = useState([])
   const [group, setGroup] = useState([])
   const [query, setQuery] = useState('')
@@ -53,10 +53,10 @@ export const DogBreedFilterMenu = () => {
     if (size === null) { sizeQuery = "" }
     else { sizeQuery = size.map(item => item.value) }
 
-    setQuery(`?&race=${race}&group=${groupQuery.toString()}&size=${sizeQuery.toString()}`)
+    setQuery(`?&breed=${breed}&group=${groupQuery.toString()}&size=${sizeQuery.toString()}`)
 
     dispatch(dogdata.actions.setDogBreedFilter(query))
-  }, [dispatch, query, race, group, size])
+  }, [dispatch, query, breed, group, size])
 
 
 
@@ -68,7 +68,7 @@ export const DogBreedFilterMenu = () => {
         <StyledInput
           placeholder="Search by breed ..."
           type="text"
-          onInput={(e) => setRace(e.target.value)}
+          onInput={(e) => setBreed(e.target.value)}
         />
       </div>
       <Select
