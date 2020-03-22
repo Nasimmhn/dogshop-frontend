@@ -36,12 +36,14 @@ export const NavBar = () => {
     <NavSection>
       <HamburgerContainer>
         <Menu styles={burgerStyle} >
-          <a id="dogs" className="menu-item" href="/">Find dogs</a>
-          <a id="breeds" className="menu-item" href="/breeds">Dog breeds</a>
-          <a id="members" className="menu-item" href="/members">Members</a>
-          {!isAuthenticated && <a id="login" className="menu-item" href="/login">Login</a>}
-          {!isAuthenticated && <a id="signup" className="menu-item" href="/signup">Signup</a>}
-          {isAuthenticated && <a id="logout" className="menu-item" href="/logout">Logout</a>}
+          <Link to={'/login'} tabIndex='-1'> Find dogs </Link>
+          <Link to={'/breeds'} tabIndex='-1'>Dog breeds</Link>
+
+
+          {!isAuthenticated && <Link to={'/login'} tabIndex='-1'>Login</Link>}
+          {!isAuthenticated && <Link to={'/signup'} tabIndex='-1'>Sign up</Link>}
+          {isAuthenticated && <Link to={'/members'} tabIndex='-1'>Profile</Link>}
+          {isAuthenticated && <Link to={'/logout'} tabIndex='-1'>Logout</Link>}
 
         </Menu>
       </HamburgerContainer>
