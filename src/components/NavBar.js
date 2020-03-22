@@ -38,8 +38,6 @@ export const NavBar = () => {
         <Menu styles={burgerStyle} >
           <Link to={'/login'} tabIndex='-1'> Find dogs </Link>
           <Link to={'/breeds'} tabIndex='-1'>Dog breeds</Link>
-
-
           {!isAuthenticated && <Link to={'/login'} tabIndex='-1'>Login</Link>}
           {!isAuthenticated && <Link to={'/signup'} tabIndex='-1'>Sign up</Link>}
           {isAuthenticated && <Link to={'/members'} tabIndex='-1'>Profile</Link>}

@@ -125,28 +125,9 @@ export const createDogAd = (newDog, user) => {
   }
 }
 
-// export const uploadFile = (image) => {
-//   console.log(image)
-//   const formData = new FormData
-//   formData.append('file', image)
-//   return dispatch => {
-//     fetch(`${API}/upload`, {
-//       method: 'POST',
-//       body: formData
-//     })
-//       .then(res => res.json())
-//       .then(json => {
-//         console.log(json)
-//       })
-//       .catch(err => {
-//         console.error('error', err)
-//       })
-//   }
-// }
-
 export const uploadFile = (image) => {
   console.log("image", image)
-  const formData = new FormData
+  const formData = new FormData()
   formData.append('file', image)
   return dispatch => {
     fetch(`${API}/upload`, {

@@ -201,13 +201,6 @@ font-family: 'Raleway';
     font-size: 20px;
   }
 `
-const SubTitle = styled.h3`
-  color: ${mainTheme.blackish};
-  margin: 5px 0px;
-  font-size: 15px;
-  text-align: ${props => props.textalign};
-  justify-self: ${props => props.justifyself};;
-`
 const Text = styled.p`
   color: ${mainTheme.blackish};
   font-size: 15px;

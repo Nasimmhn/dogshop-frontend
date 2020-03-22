@@ -91,12 +91,6 @@ const ErrorMsg = styled.p`
   text-align:center;
 `
 
-const SuccessMsg = styled.p`
-  font-size: 19px;
-  color: red;
-  margin:5px 0;
-  text-align:center;
-`
 const StyledTextField = styled(TextField)`
   && {
     width: 100%;
