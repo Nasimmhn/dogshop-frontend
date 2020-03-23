@@ -1,4 +1,3 @@
-/  index   200
 /breeds  /breeds 200
 /breed/*  /breed/:splat 200
 /dog/*  /dog/:splat 200
