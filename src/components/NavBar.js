@@ -29,7 +29,6 @@ export const NavBar = () => {
 
   if (accessToken) {
     dispatch(authUser(accessToken))
-
   }
 
   return (
@@ -162,16 +161,17 @@ const NavItems = styled.nav`
   }
 `
 const ButtonWrapper = styled.div`
- display:grid;
- grid-template-columns: 120px 120px;
- column-gap:15px;
+  display:grid;
+  grid-template-columns: 145px 145px;
+  column-gap:15px;
+  justify-items: center;
 `
 
 
 const NavButton = styled.button`
   background:transparent;
   color: ${mainTheme.whiteish};
-  padding: 8px;
+  padding: 8px 0px;
   font-size:15px;
   font-weight:bold;
   transition: 0.2s; 
