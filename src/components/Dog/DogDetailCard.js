@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Styled components
 import styled from 'styled-components/macro'
@@ -48,7 +49,7 @@ export const DogDetailCard = ({ dog }) => {
               <FontAwesomeIcon icon={faWeightHanging} /><Text> {dog.breed.weight} </Text>
             </GridIconWrapper>
             <FlexWrapper justifyContent={'center'}>
-              <a href={`/breed/${dog.breed._id}`}><Button> Read more</Button ></a>
+              <Link href={`/breed/${dog.breed._id}`}><Button> Read more</Button ></Link>
             </FlexWrapper>
           </InfoContainer>
         </BreedCard>
