@@ -1,19 +1,26 @@
-# Technigo React Starter App
+## Final Project Frontend
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+As it was my final project at Technigo, I decided to wrap up everything I have learnt during the program and build one bigger application. General idea of the project: a platform for buying, adopting and selling pets. You can categorise pets to find the perfect pet. For example to search for 'small dogs under 2 years old'. Since it's just a demo, I made a dummy-data for dogs and dog breeds, so I could make my collections based on the data. I've made three collections for dogs, dog breeds and users who should be authorized first in order to publish an ad. Backend repo: https://github.com/Nasimmhn/dogshop-backend
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
+### Technologies used 💻
 
-## Usage
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+### Frontend:
+* JavaScript ES6
+* React.js
+* React Hooks
+* React Router
+* Redux
+* Styled components
+* Material UI
 
-Alternatively, if you don't want a new git repo on your account;
 
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+### Backend:
+* Express
+* MongoDB
+* Mongoose
+* Mongo Atlas
+
+## View it live 🎯
+* Frontend: https://dog-shop-by-nasim.netlify.com/
+* API base URL: https://dog-shop-by-nasim.herokuapp.com/
