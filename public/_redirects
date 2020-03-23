@@ -1,0 +1,7 @@
+/  index   200
+/breeds  /breeds 200
+/breed/*  /breed/:splat 200
+/dog/*  /dog/:splat 200
+/members /members 200
+/login /login 200
+/signup /signup 200
