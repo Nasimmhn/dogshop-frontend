@@ -8,6 +8,7 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons'
 import { DogList } from 'components/Dog/DogList'
 import { DogFilterMenu } from 'components/Dog/DogFilterMenu'
 
+
 // Global color theme
 import { mainTheme } from '../lib/GlobalStyle'
 
@@ -85,7 +86,6 @@ const SectionWrapper = styled.section`
 const TextContainer = styled.div`
   height: 100%;
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;

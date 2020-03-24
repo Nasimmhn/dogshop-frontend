@@ -6,6 +6,7 @@ import styled from 'styled-components/macro'
 
 // Components
 import { DogCard } from 'components/Dog/DogCard'
+import { LoadingSpinner } from 'components/LoadingSpinner'
 
 // fetchDogs function (from reducer)
 import { fetchDogs } from 'reducers/dogdata'
@@ -31,19 +32,29 @@ export const DogList = () => {
 
   // Map over the dogs here
   return (
-    <CardsWrapper>
-      {dogs.map((dog) => (
-        <Hyperlink key={dog._id} to={`/dog/${dog._id}`}>
-          <DogCard
-            dog={dog}
-          />
-        </Hyperlink>
-      ))}
-    </CardsWrapper>
+    <CardsContainer>
+      <LoadingSpinner />
+      <CardsWrapper>
+        {dogs.map((dog) => (
+          <Hyperlink key={dog._id} to={`/dog/${dog._id}`}>
+            <DogCard
+              dog={dog}
+            />
+          </Hyperlink>
+        ))}
+      </CardsWrapper>
+    </CardsContainer>
   )
 }
 
 /* ------ STYLING ------ */
+const CardsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+`
+
 
 const CardsWrapper = styled.div`
   width: 100%;
@@ -51,7 +62,8 @@ const CardsWrapper = styled.div`
   grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
   column-gap: 20px;
   row-gap: 20px;
-  margin: 20px;
+  padding: 20px;
+  /* margin: 20px; */
 
 /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {
@@ -63,7 +75,7 @@ const CardsWrapper = styled.div`
   }
   /* Mobile */
   @media (max-width: 375px) {
-    margin: 20px 10px;
+    margin: 20px 0px;
     padding: 5px;
   }
 `

@@ -19,9 +19,12 @@ export const LoadingSpinner = () => {
   )
 }
 
+
+
+
 const LoadingWrapper = styled.div`
-  height: 30vh;
+  height: 70px;
   display: flex;
-  justify-content: center;
+  flex-direction:column;
   align-items: center;
 `

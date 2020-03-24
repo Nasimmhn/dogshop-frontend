@@ -46,6 +46,7 @@ const StyledFooter = styled.footer`
   /* margin-top: 50px; */
   width:100%;
   height:150px;
+  padding: 10px;
   
 `
 
@@ -55,11 +56,13 @@ const FlexWrapper = styled.div`
   align-items: center;
   justify-content:space-around;
   height:100%;
-
-
+  /* Mobile */
+  @media (max-width: 375px) {
+  }
 `
 
 const WrapperInner = styled.div`
+
   
 `
 
