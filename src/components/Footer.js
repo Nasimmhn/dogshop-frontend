@@ -43,6 +43,7 @@ export const Footer = () => {
 
 const StyledFooter = styled.footer`
   background-color: ${mainTheme.lightbeige};
+  color: ${mainTheme.darkbrown};
   /* margin-top: 50px; */
   width:100%;
   height:150px;
@@ -68,7 +69,6 @@ const WrapperInner = styled.div`
 
 
 const Title = styled.h4`
-  color: ${mainTheme.quinary};
   font-size: 22px;
   width:100%;
   text-align: left;
@@ -78,7 +78,6 @@ const Title = styled.h4`
 
 
 const InnerText = styled.p`
-  color: ${mainTheme.whiteish};
   font-size: 19px;
   width:150px;
   text-align: left;
