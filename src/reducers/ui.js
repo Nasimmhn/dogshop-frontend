@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const ui = createSlice({
   name: 'ui',
   initialState: {
+    isLoading: false,
     showProfile: true,
     showCreateDogForm: false,
     showDogList: false,
@@ -15,6 +16,9 @@ export const ui = createSlice({
 
   reducers: {
 
+    setLoading: (state, action) => {
+      state.isLoading = action.payload
+    },
     setShowCreateDogForm: (state, action) => {
       state.showDogList = false
       state.showProfile = false

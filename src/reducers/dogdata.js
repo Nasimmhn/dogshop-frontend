@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-
 import { API } from '../App'
+import { ui } from './ui'
+
+
+
+
 
 export const dogdata = createSlice({
   name: "dogdata",
@@ -70,10 +74,12 @@ export const fetchDog = (dogId) => {
 
 export const fetchDogs = (query) => {
   return dispatch => {
+    dispatch(ui.actions.setLoading(true))
     fetch(`${API}/dog${query}`)
       .then(res => res.json())
       .then(doggies => {
         dispatch(dogdata.actions.setDogs(doggies))
+        dispatch(ui.actions.setLoading(false))
       })
   }
 }
