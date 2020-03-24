@@ -35,7 +35,7 @@ export const NavBar = () => {
     <NavSection>
       <HamburgerContainer>
         <Menu styles={burgerStyle} >
-          <Link to={'/login'} tabIndex='-1'> Find dogs </Link>
+          <Link to={'/'} tabIndex='-1'> Find dogs </Link>
           <Link to={'/breeds'} tabIndex='-1'>Dog breeds</Link>
           {!isAuthenticated && <Link to={'/login'} tabIndex='-1'>Login</Link>}
           {!isAuthenticated && <Link to={'/signup'} tabIndex='-1'>Sign up</Link>}
