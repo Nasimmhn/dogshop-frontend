@@ -1,7 +1,12 @@
 ## Final Project Frontend
 
 As it was my final project at Technigo, I decided to wrap up everything I have learnt during the program and build one larger application. 
-__General idea of the project__ :Platform for buying, adopting and selling pets. You can search by category to find the perfect dog for you. For example you can search for 'small' dog of the type 'toy' in a certain price range. Since this is just a demo, I'm  using dummy-data for the dogs. 
+
+
+__General idea of the project__ : 
+
+
+Platform for buying, adopting and selling pets. You can search by category to find the perfect dog for you. For example you can search for 'small' dog of the type 'toy' in a certain price range. Since this is just a demo, I'm  using dummy-data for the dogs. 
 You have to be authorized before posting a dog - meaning you must create an account and login first. Backend repo: https://github.com/Nasimmhn/dogshop-backend
 
 ### Technologies used 💻
