@@ -1,8 +1,8 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 // Components
-import { DogList } from '../Dog/DogList'
+import { MyDogCard } from './MyDogCard'
 
 // Style component
 import styled from 'styled-components/macro'
@@ -10,9 +10,16 @@ import styled from 'styled-components/macro'
 // query
 import { dogdata } from '../../reducers/dogdata'
 
+
+
+
+
+
+
 export const MyDogList = () => {
 
   const userId = window.sessionStorage.getItem('userId')
+  const userDogs = useSelector(state => state.dogdata.dogs)
   console.log("userId: ", userId)
 
   const dispatch = useDispatch()
@@ -21,16 +28,21 @@ export const MyDogList = () => {
 
   return (
     <FlexWrapper>
-      <DogList />
+      {userDogs.map(item =>
+        <MyDogCard
+          key={item._id} 
+          item={item}
+        />
+      )}
     </FlexWrapper>
   )
 }
 
 const FlexWrapper = styled.div`
   height: 100%;
-  width: 90%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  flex-wrap: wrap;
   `
 

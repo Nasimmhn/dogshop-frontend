@@ -25,12 +25,10 @@ export const DogDetailCard = ({ dog }) => {
             <Title><FontAwesomeIcon icon={faAddressCard} /> Contact information </Title>
             <hr />
             <GridIconWrapper>
-
               <FontAwesomeIcon icon={faMale} /> <Text>{dog.owner.name}</Text>
               <FontAwesomeIcon icon={faMapMarkedAlt} /> <Text>{dog.location}</Text>
               <FontAwesomeIcon icon={faPhone} /> <Text>{dog.phone ? dog.phone !== "" : "-"}</Text>
               <FontAwesomeIcon icon={faEnvelope} /> <Text>{dog.owner.email}</Text>
-
             </GridIconWrapper>
             <FlexWrapper justifyContent={'center'}>
               <a href={`mailto:${dog.owner.email}`}><Button> Contact seller</Button ></a>
