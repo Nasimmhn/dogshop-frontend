@@ -8,13 +8,8 @@ import styled from 'styled-components/macro'
 import { DogCard } from 'components/Dog/DogCard'
 import { LoadingSpinner } from 'components/LoadingSpinner'
 
-// fetchDogs function (from reducer)
+// fetchDogs from reducer
 import { fetchDogs } from 'reducers/dogdata'
-
-
-
-
-
 
 
 export const DogList = () => {
@@ -52,10 +47,7 @@ const CardsContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-
 `
-
-
 const CardsWrapper = styled.div`
   width: 100%;
   display: grid;
@@ -79,7 +71,6 @@ const CardsWrapper = styled.div`
     padding: 5px;
   }
 `
-
 const Hyperlink = styled(Link)`
   text-decoration: none;
 `
