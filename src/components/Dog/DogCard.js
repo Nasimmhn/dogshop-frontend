@@ -20,7 +20,7 @@ export const DogCard = ({ dog }) => {
         <Image filepath={dog.images.url} />
         <Content>
           <TitleBar>
-            <FlexWrapper flexdirection={"column"} justify={"space-evenly"}>
+            <FlexWrapper flexDirection={"column"} justify={"space-evenly"} alignItems={"flex-start"}>
               <Title>{dog.name} <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></Title>
               <SubTitle>{dog.breed.name} <FontAwesomeIcon icon={faPaw} /></SubTitle>
             </FlexWrapper>
@@ -29,7 +29,7 @@ export const DogCard = ({ dog }) => {
       </VisibleContainer>
 
       <HiddenContainer>
-        <FlexWrapper flexdirection={"column"} justify={"center"}>
+        <FlexWrapper flexDirection={"column"} justify={"center"} alignItems={"flex-start"}>
           <GridWrapper>
             <FontAwesomeIcon icon={faMapMarkedAlt} />
             <HiddenText> {dog.location} </HiddenText>
@@ -133,8 +133,9 @@ const Content = styled.div`
 const FlexWrapper = styled.div`
   height: 100%;
   display: flex;
-  flex-direction: ${props => props.flexdirection ? props.flexdirection : "row"};
+  flex-direction: ${props => props.flexDirection ? props.flexDirection : "row"};
   justify-content: ${props => props.justify ? props.justify : "space-between"};
+  align-items: ${props => props.alignItems ? props.alignItems : "stretch"};
 `
 
 const Title = styled.h1`
