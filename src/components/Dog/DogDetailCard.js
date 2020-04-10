@@ -30,7 +30,7 @@ export const DogDetailCard = ({ dog }) => {
               <FontAwesomeIcon icon={faPhone} /> <Text>{dog.phone ? dog.phone !== "" : "-"}</Text>
               <FontAwesomeIcon icon={faEnvelope} /> <Text>{dog.owner.email}</Text>
             </GridIconWrapper>
-            <FlexWrapper justifyContent={'center'}>
+            <FlexWrapper justifyContent={"center"} alignItems={"flex-start"}>
               <a href={`mailto:${dog.owner.email}`}><Button> Contact seller</Button ></a>
             </FlexWrapper>
           </InfoContainer>
@@ -56,14 +56,16 @@ export const DogDetailCard = ({ dog }) => {
       <DogCard>
         <Image filepath={dog.images.url} />
         <Content>
-          <FlexWrapper flexDirection={'column'}>
+          <FlexWrapper flexDirection={'column'} alignItems={"flex-start"}>
+            <FlexWrapper flexDirection={'column'} alignItems={"flex-start"} width={"100%"}>
 
-            <FlexWrapper flexDirection={'column'}>
-              <FlexWrapper flexDirection={'row'} justifyContent={'space-between'}>
+              <FlexWrapper flexDirection={'row'} justifyContent={'space-between'} width={"100%"}>
                 <Title> {dog.name} <FontAwesomeIcon icon={dog.sex === "Female" ? faVenus : faMars} /></Title>
                 <Title> {dog.price} SEK</Title>
               </FlexWrapper>
+
               <Text>{dog.description}</Text>
+
             </FlexWrapper>
 
             <GridIconWrapper>
@@ -183,12 +185,13 @@ const InfoContainer = styled.div`
   
 `
 const FlexWrapper = styled.div`
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
+  width: ${props => props.width};
   flex-direction: ${props => props.flexDirection};
   justify-content: ${props => props.justifyContent};
   align-items: ${props => props.alignItems};
+  flex-grow: ${props => props.flexGrow};
 `
 
 const Title = styled.h1`
