@@ -8,6 +8,7 @@ export const ui = createSlice({
     showProfile: true,
     showCreateDogForm: false,
     showDogList: false,
+    isDeletingAd: false,
     message: {
       success: null,
       error: null,
@@ -33,6 +34,9 @@ export const ui = createSlice({
       state.showDogList = true
       state.showProfile = false
       state.showCreateDogForm = false
+    },
+    setDeletingAd: (state, action) => {
+      state.isDeletingAd = action.payload
     },
     setSuccessMessage: (state, action) => {
       state.message.error = null

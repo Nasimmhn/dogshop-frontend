@@ -1,19 +1,15 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-
 // Global theme
 import { mainTheme } from '../lib/GlobalStyle'
-
-
-
 
 export const Footer = () => {
   return (
 
     <StyledFooter>
 
-      <FlexWrapper >
+      <FlexWrapper>
         <WrapperInner>
           <Title>Dogs</Title>
           <InnerText>Find dogs</InnerText>
@@ -27,17 +23,11 @@ export const Footer = () => {
           <InnerText>FAQ</InnerText>
         </WrapperInner>
 
-      </FlexWrapper >
+      </FlexWrapper>
 
     </StyledFooter>
-
-
   )
 }
-
-
-
-
 
 /* ------ STYLING ------ */
 
@@ -48,7 +38,6 @@ const StyledFooter = styled.footer`
   width:100%;
   height:150px;
   padding: 10px;
-  
 `
 
 const FlexWrapper = styled.div`
@@ -64,18 +53,14 @@ const FlexWrapper = styled.div`
 
 const WrapperInner = styled.div`
 
-  
 `
-
 
 const Title = styled.h4`
   font-size: 22px;
   width:100%;
   text-align: left;
   margin: 15px 0px;
-
 `
-
 
 const InnerText = styled.p`
   font-size: 19px;

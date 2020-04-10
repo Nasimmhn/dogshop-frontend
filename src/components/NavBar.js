@@ -2,7 +2,6 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-
 import { useSelector, useDispatch } from 'react-redux'
 
 // Hamburger menu
@@ -14,7 +13,6 @@ import { faUserCircle, faUserPlus, faPaw, faDog, faPowerOff } from '@fortawesome
 
 // authUser (from Reducer)
 import { authUser } from 'reducers/userdata'
-
 
 // Styled components
 import styled from 'styled-components/macro'
@@ -34,7 +32,7 @@ export const NavBar = () => {
   return (
     <NavSection>
       <HamburgerContainer>
-        <Menu styles={burgerStyle} >
+        <Menu styles={burgerStyle}>
           <Link to={'/'} tabIndex='-1'> Find dogs </Link>
           <Link to={'/breeds'} tabIndex='-1'>Dog breeds</Link>
           {!isAuthenticated && <Link to={'/login'} tabIndex='-1'>Login</Link>}
@@ -80,7 +78,6 @@ export const NavBar = () => {
 }
 
 /* ------ STYLING ------ */
-
 
 var burgerStyle = {
   bmBurgerButton: {

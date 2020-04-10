@@ -1,39 +1,39 @@
-import React from 'react'
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable no-underscore-dangle */
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
-// Components
-import { MyDogCard } from './MyDogCard'
 
 // Style component
 import styled from 'styled-components/macro'
+// Components
+import { MyDogCard } from './MyDogCard'
 
-// query
-import { dogdata } from '../../reducers/dogdata'
-
-
-
-
-
-
+// From reducer
+import { fetchDogs, deleteDogAd } from '../../reducers/dogdata'
 
 export const MyDogList = () => {
-
-  const userId = window.sessionStorage.getItem('userId')
-  const userDogs = useSelector(state => state.dogdata.dogs)
-  console.log("userId: ", userId)
-
+  const user = {
+    _id: window.sessionStorage.getItem('userId'),
+    accessToken: window.sessionStorage.getItem('accessToken')
+  }
   const dispatch = useDispatch()
+  const userDogs = useSelector((state) => state.dogdata.dogs)
 
-  dispatch(dogdata.actions.setDogFilter(`?userId=${userId}`))
+  useEffect(() => {
+    dispatch(fetchDogs(`?userId=${user._id}`))
+  }, [dispatch, user._id])
+
+  const handleDeleteAd = (dogId) => {
+
+    dispatch(deleteDogAd(dogId, user))
+  }
 
   return (
     <FlexWrapper>
-      {userDogs.map(item =>
-        <MyDogCard
-          key={item._id} 
-          item={item}
-        />
-      )}
+      {userDogs.map((item) => <MyDogCard
+        key={item._id}
+        item={item}
+        onClickDelete={() => handleDeleteAd(item._id)} />)}
     </FlexWrapper>
   )
 }

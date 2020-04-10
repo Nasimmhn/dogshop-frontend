@@ -2,26 +2,21 @@ import React from 'react'
 import styled from 'styled-components/macro'
 // Font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkedAlt, faBirthdayCake, faPaw, faPhone } from '@fortawesome/free-solid-svg-icons'
-
+import { faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 // Moment
 import moment from 'moment'
 // Global theme
 import { mainTheme } from '../../lib/GlobalStyle'
 
-
-
-
-
-
-
-export const MyDogCard = ({ item }) => {
-
+export const MyDogCard = ({ item, onClickDelete }) => {
   return (
 
-    <CardContainer >
+    <CardContainer>
       <Wrapper>
+        <DeleteButton onClick={onClickDelete}>
+          <FontAwesomeIcon icon={faMinusCircle} />
+        </DeleteButton>
         <Text><BoldText>Name:</BoldText> {item.name}</Text>
         <Text><BoldText>Breed:</BoldText> {item.breed.name} </Text>
         <Text><BoldText>Gender: </BoldText> {item.sex} </Text>
@@ -29,11 +24,10 @@ export const MyDogCard = ({ item }) => {
         <Text> <BoldText>Price: </BoldText> {item.price} SEK</Text>
         <Text><BoldText>Location:</BoldText> {item.location}</Text>
       </Wrapper>
-    </CardContainer >
+    </CardContainer>
 
   )
 }
-
 
 /* ------ STYLING ------ */
 
@@ -67,5 +61,22 @@ const BoldText = styled.span`
   font-size: 12px;
   @media (min-width: 668px) {
     font-size: 14px;
+  }
+`
+
+const DeleteButton = styled.button`
+  margin: 0 0 10px 0;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline-color: #BC7C43;
+    outline-offset: 3px;
   }
 `

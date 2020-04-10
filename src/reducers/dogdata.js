@@ -30,7 +30,6 @@ export const dogdata = createSlice({
     setDogs: (state, action) => {
       state.dogs = action.payload
     },
-
     setDogFilter: (state, action) => {
       state.dogFilter = action.payload
     },
@@ -53,7 +52,7 @@ export const dogdata = createSlice({
       // Takes all form values from adsForm and adds to array of dogs
       state.filename = action.payload
     },
-    deleteDog: (state, action) => {
+    setDeleteDog: (state, action) => {
       state.dogs = state.dogs.filter(dog => dog._id !== action.payload)
     }
   }
@@ -155,28 +154,24 @@ export const uploadFile = (image) => {
 }
 
 
-// THUNK MIDDLEWARE FOR DELETING AN (dog) AD
-export const deleteDogAd = (dog, user) => {
+// THUNK MIDDLEWARE FOR DELETING AN (DOG) AD
+export const deleteDogAd = (dogId, user) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`${API}/dog/id`, {
+    fetch(`${API}/dog/id/${dogId}`, {
       method: 'DELETE',
-      body: JSON.stringify(dog),
       headers: {
         'Content-Type': 'application/json',
         'Authorization': user.accessToken
       }
     })
       .then(res => res.json())
-      .then((json) => {
-        console.log("DeletedDogAd- response:", json)
-        dispatch(dogdata.actions.setMessage({ success: `Successfully Deleted` }))
-        dispatch(ui.actions.setLoading(false))
+      .then(res => {
+        console.log("Deleted Dog:", res.name)
+        dispatch(dogdata.actions.setDeleteDog(dogId))
       })
       .catch((err) => {
         console.error("ERROR:", err)
-        dispatch(dogdata.actions.setMessage({ error: `Error! Failed to delete` }))
-
       })
   }
 }

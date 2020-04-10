@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 // Style component
 import styled from 'styled-components/macro'
 
-// Material UI 
+// Material UI
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
@@ -27,7 +27,6 @@ export const LoginForm = () => {
   useEffect(() => {
 
   }, [dispatch, isAuthenticated])
-
 
   const handleLogin = (event) => {
     event.preventDefault()
@@ -72,9 +71,7 @@ export const LoginForm = () => {
   )
 }
 
-
 /* ------ STYLING ------ */
-
 
 const Form = styled.form`
   width: 100%;
