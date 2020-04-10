@@ -8,23 +8,13 @@ export const Footer = () => {
   return (
 
     <StyledFooter>
-
       <FlexWrapper>
-        <WrapperInner>
-          <Title>Dogs</Title>
-          <InnerText>Find dogs</InnerText>
-          <InnerText>Dog breeds</InnerText>
-          <InnerText>Dog care</InnerText>
-        </WrapperInner>
-        <WrapperInner>
-          <Title>About us</Title>
-          <InnerText>Login</InnerText>
-          <InnerText>Sign Up</InnerText>
-          <InnerText>FAQ</InnerText>
-        </WrapperInner>
+
+        <Text><b>Demo project</b></Text>
+        <Text><A href="https://my-portfolio-by-nasim.netlify.com/">Nasim Mahzoun</A> &copy;	2020</Text>
+        <A href="https://github.com/Nasimmhn/dogshop-frontend"> Github <GithubLogo src="/assets/GitHub-Mark-32px.png" /></A>
 
       </FlexWrapper>
-
     </StyledFooter>
   )
 }
@@ -34,42 +24,29 @@ export const Footer = () => {
 const StyledFooter = styled.footer`
   background-color: ${mainTheme.lightbeige};
   color: ${mainTheme.darkbrown};
-  /* margin-top: 50px; */
   width:100%;
   height:150px;
   padding: 10px;
 `
-
 const FlexWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content:space-around;
+  justify-content:center;
   height:100%;
-  /* Mobile */
-  @media (max-width: 375px) {
+`
+const A = styled.a`
+  color: ${mainTheme.blackish};
+  & :hover {
+    text-decoration: underline;
   }
 `
-
-const WrapperInner = styled.div`
-
+const Text = styled.span`
+  white-space: nowrap;
+  margin: 4px 0px;
 `
-
-const Title = styled.h4`
-  font-size: 22px;
-  width:100%;
-  text-align: left;
-  margin: 15px 0px;
-`
-
-const InnerText = styled.p`
-  font-size: 19px;
-  width:150px;
-  text-align: left;
-  border-bottom: 2px solid transparent;
-  margin:8px 0px;
-  &&:hover{
-    text-decoration:underline ${mainTheme.whiteish};
-    cursor:pointer;
-  }
+const GithubLogo = styled.img`
+  height: 20px;
+  position: relative;
+  top: 3px;
 `
