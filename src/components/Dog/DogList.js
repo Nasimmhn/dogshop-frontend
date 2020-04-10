@@ -59,7 +59,7 @@ const CardsWrapper = styled.div`
 
 /* Tablet */
   @media (min-width: 0px) and (max-width: 668px) {
-    margin: 20px 10px;
+    margin: 20px 0px;
     flex-direction: column;
     align-items: center;
     padding: 20px;
