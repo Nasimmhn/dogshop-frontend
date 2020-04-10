@@ -60,12 +60,10 @@ export const GlobalStyle = createGlobalStyle`
 
     /* Tablet & mobile */
     @media (min-width: 0px) and (max-width: 668px) {
-      background-color: lightblue;
       padding: 0px 0px;
     }
     /* Mobile */
     @media (max-width: 375px) {
-      background-color: lightgoldenrodyellow;      
     }
   } 
 
