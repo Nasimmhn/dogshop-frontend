@@ -19,7 +19,7 @@ export const BreedDetailCard = ({ breed }) => {
     <>
 
       <BreedCard>
-        <FlexWrapper flexDirection={'row'} flexWrap={'wrap'}>
+        <FlexWrapper flexDirection={'row'} flexWrap={'wrap'} alignItems={'flex-start'}>
 
           <Image src={PATHS.breeds.concat(breed.images.url)} />
 
@@ -51,14 +51,6 @@ export const BreedDetailCard = ({ breed }) => {
 
 const BreedCard = styled.div`
   border-radius: 15px;
-  display: grid;
-  grid-auto-columns: 1fr 1fr;
-  grid-auto-rows: auto;
-  /* Tablet & mobile */
-  @media (min-width: 0px) and (max-width: 668px) {
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr 1fr;
-  }
 `
 const DataInfo = styled.div`
   padding: 20px;
@@ -84,7 +76,7 @@ const Image = styled.img`
 `
 
 const MainInfo = styled.div`
-  padding: 50px 50px;
+  padding: 50px 0px;
   /* Tablet & mobile */
   @media (min-width: 0px) and (max-width: 668px) {
     padding: 10px 0px 20px 0px;
@@ -92,8 +84,8 @@ const MainInfo = styled.div`
 `
 
 const FlexWrapper = styled.div`
-  height: 100%;
   display: flex;
+  -webkit-flex-direction: ${props => props.justifyContent};
   flex-wrap: ${props => props.flexWrap};
   flex-direction: ${props => props.flexDirection};
   justify-content: ${props => props.justifyContent};
