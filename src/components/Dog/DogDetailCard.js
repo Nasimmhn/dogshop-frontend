@@ -47,7 +47,7 @@ export const DogDetailCard = ({ dog }) => {
               <FontAwesomeIcon icon={faWeightHanging} /><Text> {dog.breed.weight} </Text>
             </GridIconWrapper>
             <FlexWrapper justifyContent={'center'}>
-              <Link to={`/breed/${dog.breed._id}`} tabindex='-1'><Button> Read more</Button ></Link>
+              <Link to={`/breed/${dog.breed._id}`} tabIndex='-1'><Button> Read more</Button ></Link>
             </FlexWrapper>
           </InfoContainer>
         </BreedCard>
